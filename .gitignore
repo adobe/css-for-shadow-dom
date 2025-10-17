@@ -1,0 +1,18 @@
+# build output
+dist
+.cache
+
+# vars
+.env
+.env.local
+
+# dependencies
+node_modules
+
+# os files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode
+.zed
