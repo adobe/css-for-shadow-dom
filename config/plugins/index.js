@@ -11,13 +11,15 @@
  * governing permissions and limitations under the License.
  */
 
+import { HtmlBasePlugin } from "@11ty/eleventy";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
 import { htmlConfig } from "./html-config.js";
 import { cssConfig } from "./css-config.js";
 
 export default {
+  HtmlBasePlugin,
   syntaxHighlight,
-  htmlConfig,
   cssConfig,
+  htmlConfig,
 };

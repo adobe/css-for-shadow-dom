@@ -1,0 +1,34 @@
+header {
+  &:not(.hero) {
+    padding-block-start: max(3vh, 1rem);
+
+    /* Creates a gradient border */
+    border-width: 0;
+    border-style: solid;
+    border-block-start-width: 3px;
+    border-image: var(--gradient) 1;
+  }
+}
+
+.hero {
+  padding-block: max(5vh, 1rem);
+  background-color: var(--color-supported);
+  background-image: var(--hero-image, url(/assets/images/hero-home.png));
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .wrapper {
+    display: grid;
+    gap: max(2vh, 1rem);
+
+    > *,
+    a:not([class]) {
+      color: var(--color-light);
+    }
+  }
+
+  p {
+    max-inline-size: 80ch;
+  }
+}

@@ -10,3 +10,37 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+
+:root {
+  --background-neutral-light: var(--spectrum-silver-100);
+  --background-neutral: var(--spectrum-gray-100);
+
+  --text-neutral: var(--spectrum-gray-600);
+  --text-medium: var(--spectrum-gray-700);
+  --text-body: var(--spectrum-gray-800);
+
+  --color-light: var(--spectrum-gray-25);
+
+  --color-supported: var(--spectrum-blue-900);
+  --color-accepted: var(--spectrum-celery-500);
+  --color-caution: var(--spectrum-yellow-300);
+  --color-negative: var(--spectrum-red-900);
+
+  --color-passing: #c5ff9c;
+  --color-failing: var(--spectrum-red-300);
+
+  --color-stable: #1d883d;
+  --color-warning: #cf4915;
+
+  --color-adobe: var(--spectrum-red-800);
+
+  --gradient-start: var(--color-supported);
+  --gradient-mid: var(--spectrum-fuchsia-700);
+  --gradient-stop: var(--spectrum-indigo-1000);
+  --gradient: linear-gradient(
+    to right,
+    var(--gradient-start),
+    var(--gradient-mid) 70%,
+    var(--gradient-stop) 100%
+  );
+}

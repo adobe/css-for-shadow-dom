@@ -1,0 +1,31 @@
+:root {
+  /* Spectrum overrides */
+  --mod-heading-margin-start: 0;
+  --mod-heading-margin-end: 0;
+}
+
+/* Used for h1 (XXL), h2 (L) */
+.spectrum-Heading--sizeL,
+.spectrum-Heading--sizeXXL {
+  --mod-heading-sans-serif-font-weight: 900;
+  --mod-heading-line-height: 1.1;
+}
+
+/* Extra size */
+.spectrum-Body--sizeXXS {
+  font-size: 10px;
+}
+
+.spectrum-Button--sizeS {
+  --mod-button-border-radius: 4px;
+  --mod-button-edge-to-text: 5px;
+}
+
+.link-subtle {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

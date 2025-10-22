@@ -14,11 +14,10 @@
 <!doctype html>
 <html lang="{{ meta.lang }}" class="spectrum spectrum--medium spectrum--light">
   <head>
-    {% render "head/meta.liquid"
+    {% include "head/meta.liquid"
       title:title,
       description:description,
-      meta:meta,
-      page:page
+      meta:meta
     %}
    
     {% if config.typeKitId %}
@@ -27,11 +26,17 @@
       <link rel="stylesheet" href="https://use.typekit.net/{{ config.typeKitId }}.css" />
     {% endif %}
    
-    <link rel="stylesheet" href="/assets/css/index.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
-  <body class="spectrum spectrum--light spectrum-Body spectrum-Body--sizeM">
-    <main>
-      {{ content }}
-    </main>
+  <body class="page--{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %} spectrum spectrum--light spectrum-Body spectrum-Body--sizeM">
+    {% include "nav.liquid" %}
+    {{ content }}
+    <footer>
+      <div class="wrapper">
+        <p class="spectrum-Body-strong">Made with <span class="text--adobe">&hearts;</span> by the Adobe Spectrum CSS team</p>
+        <p>Copyright © {% year %} Adobe. All rights reserved.</p>
+      </div>
+    </footer>
+  {% spriteSheet %}
   </body>
 </html>

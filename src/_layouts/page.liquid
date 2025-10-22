@@ -1,0 +1,16 @@
+---
+layout: base.liquid
+---
+
+<header>
+    <div class="wrapper">
+       <h1 class="spectrum-Heading spectrum-Heading--sizeXXL">{{ title }}</h1>
+        {%- if description -%}
+        <p class="spectrum-Body spectrum-Body--sizeXXXL">{{ description }}</p>
+        {%- endif -%}
+    </div>
+</header>
+
+<main class="wrapper flow-content">
+    {{ content }}
+</main>

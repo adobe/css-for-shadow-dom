@@ -1,3 +1,4 @@
 {
-  "layout": "base.liquid"
+  "layout": "page.liquid",
+  "permalink": "/{{ page.fileSlug }}/"
 }

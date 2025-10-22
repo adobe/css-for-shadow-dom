@@ -15,7 +15,7 @@ import htmlmin from "html-minifier-terser";
 
 export const htmlConfig = (eleventyConfig) => {
   eleventyConfig.addTransform("html-minify", (content, path) => {
-    if (path && path.endsWith(".html")) {
+    if (process.env.ENV == "prod" && path && path.endsWith(".html")) {
       return htmlmin.minify(content, {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,

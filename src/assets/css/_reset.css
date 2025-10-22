@@ -11,4 +11,49 @@
  * governing permissions and limitations under the License.
  */
 
- 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+a {
+  /* Round out focus-visible outline */
+  border-radius: 4px;
+}
+
+a:not([class]) {
+  color: var(--text-body);
+}
+
+a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: max(0.15em, 1px);
+}
+
+:focus-visible {
+  --outline-size: max(2px, 0.15em);
+
+  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid)
+    var(--outline-color, currentColor);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+[role="list"] {
+  list-style: none;
+  padding: 0;
+}

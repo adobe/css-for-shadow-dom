@@ -19,14 +19,16 @@ import postcssImportExtGlob from "postcss-import-ext-glob";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 
+const stylesheetName = "styles";
+
 export const cssConfig = (eleventyConfig) => {
   eleventyConfig.addTemplateFormats("css");
   eleventyConfig.addExtension("css", {
     outputFileExtension: "css",
     compile: async (inputContent, inputPath) => {
-      const outputPath = "dist/assets/css/index.css";
+      const outputPath = `dist/assets/css/${stylesheetName}.css`;
 
-      if (inputPath.endsWith("index.css")) {
+      if (inputPath.endsWith(`${stylesheetName}.css`)) {
         return async () => {
           let result = await postcss([
             postcssImportExtGlob,

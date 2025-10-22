@@ -1,0 +1,26 @@
+{%- assign currentUrl = page.url -%}
+
+<nav class="wrapper spectrum-Body spectrum-Body--sizeS">
+  {% if currentUrl != '/' %}
+    <div id="siteID" class="spectrum-Body-strong">Modern CSS <span>Feature Support</span> For Shadow DOM</div>
+  {% endif %}
+
+  <ul role="list" class="flex-row">
+    {% if currentUrl != '/' %}
+    <li>
+      <a href="/">Feature List</a>
+    </li>
+    {% endif %}
+
+    {% for link in nav %}
+    <li>
+      <a
+        {% if currentUrl == link.url %}aria-current="page"{% endif %}
+        href="{{ link.url }}">
+          {{ link.title }}
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+  <p id="last-updated" class="text-wrap--balance"><span class="spectrum-Body-strong">Last Updated:</span> <a href="">July 9, 2025</a></p>
+</nav>

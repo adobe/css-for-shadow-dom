@@ -11,13 +11,23 @@
  * governing permissions and limitations under the License.
  */
 
+@layer reset, library, site, components, utilities;
+
+@import "_reset.css" layer(reset);
 
 /* Spectrum library imports */
-@import "_spectrum.css";
+@import "_spectrum.css" layer(library);
 
 /* Site */
-@import "_reset.css";
-@import "_theme.css";
+@import "_theme.css" layer(site);
+@import "_global.css" layer(site);
+
+/* Components / Layout Partials */
+@import "components/_typography.css" layer(components);
+@import "components/_nav.css" layer(components);
+@import "components/_headers.css" layer(components);
 
 /* Plugins */
 /* @import "plugins/prism.css"; */
+
+@import "_utilities.css" layer(utilities);

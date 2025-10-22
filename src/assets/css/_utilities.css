@@ -1,0 +1,30 @@
+.wrapper {
+  inline-size: min(1200px, 100% - max(5%, var(--spectrum-spacing-400)));
+  margin-inline: auto;
+}
+
+.flex-row {
+  display: flex;
+  align-items: var(--flex-row-alignment, center);
+  gap: 1rem;
+
+  &.flex-row--baseline {
+    --flex-row-alignment: baseline;
+  }
+}
+
+.flow-content * + * {
+  margin-block-start: 1em;
+}
+
+.text--adobe {
+  color: var(--color-adobe);
+}
+
+.text-wrap--pretty {
+  text-wrap: pretty;
+}
+
+.text-wrap--balance {
+  text-wrap: balance;
+}

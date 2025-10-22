@@ -11,35 +11,55 @@
  * governing permissions and limitations under the License.
  */
 
-import dotenvFlow from "dotenv-flow";
-import { HtmlBasePlugin } from "@11ty/eleventy";
 import filters from "./config/filters.js";
+import pairedShortcodes from "./config/paired-shortcodes.js";
 import plugins from "./config/plugins/index.js";
-
-dotenvFlow.config();
+import pluginIcons from "eleventy-plugin-icons";
 
 export default async function (eleventyConfig) {
-  // framework options
-  eleventyConfig.addPlugin(HtmlBasePlugin);
-
   // Filters
   Object.keys(filters).forEach((filterName) => {
     eleventyConfig.addFilter(filterName, filters[filterName]);
   });
+
+  // Paired Shortcodes
+  Object.keys(pairedShortcodes).forEach((shortcodeName) => {
+    eleventyConfig.addPairedShortcode(
+      shortcodeName,
+      pairedShortcodes[shortcodeName]
+    );
+  });
+
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // Plugins
   Object.keys(plugins).forEach((pluginName) => {
     eleventyConfig.addPlugin(plugins[pluginName]);
   });
 
+  // Generates a dynamic sprite to <use> icons with {% icon "file-name" %}
+  // Place icon svgs in assets/icons
+  // @link https://www.npmjs.com/package/eleventy-plugin-icons
+  eleventyConfig.addPlugin(pluginIcons, {
+    mode: "sprite",
+    sources: [{ name: "default", path: "./src/assets/icons", default: true }],
+    sprite: {
+      attributes: {
+        width: 0,
+        height: 0,
+      },
+    },
+  });
+
   // passthroughs
-  eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/assets/css/styles.css");
+  eleventyConfig.addPassthroughCopy("src/assets/images");
 
   return {
     dir: {
       output: "dist",
       input: "src",
-      layouts: "_layouts"
+      layouts: "_layouts",
     },
   };
 }

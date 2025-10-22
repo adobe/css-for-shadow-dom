@@ -9,8 +9,8 @@
     "node": ">=20.x.x"
   },
   "scripts": {
-    "start": "eleventy --serve",
-    "build": "eleventy",
+    "start": "ENV=dev eleventy --serve",
+    "build": "ENV=prod eleventy",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
     "clean": "rimraf dist .cache",
     "publish": "/* TBD */"
@@ -18,12 +18,13 @@
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@spectrum-css/button": "^14.2.0",
     "@spectrum-css/tokens": "^16.0.2",
     "@spectrum-css/typography": "^8.2.0",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.1.1",
     "dayjs": "^1.11.18",
-    "dotenv-flow": "^4.1.0",
+    "eleventy-plugin-icons": "^4.5.4",
     "esbuild": "^0.25.11",
     "html-minifier-terser": "^7.2.0",
     "postcss": "^8.5.6",

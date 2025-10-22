@@ -1,0 +1,28 @@
+body {
+  min-block-size: 100vb;
+  display: grid;
+  grid-template-areas: "nav" "header" "main" "footer";
+  grid-template-rows: auto auto 1fr auto;
+}
+
+nav {
+  grid-area: nav;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+
+  margin-block: max(8vh, var(--spectrum-spacing-400));
+}
+
+footer {
+  grid-area: footer;
+
+  background-color: var(--background-neutral-light);
+  color: var(--text-medium);
+  padding-block: var(--spectrum-spacing-400);
+}

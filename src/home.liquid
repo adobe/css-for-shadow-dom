@@ -1,0 +1,29 @@
+---
+layout: base.liquid
+title: Modern CSS Feature Support For Shadow DOM
+description:
+permalink: "/"
+---
+
+<header class="hero">
+    <div class="wrapper">
+        <h1 class="spectrum-Heading spectrum-Heading--sizeXXL">Modern CSS Feature Support For Shadow DOM</h1>
+        <p class="spectrum-Body spectrum-Body--sizeXXXL">Tracking the state of support for CSS features within and across the shadow DOM to provide visibility into feature parity, usage details, and outstanding issues and bugs.</p>
+        <div class="flex-row flex-row--baseline">
+            {% button "/about/", "L", "staticWhite"%}
+                About the Project
+            {% endbutton %}
+            <em class="text-wrap--pretty">Maintained by <a href="https://opensource.adobe.com/spectrum-css/">Adobe Spectrum CSS</a></em>
+        </div>
+    </div>
+</header>
+
+<main class="wrapper">
+    {%  for feature in collections.features  %}
+        <h2 class="spectrum-Heading spectrum-Heading--sizeL"><a href="{{ feature.url }}" class="link-subtle">{{ feature.data.title }}</a></h2>
+
+        {% comment %} {% button feature.url %}
+            View All Issues
+        {% endbutton %} {% endcomment %}
+    {% endfor %}
+</main>
