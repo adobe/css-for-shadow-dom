@@ -1,0 +1,2 @@
+npm run clean:gh-pages
+npm run publish:docs
