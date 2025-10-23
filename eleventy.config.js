@@ -13,6 +13,7 @@
 
 import filters from "./config/filters.js";
 import pairedShortcodes from "./config/paired-shortcodes.js";
+import shortcodes from "./config/shortcodes.js";
 import plugins from "./config/plugins/index.js";
 import pluginIcons from "eleventy-plugin-icons";
 
@@ -30,7 +31,10 @@ export default async function (eleventyConfig) {
     );
   });
 
-  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+  // Shortcodes
+  Object.keys(shortcodes).forEach((shortcodeName) => {
+    eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName]);
+  });
 
   // Plugins
   Object.keys(plugins).forEach((pluginName) => {

@@ -25,7 +25,10 @@
 /* Components / Layout Partials */
 @import "components/_typography.css" layer(components);
 @import "components/_nav.css" layer(components);
+@import "components/_footer.css" layer(components);
 @import "components/_headers.css" layer(components);
+@import "components/_tags.css" layer(components);
+@import "components/_feature.css" layer(components);
 
 /* Plugins */
 /* @import "plugins/prism.css"; */

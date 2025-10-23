@@ -1,0 +1,17 @@
+footer {
+  background-color: var(--background-neutral-light);
+  color: var(--text-medium);
+  padding-block: var(--spectrum-spacing-400);
+}
+
+#keys {
+  display: grid;
+  gap: var(--spectrum-spacing-200) var(--spectrum-spacing-400);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+}
+
+#copyright {
+  border-top: 1px solid #c4c4c4;
+  padding-block-start: var(--spectrum-spacing-400);
+  margin-block-start: var(--spectrum-spacing-600);
+}

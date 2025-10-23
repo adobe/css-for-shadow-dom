@@ -31,12 +31,7 @@
   <body class="page--{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %} spectrum spectrum--light spectrum-Body spectrum-Body--sizeM">
     {% include "nav.liquid" %}
     {{ content }}
-    <footer>
-      <div class="wrapper">
-        <p class="spectrum-Body-strong">Made with <span class="text--adobe">&hearts;</span> by the Adobe Spectrum CSS team</p>
-        <p>Copyright © {% year %} Adobe. All rights reserved.</p>
-      </div>
-    </footer>
+    {% include "footer.liquid" %}
   {% spriteSheet %}
   </body>
 </html>

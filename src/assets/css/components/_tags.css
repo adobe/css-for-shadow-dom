@@ -1,0 +1,21 @@
+.tag {
+  padding: 0.25em 0.65em;
+  border-radius: 4px;
+  background-color: var(--tag-background, var(--color-accepted));
+  color: var(--tag-color, var(--text-body));
+  font-weight: 500;
+}
+
+.tag--supported {
+  --tag-background: var(--color-supported);
+  --tag-color: var(--color-light);
+}
+
+.tag--caution {
+  --tag-background: var(--color-caution);
+}
+
+.tag--discouraged {
+  --tag-background: var(--color-negative);
+  --tag-color: var(--color-light);
+}

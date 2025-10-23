@@ -13,6 +13,16 @@
   }
 }
 
+.stack {
+  display: grid;
+  gap: var(--stack-gap, max(var(--spectrum-spacing-200), 4vh));
+  align-items: start;
+}
+
+.stack--list {
+  --stack-gap: var(--spectrum-spacing-100);
+}
+
 .flow-content * + * {
   margin-block-start: 1em;
 }
@@ -27,4 +37,14 @@
 
 .text-wrap--balance {
   text-wrap: balance;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

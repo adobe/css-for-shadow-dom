@@ -1,0 +1,26 @@
+<footer>
+    <div class="wrapper">
+        <h2 class="visually-hidden">Support Definition Keys</h2>
+        <div id="keys">
+            <div>
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Functional Support Key</h3>
+            </div>
+            <div>
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Usage Key</h3>
+            </div>
+            <div>
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Support Categories</h3>
+                <ul role="list" class="stack stack--list">
+                    <li>{% support "supported" %}</li>
+                    <li>{% support "acceptable" %}</li>
+                    <li>{% support "caution" %}</li>
+                    <li>{% support "discouraged" %}</li>
+                </ul>
+            </div>
+        </div>
+        <div id="copyright">
+            <p class="spectrum-Body-strong">Made with <span class="text--adobe">&hearts;</span> by the Adobe Spectrum CSS team</p>
+            <p>Copyright © {% year %} Adobe. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

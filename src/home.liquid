@@ -18,12 +18,69 @@ permalink: "/"
     </div>
 </header>
 
-<main class="wrapper">
+<main class="wrapper stack">
     {%  for feature in collections.features  %}
-        <h2 class="spectrum-Heading spectrum-Heading--sizeL"><a href="{{ feature.url }}" class="link-subtle">{{ feature.data.title }}</a></h2>
+        {% assign featureSlug = feature.data.title | slugify %}
+        <article id="{{ featureSlug }}" class="feature">
+            <div class="feature-card feature-card--{{ feature.data.support }}">
+                <div class="feature-card__header">
+                    <h2 class="spectrum-Heading spectrum-Heading--sizeL"><a href="{{ feature.url }}" class="link-subtle">{{ feature.data.title }}</a></h2>
+                    <div class="flex-row">
+                        {% support feature.data.support %}
+    
+                        <em class="spectrum-Body spectrum-Body--sizeS">Updated: 1 day ago</em>
+                    </div>
+                    <p>{{ feature.data.description }}</p>
+                </div>
 
-        {% comment %} {% button feature.url %}
-            View All Issues
-        {% endbutton %} {% endcomment %}
+                <div class="feature-card__body spectrum-Body spectrum-Body--sizeS">
+                    {% comment %} Placeholder - will style in SWC-1287 {% endcomment %}
+                    <dl class="feature-card__definitions">
+                        <div class="flex-row">
+                            <dt><strong>Baseline</strong>:</dt>
+                            <dd>{{ feature.data.baseline }}</dd>
+                        </div>
+                        <div class="flex-row">
+                            <dt><strong>Functional</strong>:</dt>
+                            <dd>{{ feature.data.functional }}</dd>
+                        </div>
+                        <div class="flex-row">
+                            <dt><strong>Usage</strong>:</dt>
+                            <dd>{{ feature.data.usage }}</dd>
+                        </div>
+                    </dl>
+
+                    <div class="feature-card__content flow-content">
+                        {{ feature.templateContent }}
+                    </div>
+                </div>
+
+                {% comment %} Issue Cards placement in Feature template {% endcomment %}
+
+                {% comment %} 
+                TODO: populate once Blog is an available feature
+                <div class="feature-card__blog-cta">
+                    <h3 class="spectrum-Body spectrum-Body--sizeS"><em>From the Blog - July 9</em></h3>
+                    <a href="" class="link-subtle spectrum-Body-strong">A linked blog post title that pertains to this feature’s support</a>
+                </div> {% endcomment %}
+
+                <div class="feature-card__wpt">
+                    <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Web Platform Tests <span class="visually-hidden">for {{ feature.data.title }}</span></h3>
+                    <a href="{{ feature.url }}" class="spectrum-Body spectrum-Body--sizeXS">View all tests <span class="visually-hidden">for {{ feature.data.title }}</span></a>
+                </div>
+
+                <a class="feature-card__anchor" href="#{{ featureSlug }}">
+                    <span aria-hidden="true">#</span>
+                    <span class="visually-hidden">Anchor link for {{ feature.data.title }}</span>
+                </a>
+            </div>
+            <aside class="feature__sidebar">
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
+                {% comment %} Placeholder - will complete in SWC- 1289 {% endcomment %}
+                {% button feature.url %}
+                    View All Issues
+                {% endbutton %}
+            </aside>
+        </article>
     {% endfor %}
 </main>

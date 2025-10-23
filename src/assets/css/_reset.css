@@ -21,6 +21,18 @@
   margin: 0;
 }
 
+:focus-visible {
+  --outline-size: max(2px, 0.15em);
+
+  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid)
+    var(--outline-color, currentColor);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:target {
+  scroll-margin-block-start: 8vh;
+}
+
 img {
   display: block;
   max-inline-size: 100%;
@@ -40,17 +52,10 @@ a {
   text-underline-offset: max(0.15em, 1px);
 }
 
-:focus-visible {
-  --outline-size: max(2px, 0.15em);
-
-  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid)
-    var(--outline-color, currentColor);
-  outline-offset: var(--outline-offset, var(--outline-size));
-}
-
 p,
 li {
   text-wrap: pretty;
+  max-inline-size: 90ch;
 }
 
 [role="list"] {
