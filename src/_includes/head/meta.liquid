@@ -16,7 +16,11 @@
 {%- assign pageDescription = meta.siteDescription -%}
 
 {%- if title -%}
-  {%- assign pageTitle = title | append: " | " | append: meta.siteName -%}
+  {% if page.url != "/" %}
+    {%- assign pageTitle = title | append: " | " | append: meta.siteName -%}
+  {% else %}
+    {% assign pageTitle = title %}
+  {% endif %}
 {%- endif -%}
 
 {%- if description -%}

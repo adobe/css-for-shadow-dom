@@ -33,7 +33,8 @@
   scroll-margin-block-start: 8vh;
 }
 
-img {
+img,
+svg {
   display: block;
   max-inline-size: 100%;
 }

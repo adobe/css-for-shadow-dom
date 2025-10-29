@@ -19,16 +19,35 @@
   align-items: start;
 }
 
-.stack--list {
+.stack--gapS {
   --stack-gap: var(--spectrum-spacing-100);
+}
+
+.icon-list {
+  li {
+    display: grid;
+    grid-template-columns: 24px auto;
+    gap: var(--spectrum-spacing-100);
+    align-items: center;
+  }
+}
+
+.icon {
+  display: grid;
+  place-content: center;
+  block-size: 20px;
 }
 
 .flow-content * + * {
   margin-block-start: 1em;
 }
 
-.text--adobe {
+.text-color--adobe {
   color: var(--color-adobe);
+}
+
+.text-color--medium {
+  color: var(--text-medium);
 }
 
 .text-wrap--pretty {

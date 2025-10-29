@@ -34,21 +34,8 @@ permalink: "/"
                 </div>
 
                 <div class="feature-card__body spectrum-Body spectrum-Body--sizeS">
-                    {% comment %} Placeholder - will style in SWC-1287 {% endcomment %}
-                    <dl class="feature-card__definitions">
-                        <div class="flex-row">
-                            <dt><strong>Baseline</strong>:</dt>
-                            <dd>{{ feature.data.baseline }}</dd>
-                        </div>
-                        <div class="flex-row">
-                            <dt><strong>Functional</strong>:</dt>
-                            <dd>{{ feature.data.functional }}</dd>
-                        </div>
-                        <div class="flex-row">
-                            <dt><strong>Usage</strong>:</dt>
-                            <dd>{{ feature.data.usage }}</dd>
-                        </div>
-                    </dl>
+
+                    {% include "support-definition.liquid" %}
 
                     <div class="feature-card__content flow-content">
                         {{ feature.templateContent }}

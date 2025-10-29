@@ -6,8 +6,13 @@ footer {
 
 #keys {
   display: grid;
+  align-items: start;
   gap: var(--spectrum-spacing-200) var(--spectrum-spacing-400);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+
+  @media (min-width: 80ch) {
+    grid-template-columns: auto repeat(2, fit-content(35ch));
+    justify-content: space-between;
+  }
 }
 
 #copyright {

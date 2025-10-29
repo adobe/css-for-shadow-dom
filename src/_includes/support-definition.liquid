@@ -1,0 +1,27 @@
+{% assign baselineIcon = "baseline-" | append: feature.data.baseline %}
+{% assign functionalIcon = "functional-" | append: feature.data.functional %}
+{% assign usageIcon = "usage-" | append: feature.data.usage %}
+
+<dl class="support-definitions">
+    <div>
+        <dt>
+            <span class="icon">{% icon baselineIcon %}</span>
+            <strong>Baseline:</strong>
+        </dt>
+        <dd>{{ feature.data.baseline | titleCase }}</dd>
+    </div>
+    <div>
+        <dt>
+            <span class="icon">{% icon functionalIcon %}</span>
+            <strong>Functional:</strong>
+        </dt>
+        <dd>{{ feature.data.functional | titleCase }}</dd>
+    </div>
+    <div>
+        <dt>
+            <span class="icon">{% icon usageIcon %}</span>
+            <strong>Usage:</strong>
+        </dt>
+        <dd>{{ feature.data.usage | titleCase }}</dd>
+    </div>
+</dl>

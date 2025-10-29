@@ -2,24 +2,57 @@
     <div class="wrapper">
         <h2 class="visually-hidden">Support Definition Keys</h2>
         <div id="keys">
-            <div>
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Functional Support Key</h3>
-            </div>
-            <div>
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Usage Key</h3>
-            </div>
-            <div>
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Support Categories</h3>
-                <ul role="list" class="stack stack--list">
+            <div class="stack stack--gapS">
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium">Support Categories</h3>
+                <ul role="list" class="stack stack--gapS">
                     <li>{% support "supported" %}</li>
                     <li>{% support "acceptable" %}</li>
                     <li>{% support "caution" %}</li>
                     <li>{% support "discouraged" %}</li>
                 </ul>
             </div>
+            <div class="stack stack--gapS">
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium">Functional Support Key</h3>
+                <ul role="list" class="stack stack--gapS icon-list">
+                    {%- for item in functional-levels -%}
+                        {%- assign label = item[0] -%}
+                        {%- assign description = item[1] -%}
+                        {% assign iconName = "functional-" | append: label %}
+                        <li class="spectrum-Body spectrum-Body--sizeXS">
+                            <span class="icon">
+                                {% icon iconName %}
+                            </span>
+                            <span>
+                                <strong>{{ label | titleCase }}:</strong>
+                                {{ description }}
+                            </span>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+            <div class="stack stack--gapS">
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium">Shadow DOM Usage Key</h3>
+                <ul role="list" class="stack stack--gapS icon-list">
+                    {%- for item in shadow-dom-usage-types -%}
+                        {%- assign label = item[0] -%}
+                        {%- assign description = item[1] -%}
+                        {% assign iconName = "usage-" | append: label %}
+                        <li class="spectrum-Body spectrum-Body--sizeXS">
+                            <span class="icon">
+                                {% icon iconName %}
+                            </span>
+                            <span>
+                                <strong>{{ label | titleCase }}:</strong>
+                                {{ description }}
+                            </span>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+            
         </div>
-        <div id="copyright">
-            <p class="spectrum-Body-strong">Made with <span class="text--adobe">&hearts;</span> by the Adobe Spectrum CSS team</p>
+        <div id="copyright" class="spectrum-Body spectrum-Body--sizeS text-color--medium">
+            <p class="spectrum-Body-strong">Made with <span class="text-color--adobe">&hearts;</span> by the Adobe Spectrum CSS team</p>
             <p>Copyright © {% year %} Adobe. All rights reserved.</p>
         </div>
     </div>

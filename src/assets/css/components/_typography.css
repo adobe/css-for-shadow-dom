@@ -11,6 +11,10 @@
   --mod-heading-line-height: 1.1;
 }
 
+.spectrum-Body--sizeXS {
+  --mod-body-line-height: 1.3;
+}
+
 /* Extra size */
 .spectrum-Body--sizeXXS {
   font-size: 10px;

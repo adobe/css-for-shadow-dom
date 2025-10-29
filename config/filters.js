@@ -13,12 +13,12 @@
 
 import dayjs from "dayjs";
 import slugify from "slugify";
+import { titleCase as titleCaseFn } from "title-case";
 import { url } from "../src/_data/meta.js";
 
 const toISOString = (dateString) => dayjs(dateString).toISOString();
 
 const formatDate = (date, format) => dayjs(date).format(format);
-
 
 const slugifyString = (str) => {
   return slugify(str, {
@@ -28,11 +28,20 @@ const slugifyString = (str) => {
   });
 };
 
+const titleCase = (str) => {
+  if (str === "light-dom-priority") {
+    return "Light DOM Priority";
+  } else {
+    return titleCaseFn(str);
+  }
+};
+
 const absoluteUrl = (href) => `${url}${href}`;
 
 export default {
-    toISOString,
-    formatDate,
-    slugifyString,
-    absoluteUrl
-}
+  toISOString,
+  formatDate,
+  slugifyString,
+  titleCase,
+  absoluteUrl,
+};
