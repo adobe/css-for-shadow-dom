@@ -36,6 +36,8 @@ const titleCase = (str) => {
   }
 };
 
+const removeExtension = (str) => str.replace(/\.[^\/.]+$/, "");
+
 const absoluteUrl = (href) => `${url}${href}`;
 
 export default {
@@ -43,5 +45,6 @@ export default {
   formatDate,
   slugifyString,
   titleCase,
+  removeExtension,
   absoluteUrl,
 };

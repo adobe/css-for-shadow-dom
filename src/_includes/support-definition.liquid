@@ -1,27 +1,33 @@
-{% assign baselineIcon = "baseline-" | append: feature.data.baseline %}
-{% assign functionalIcon = "functional-" | append: feature.data.functional %}
-{% assign usageIcon = "usage-" | append: feature.data.usage %}
 
-<dl class="support-definitions">
+{% assign baselineLabel = baseline | default: feature.data.baseline %}
+{% assign baselineIcon = "baseline-" | append: baselineLabel %}
+
+{% assign functionalLabel = functional | default: feature.data.functional %}
+{% assign functionalIcon = "functional-" | append: functionalLabel %}
+
+{% assign usageLabel = usage | default: feature.data.usage %}
+{% assign usageIcon = "usage-" | append: usageLabel %}
+
+<dl class="support-definitions spectrum-Body spectrum-Body--sizeS">
     <div>
         <dt>
             <span class="icon">{% icon baselineIcon %}</span>
             <strong>Baseline:</strong>
         </dt>
-        <dd>{{ feature.data.baseline | titleCase }}</dd>
+        <dd>{{ baselineLabel | titleCase }}</dd>
     </div>
     <div>
         <dt>
             <span class="icon">{% icon functionalIcon %}</span>
             <strong>Functional:</strong>
         </dt>
-        <dd>{{ feature.data.functional | titleCase }}</dd>
+        <dd>{{ functionalLabel | titleCase }}</dd>
     </div>
     <div>
         <dt>
             <span class="icon">{% icon usageIcon %}</span>
             <strong>Usage:</strong>
         </dt>
-        <dd>{{ feature.data.usage | titleCase }}</dd>
+        <dd>{{ usageLabel | titleCase }}</dd>
     </div>
 </dl>

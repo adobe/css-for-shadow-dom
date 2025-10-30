@@ -23,6 +23,14 @@
   --stack-gap: var(--spectrum-spacing-100);
 }
 
+.stack--gapM {
+  --stack-gap: var(--spectrum-spacing-300);
+}
+
+.padded {
+  padding: var(--spectrum-spacing-200) var(--spectrum-spacing-400);
+}
+
 .icon-list {
   li {
     display: grid;

@@ -28,7 +28,7 @@
    
     <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
-  <body class="page--{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %} spectrum spectrum--light spectrum-Body spectrum-Body--sizeM">
+  <body class="page--{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %} layout--{{ layout | removeExtension }} spectrum spectrum--light spectrum-Body spectrum-Body--sizeM">
     {% include "nav.liquid" %}
     {{ content }}
     {% include "footer.liquid" %}

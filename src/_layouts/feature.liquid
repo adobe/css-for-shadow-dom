@@ -3,12 +3,65 @@ layout: base.liquid
 ---
 
 <header>
-    <div class="wrapper">
+    <div class="wrapper stack stack--gapM">
        <h1 class="spectrum-Heading spectrum-Heading--sizeXXL">{{ title }}</h1>
-       {% comment %} TODO: populate more aspects of the feature template {% endcomment %}
+       <div class="flex-row">
+            {% support support %}
+
+            <em class="spectrum-Body spectrum-Body--sizeS">Updated: 1 day ago</em>
+        </div>
     </div>
 </header>
 
 <main class="wrapper">
-    {{ content }}
+    <p class="spectrum-Body spectrum-Body--sizeL">
+        {{ description }}
+    </p>
+
+    <article class="feature">
+        <div class="feature-card feature-card--{{ support }}">
+            <div class="feature-card__body">
+
+                {% include "support-definition.liquid" %}
+
+                <div class="feature-card__content flow-content">
+                    {{ content }}
+                </div>
+            </div>
+
+            <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
+            {% comment %} Placeholder - will complete in SWC- 1289 {% endcomment %}
+
+            <div class="feature-card__wpt">
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Web Platform Tests <span class="visually-hidden">for {{ title }}</span></h3>
+                {% comment %} Placeholder - will complete in SWC-1290 {% endcomment %}
+            </div>
+        </div>
+        <aside class="feature__sidebar">
+            {% comment %} 
+            TODO: populate once Blog is an available feature
+            <div class="feature-layout__blog-posts padded">
+               <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">From the Blog</h3>
+               <ul class="spectrum-Body spectrum-Body--sizeS">
+                   <li><em>July 1:</em> <a href="">A linked blog post title that pertains to this feature’s support</a></li>
+                   <li><em>April 24:</em> <a href="">Another related blog post</a></li>
+               </ul>
+           </div>
+            {% endcomment %}
+
+            {% if resources %}
+                <div class="padded">
+                    <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Resources</h3>
+                    <ul class="spectrum-Body spectrum-Body--sizeS">
+                        {% for resource in resources %}
+                            <li>
+                                <a href="{{ resource.url }}">{{ resource.label }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+
+        </aside>
+    </article>
 </main>

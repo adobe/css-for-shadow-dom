@@ -1,0 +1,12 @@
+{
+  "resources": [
+    {
+      "label": "Container Size Queries on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#using_container_size_queries"
+    },
+    {
+      "label": "A Primer On CSS Container Queries",
+      "url": "https://www.smashingmagazine.com/2021/05/complete-guide-css-container-queries/"
+    }
+  ]
+}
