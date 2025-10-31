@@ -15,7 +15,8 @@
     "clean": "rimraf dist .cache",
     "clean:gh-pages": "rimraf node_modules/.cache/gh-pages",
     "publish:docs": "cross-env URL=https://oneadobe.github.io/css-for-shadow-dom npm run build --pathprefix=/css-for-shadow-dom/ && gh-pages -d dist/ -f -e . --nojekyll",
-    "prepare": "husky"
+    "prepare": "husky",
+    "copyright": "node bin/copyright-header.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

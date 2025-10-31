@@ -1,4 +1,4 @@
-/*!
+/*
  * Copyright 2025 Adobe. All rights reserved.
  *
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -13,9 +13,19 @@
 
 import htmlmin from "html-minifier-terser";
 
+const excludedFiles = ["COPYRIGHT"];
+const excludesPaths = (path) => {
+  return !excludedFiles.some((fileName) => path.includes(fileName));
+};
+
 export const htmlConfig = (eleventyConfig) => {
   eleventyConfig.addTransform("html-minify", (content, path) => {
-    if (process.env.ENV == "prod" && path && path.endsWith(".html")) {
+    if (
+      process.env.ENV == "prod" &&
+      path &&
+      excludesPaths(path) &&
+      path.endsWith(".html")
+    ) {
       return htmlmin.minify(content, {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,
