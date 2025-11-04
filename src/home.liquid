@@ -49,14 +49,12 @@ permalink: "/"
 
                 <div class="feature-card__body spectrum-Body spectrum-Body--sizeS">
 
-                    {% include "support-definition.liquid" %}
+                    {% include "partial/support-definition.liquid" %}
 
                     <div class="feature-card__content flow-content">
                         {{ feature.templateContent }}
                     </div>
                 </div>
-
-                {% comment %} Issue Cards placement in Feature template {% endcomment %}
 
                 {% comment %} 
                 TODO: populate once Blog is an available feature
@@ -75,13 +73,21 @@ permalink: "/"
                     <span class="visually-hidden">Anchor link for {{ feature.data.title }}</span>
                 </a>
             </div>
-            <aside class="feature__sidebar">
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
-                {% comment %} Placeholder - will complete in SWC- 1289 {% endcomment %}
-                {% button feature.url %}
-                    View All Issues
-                {% endbutton %}
-            </aside>
+            {%- if feature.data.issues -%}
+                <aside class="feature__sidebar">
+                    <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
+                    <div class="responsive-grid">
+                        {%- for issue in feature.data.issues limit: 2 -%}
+                            {%- include "partial/related-issues.liquid" -%}
+                        {%- endfor -%}
+                        {%- if feature.data.issues.size > 2 -%}
+                            {%- button feature.url -%}
+                                View All Issues
+                            {%- endbutton -%}
+                        {% endif %}
+                    </div>
+                </aside>
+            {%- endif -%}
         </article>
     {% endfor %}
 </main>

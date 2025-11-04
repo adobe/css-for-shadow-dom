@@ -7,7 +7,7 @@ functional: "critical"
 usage: "light-dom-priority"
 ---
 
-{% comment %}
+<!--
 /*
  * Copyright 2025 Adobe. All rights reserved.
  * 
@@ -20,5 +20,5 @@ usage: "light-dom-priority"
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
 */
-{% endcomment %}
-Per current browser support, `@property` definitions can only exist in light DOM. However, applied defined properties in shadow DOM respect those definitions. This makes them usable for applications that are able to host a global stylesheet and don’t require scoped definitions.
+-->
+Per current browser support, `@property` definitions can only exist in light DOM. However, applied defined properties in shadow DOM respect those definitions. This makes them usable for applications that are able to host a global stylesheet.

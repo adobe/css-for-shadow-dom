@@ -36,15 +36,22 @@ layout: base.liquid
         <div class="feature-card feature-card--{{ support }}">
             <div class="feature-card__body">
 
-                {% include "support-definition.liquid" %}
+                {% include "partial/support-definition.liquid" %}
 
                 <div class="feature-card__content flow-content">
                     {{ content }}
                 </div>
             </div>
 
-            <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
-            {% comment %} Placeholder - will complete in SWC- 1289 {% endcomment %}
+            {% if issues %}
+                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
+
+                <div class="responsive-grid">
+                    {% for issue in issues %}
+                        {% include "partial/related-issues.liquid" %}
+                    {% endfor %}
+                </div>
+            {% endif %}
 
             <div class="feature-card__wpt">
                 <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Web Platform Tests <span class="visually-hidden">for {{ title }}</span></h3>

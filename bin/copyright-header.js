@@ -77,9 +77,12 @@ function wrapHeaderForExt(ext, header) {
   } else if (ext === ".css") {
     // CSS block comment
     return `/*\n${lines}\n */\n\n`;
-  } else if (ext === ".liquid" || ext === ".md") {
-    // Liquid and Markdown templates comment
+  } else if (ext === ".liquid") {
+    // Liquid template comment
     return `{% comment %}\n/*\n${lines}\n*/\n{% endcomment %}\n`;
+  } else if (ext === ".md") {
+    // Markdown templates comment
+    return `<!--\n/*\n${lines}\n*/\n-->\n`;
   } else {
     throw new Error("Unsupported extension: " + ext);
   }

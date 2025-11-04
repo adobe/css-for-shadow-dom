@@ -22,6 +22,8 @@
 .spectrum-Heading--sizeXXL {
   --mod-heading-sans-serif-font-weight: 900;
   --mod-heading-line-height: 1.1;
+
+  text-wrap: balance;
 }
 
 .spectrum-Body--sizeXS {
@@ -31,6 +33,11 @@
 /* Extra size */
 .spectrum-Body--sizeXXS {
   font-size: 10px;
+}
+
+/* Extra weight */
+.spectrum-Body-medium {
+  font-weight: 500;
 }
 
 .spectrum-Button--sizeS {

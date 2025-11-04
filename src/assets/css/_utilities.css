@@ -26,6 +26,14 @@
   }
 }
 
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 25ch), 1fr));
+  gap: var(--spectrum-spacing-200) var(--spectrum-spacing-400);
+  align-items: start;
+  justify-items: start;
+}
+
 .stack {
   display: grid;
   gap: var(--stack-gap, max(var(--spectrum-spacing-200), 4vh));

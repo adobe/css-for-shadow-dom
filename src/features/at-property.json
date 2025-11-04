@@ -1,0 +1,14 @@
+{
+  "issues": [
+    {
+      "label": "@property registration within shadow DOM",
+      "description": "Discussion has reopened on making @property registrations in shadow DOM globally available, as the previous resolution wasn’t implemented.",
+      "status": "may-change",
+      "links": [
+        {
+          "url": "https://github.com/w3c/csswg-drafts/issues/10541"
+        }
+      ]
+    }
+  ]
+}

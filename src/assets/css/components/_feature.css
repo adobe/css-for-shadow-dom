@@ -110,22 +110,3 @@
     transform: translateX(calc(-100% - 10px));
   }
 }
-
-.support-definitions {
-  &,
-  > div,
-  dt {
-    display: grid;
-    gap: var(--spectrum-spacing-100);
-    align-items: center;
-  }
-
-  > div {
-    justify-content: start;
-    grid-auto-flow: column;
-  }
-
-  dt {
-    grid-template-columns: 24px auto;
-  }
-}

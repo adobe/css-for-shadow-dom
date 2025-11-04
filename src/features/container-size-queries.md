@@ -7,7 +7,7 @@ functional: "critical"
 usage: "cross-boundary"
 ---
 
-{% comment %}
+<!--
 /*
  * Copyright 2025 Adobe. All rights reserved.
  * 
@@ -20,5 +20,5 @@ usage: "cross-boundary"
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
 */
-{% endcomment %}
+-->
 Essential access to query light DOM-defined containers from within the shadow DOM is supported.

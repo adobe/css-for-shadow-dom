@@ -29,14 +29,36 @@ const slugifyString = (str) => {
 };
 
 const titleCase = (str) => {
-  if (str === "light-dom-priority") {
-    return "Light DOM Priority";
-  } else {
-    return titleCaseFn(str);
+  let title = "";
+  switch (str) {
+    case "light-dom-priority":
+      title = "Light DOM Priority";
+      break;
+    case "will-change":
+      title = "Will Change";
+      break;
+    case "may-change":
+      title = "May Change";
+      break;
+    default:
+      return titleCaseFn(str);
+      break;
   }
+
+  return title;
 };
 
 const removeExtension = (str) => str.replace(/\.[^\/.]+$/, "");
+
+const issueID = (str) => {
+  const match = str.match(/issues\/(\d*)/);
+
+  if (match[1]) {
+    return match[1];
+  }
+
+  return "";
+};
 
 const absoluteUrl = (href) => `${url}${href}`;
 
@@ -46,5 +68,6 @@ export default {
   slugifyString,
   titleCase,
   removeExtension,
+  issueID,
   absoluteUrl,
 };
