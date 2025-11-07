@@ -17,6 +17,7 @@ Here is the full available schema:
 
 ```json
 {
+  "wpt": ["/css/[full-test-path-1].html", "/css/[full-test-path-2].html"],
   "resources": [
     {
       "label": "",
@@ -38,6 +39,30 @@ Here is the full available schema:
   ]
 }
 ```
+
+### `wpt` data
+
+[Web Platform Tests](https://wpt.fyi) - aka "WPT" - are the unit tests for all web platform features and test all evergreen browsers. These tests _may_ include shadow DOM-specific feature tests.
+
+For example, the test suite for container queries at present has two relevant testing scopes:
+
+- [https://wpt.fyi/results/css/css-conditional/container-queries/container-for-shadow-dom.html](https://wpt.fyi/results/css/css-conditional/container-queries/container-for-shadow-dom.html)
+- [https://wpt.fyi/results/css/css-conditional/container-queries/container-name-tree-scoped.html](https://wpt.fyi/results/css/css-conditional/container-queries/container-name-tree-scoped.html)
+
+The `wpt` key for feature data expects an array containing the substring of the URL after `https://wpt.fyi/results` including `.html`. So for container queries, the full data becomes:
+
+```js
+"wpt": [
+  "/css/css-conditional/container-queries/container-for-shadow-dom.html",
+  "/css/css-conditional/container-queries/container-name-tree-scoped.html"
+],
+```
+
+The naming convention for these tests usually follows the spec, hence why container queries tests are nested under `css-conditional`.
+
+You can use the search on WPT to do partial string searches for the primary CSS feature, such as `at-property` to get a list of available test suites. From there, you'll have to check sub-tests to determine if relevant shadow DOM tests are available.
+
+> **Note**: Build-time compiled test result data is saved to `wpt-results.json` for tracking test history to enable reviewing and updating feature support definitions when changes occur.
 
 #### `issues` schema
 

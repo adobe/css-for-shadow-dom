@@ -1,0 +1,81 @@
+{
+  "testQueryDate": "11/7/2025",
+  "browserVersions": {
+    "chrome": "142",
+    "edge": "142",
+    "firefox": "144",
+    "safari": "26.1"
+  },
+  "results": [
+    {
+      "title": "@property",
+      "summary": {
+        "chrome": "fails",
+        "edge": "fails",
+        "firefox": "fails",
+        "safari": "fails"
+      },
+      "failing": {
+        "@property rules in shadow trees should be globally registered": {
+          "chrome": "FAIL",
+          "edge": "FAIL",
+          "firefox": "FAIL",
+          "safari": "FAIL"
+        }
+      }
+    },
+    {
+      "title": "Container Size Queries",
+      "summary": {
+        "chrome": "fails",
+        "edge": "passes",
+        "firefox": "passes",
+        "safari": "fails"
+      },
+      "failing": {
+        "Match container for ::before in ::slotted selector's originating element tree": {
+          "chrome": "PASS",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        },
+        "Container name set inside a shadow tree should match query using ::part on the outside": {
+          "chrome": "FAIL",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "PASS"
+        },
+        "Container name set inside a shadow tree should match query for host child on the outside": {
+          "chrome": "FAIL",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        },
+        "Container name set on :host from inside a shadow tree should match query for slotted from the outside of the shadow tree": {
+          "chrome": "FAIL",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        },
+        "The originating element should be the first container candidate of ::before": {
+          "chrome": "PASS",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        },
+        "Outer scope query should match container-name set by :host rule in shadow tree": {
+          "chrome": "FAIL",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        },
+        "Outer scope query should match container-name set by ::slotted rule in shadow tree": {
+          "chrome": "FAIL",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,8 @@
 {
+  "wpt": [
+    "/css/css-conditional/container-queries/container-for-shadow-dom.html",
+    "/css/css-conditional/container-queries/container-name-tree-scoped.html"
+  ],
   "resources": [
     {
       "label": "Container Size Queries on MDN",

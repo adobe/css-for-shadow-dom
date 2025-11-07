@@ -1,0 +1,105 @@
+{% comment %}
+/*
+ * Copyright 2025 Adobe. All rights reserved.
+ * 
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
+ * 
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+*/
+{% endcomment %}
+<figure>
+
+  {% if wptResults.failing %}
+
+    <div class="table-wrapper">
+      <table class="wpt-results">
+        <thead>
+          <tr>
+            <th class="test-column-header">
+              Web Platform Test
+            </th>
+            
+            {%- for browser in wptBrowsers -%}
+              {%- assign browserName = browser[0] -%}
+              {%- assign browserIcon = "browser-" | append: browserName -%}
+              {%- assign browserVersion = browser[1] -%}
+              {%- assign browserLabel = browserName | titleCase -%}
+      
+              <th scope="col">
+                <div class="browser-header">
+                  {% icon browserIcon %}
+                  <span class="spectrum-Body spectrum-Body--sizeXS spectrum-Body-medium">{{ browserLabel }} {{ browserVersion }}</span>
+                </div>
+              </th>
+            {%- endfor -%}
+          </tr>
+        </thead>
+        <tbody>
+          {% if wptResults.failing %}
+            {% for test in wptResults.failing %}
+              {% include "partial/wpt-results-test-row.liquid" %}
+            {% endfor %}
+          {% endif %}
+          {% if wptResults.passing %}
+            {%- assign passingTests = true -%}
+            {% for test in wptResults.passing %}
+              {% include "partial/wpt-results-test-row.liquid" %}
+            {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+
+    {% if wptResults.failing and wptResults.passing %}
+      <div class="wpt-toggle">
+        <button hidden id="wpt-toggle" aria-expanded="false" class="spectrum-Button spectrum-Button--fill spectrum-Button--secondary spectrum-Button--sizeS"><span>Show</span> passing tests</button>
+      </div>
+    {% endif %}
+  
+  {% else %}
+    {% comment %} Show summary of all passing when true {% endcomment %}
+    {%- assign featureTemplate = true -%}
+    {% include "partial/wpt-summary.liquid" %}
+  {% endif %}
+
+  <figcaption class="wpt-sources spectrum-Body spectrum-Body--sizeS">
+    {% wptSources wpt %}
+  </figcaption>
+</figure>
+
+<script type="module">
+  const toggleButton = document.getElementById('wpt-toggle');
+
+  if (toggleButton) {
+    const table = document.querySelector('.wpt-results');
+    const passingTestRows = table.querySelectorAll('[data-status="pass"]');
+
+    passingTestRows.forEach((row, i) => {
+      if (i === 0) {
+        row.querySelector('th').setAttribute('tabindex', '-1');
+      }
+      row.setAttribute('hidden', true);
+      toggleButton.removeAttribute('hidden', true);
+    });
+  
+    toggleButton.addEventListener('click', () => {
+      passingTestRows.forEach((r) => r.toggleAttribute('hidden'));
+  
+      const expanded = toggleButton.getAttribute('aria-expanded') === 'false' ? 'true' : 'false';
+      toggleButton.setAttribute('aria-expanded', expanded);
+      
+      const toggleButtonAction = toggleButton.querySelector('span');
+      toggleButtonAction.textContent = toggleButtonAction.textContent === 'Show' ? 'Hide' : 'Show';
+  
+      const firstPassingHeader = passingTestRows[0].querySelector('th');
+      if (expanded === 'true') {
+        firstPassingHeader.focus();
+      }
+    });
+  }
+</script>

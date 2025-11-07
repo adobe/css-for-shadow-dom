@@ -53,10 +53,11 @@ layout: base.liquid
                 </div>
             {% endif %}
 
-            <div class="feature-card__wpt">
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Web Platform Tests <span class="visually-hidden">for {{ title }}</span></h3>
-                {% comment %} Placeholder - will complete in SWC-1290 {% endcomment %}
-            </div>
+            {% if wpt %}
+                <div class="feature-card__wpt">
+                    {% include "partial/wpt-results.liquid" %}
+                </div>
+            {% endif %}
         </div>
         <aside class="feature__sidebar">
             {% comment %} 

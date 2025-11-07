@@ -63,10 +63,11 @@ permalink: "/"
                     <a href="" class="link-subtle spectrum-Body-strong">A linked blog post title that pertains to this feature’s support</a>
                 </div> {% endcomment %}
 
-                <div class="feature-card__wpt">
-                    <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Web Platform Tests <span class="visually-hidden">for {{ feature.data.title }}</span></h3>
-                    <a href="{{ feature.url }}" class="spectrum-Body spectrum-Body--sizeXS">View all tests <span class="visually-hidden">for {{ feature.data.title }}</span></a>
-                </div>
+                {% if feature.data.wpt %}
+                    <div class="feature-card__wpt">
+                        {% include "partial/wpt-summary.liquid" %}
+                    </div>
+                {% endif %}
 
                 <a class="feature-card__anchor" href="#{{ featureSlug }}">
                     <span aria-hidden="true">#</span>

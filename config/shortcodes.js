@@ -19,9 +19,18 @@ const support = (supportLevel) => {
   return `<span class="${tagClass}">${supportLevels[supportLevel]}</span>`;
 };
 
+const wptSources = (sources) => {
+  const sourceLinks = sources.map((source) => {
+    const sourceLabel = source.match(/(\/([\w|-]+)\.html)/);
+    return `<a href="https://wpt.fyi/results${source}">${sourceLabel[2]}</a>`;
+  });
+  return `<strong>WPT sources:</strong> ${sourceLinks.join(", ")}`;
+};
+
 const year = () => `${new Date().getFullYear()}`;
 
 export default {
   support,
+  wptSources,
   year,
 };

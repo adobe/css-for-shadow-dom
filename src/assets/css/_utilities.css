@@ -16,10 +16,14 @@
   margin-inline: auto;
 }
 
+.table-wrapper {
+  overflow-x: auto;
+}
+
 .flex-row {
   display: flex;
   align-items: var(--flex-row-alignment, center);
-  gap: 1rem;
+  gap: var(--flex-row-gap, 1rem);
 
   &.flex-row--baseline {
     --flex-row-alignment: baseline;
@@ -62,9 +66,12 @@
 }
 
 .icon {
+  --_icon-size: var(--icon-size, 20px);
+
   display: grid;
   place-content: center;
-  block-size: 20px;
+  block-size: var(--icon-block-size, var(--_icon-size));
+  inline-size: var(--icon-inline-size, var(--_icon-size));
 }
 
 .flow-content * + * {

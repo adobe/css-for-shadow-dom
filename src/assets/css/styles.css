@@ -30,6 +30,7 @@
 @import "components/_tags.css" layer(components);
 @import "components/_feature.css" layer(components);
 @import "components/_support-definitions.css" layer(components);
+@import "components/_wpt.css" layer(components);
 @import "components/_related-issues.css" layer(components);
 
 /* Plugins */
