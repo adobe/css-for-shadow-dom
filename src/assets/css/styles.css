@@ -13,27 +13,27 @@
 
 @layer reset, library, site, components, utilities;
 
-@import "_reset.css" layer(reset);
+@import '_reset.css' layer(reset);
 
 /* Spectrum library imports */
-@import "_spectrum.css" layer(library);
+@import '_spectrum.css' layer(library);
 
 /* Site */
-@import "_theme.css" layer(site);
-@import "_global.css" layer(site);
+@import '_theme.css' layer(site);
+@import '_global.css' layer(site);
 
 /* Components / Layout Partials */
-@import "components/_typography.css" layer(components);
-@import "components/_nav.css" layer(components);
-@import "components/_footer.css" layer(components);
-@import "components/_headers.css" layer(components);
-@import "components/_tags.css" layer(components);
-@import "components/_feature.css" layer(components);
-@import "components/_support-definitions.css" layer(components);
-@import "components/_wpt.css" layer(components);
-@import "components/_related-issues.css" layer(components);
+@import 'components/_typography.css' layer(components);
+@import 'components/_nav.css' layer(components);
+@import 'components/_footer.css' layer(components);
+@import 'components/_headers.css' layer(components);
+@import 'components/_tags.css' layer(components);
+@import 'components/_feature.css' layer(components);
+@import 'components/_support-definitions.css' layer(components);
+@import 'components/_wpt.css' layer(components);
+@import 'components/_related-issues.css' layer(components);
 
 /* Plugins */
 /* @import "plugins/prism.css"; */
 
-@import "_utilities.css" layer(utilities);
+@import '_utilities.css' layer(utilities);

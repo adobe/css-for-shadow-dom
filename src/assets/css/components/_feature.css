@@ -39,10 +39,10 @@
 }
 
 .feature-card {
-  border-inline-start: 10px solid
-    var(--feature-support-color, var(--color-accepted));
+  border-inline-start: 10px solid var(--feature-support-color, var(--color-accepted));
   padding: var(--spectrum-spacing-400) var(--spectrum-spacing-500);
-  box-shadow: 0 4px 8px 3px color-mix(in hsl, transparent, var(--text-body) 15%),
+  box-shadow:
+    0 4px 8px 3px color-mix(in hsl, transparent, var(--text-body) 15%),
     0 1px 3px color-mix(in hsl, transparent, var(--text-body) 15%);
   border-radius: 0 8px 8px 0;
 

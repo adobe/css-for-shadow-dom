@@ -11,21 +11,16 @@
  * governing permissions and limitations under the License.
  */
 
-import htmlmin from "html-minifier-terser";
+import htmlmin from 'html-minifier-terser';
 
-const excludedFiles = ["COPYRIGHT"];
+const excludedFiles = ['COPYRIGHT'];
 const excludesPaths = (path) => {
   return !excludedFiles.some((fileName) => path.includes(fileName));
 };
 
 export const htmlConfig = (eleventyConfig) => {
-  eleventyConfig.addTransform("html-minify", (content, path) => {
-    if (
-      process.env.ENV == "prod" &&
-      path &&
-      excludesPaths(path) &&
-      path.endsWith(".html")
-    ) {
+  eleventyConfig.addTransform('html-minify', (content, path) => {
+    if (process.env.ENV == 'prod' && path && excludesPaths(path) && path.endsWith('.html')) {
       return htmlmin.minify(content, {
         collapseBooleanAttributes: true,
         collapseWhitespace: true,
@@ -40,7 +35,7 @@ export const htmlConfig = (eleventyConfig) => {
         sortAttributes: true,
         sortClassName: true,
         useShortDoctype: true,
-        processScripts: ["application/ld+json"],
+        processScripts: ['application/ld+json'],
       });
     }
 

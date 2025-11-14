@@ -49,7 +49,7 @@ permalink: "/"
 
                 <div class="feature-card__body spectrum-Body spectrum-Body--sizeS">
 
-                    {% include "partial/support-definition.liquid" %}
+                    {% include "components/support-definition" %}
 
                     <div class="feature-card__content flow-content">
                         {{ feature.templateContent }}
@@ -65,7 +65,7 @@ permalink: "/"
 
                 {% if feature.data.wpt %}
                     <div class="feature-card__wpt">
-                        {% include "partial/wpt-summary.liquid" %}
+                        {% include "components/wpt-summary" %}
                     </div>
                 {% endif %}
 
@@ -79,7 +79,7 @@ permalink: "/"
                     <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
                     <div class="responsive-grid">
                         {%- for issue in feature.data.issues limit: 2 -%}
-                            {%- include "partial/related-issues.liquid" -%}
+                            {%- include "components/related-issues.liquid" -%}
                         {%- endfor -%}
                         {%- if feature.data.issues.size > 2 -%}
                             {%- button feature.url -%}

@@ -42,13 +42,13 @@
         <tbody>
           {% if wptResults.failing %}
             {% for test in wptResults.failing %}
-              {% include "partial/wpt-results-test-row.liquid" %}
+              {% include "components/wpt-results-test-row" %}
             {% endfor %}
           {% endif %}
           {% if wptResults.passing %}
             {%- assign passingTests = true -%}
             {% for test in wptResults.passing %}
-              {% include "partial/wpt-results-test-row.liquid" %}
+              {% include "components/wpt-results-test-row" %}
             {% endfor %}
           {% endif %}
         </tbody>
@@ -64,7 +64,7 @@
   {% else %}
     {% comment %} Show summary of all passing when true {% endcomment %}
     {%- assign featureTemplate = true -%}
-    {% include "partial/wpt-summary.liquid" %}
+    {% include "components/wpt-summary" %}
   {% endif %}
 
   <figcaption class="wpt-sources spectrum-Body spectrum-Body--sizeS">

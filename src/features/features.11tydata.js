@@ -11,19 +11,24 @@
  * governing permissions and limitations under the License.
  */
 
-import Fetch from "@11ty/eleventy-fetch";
+/**
+ * This file fetches WPT data for each feature at build-time.
+ * Data is cached locally for 12 hours.
+ * Refresh the data by removing the cache with `npm run clean`.
+ */
+import Fetch from '@11ty/eleventy-fetch';
 
 const getBrowserRuns = async () => {
   const browserRunsUrl =
-    "https://wpt.fyi/api/runs?label=master&label=stable&max-count=1&product=chrome&product=edge&product=firefox&product=safari";
+    'https://wpt.fyi/api/runs?label=master&label=stable&max-count=1&product=chrome&product=edge&product=firefox&product=safari';
   return await Fetch(browserRunsUrl, {
-    duration: "1d",
-    type: "json",
+    duration: '12h',
+    type: 'json',
   });
 };
 
 const formatResultsUrl = (resultsUrl, testScope) => {
-  return resultsUrl.replace("-summary_v2.json.gz", "") + testScope;
+  return resultsUrl.replace('-summary_v2.json.gz', '') + testScope;
 };
 
 const getBrowserVersions = async () => {
@@ -55,8 +60,8 @@ const getWptResults = async (testScopes) => {
     for (const browser of browsers) {
       try {
         const browserResults = await Fetch(browser.resultsUrl, {
-          duration: "1d",
-          type: "json",
+          duration: '1d',
+          type: 'json',
         });
 
         const tests = browserResults.subtests;
@@ -79,24 +84,17 @@ const getWptResults = async (testScopes) => {
   const results = {};
 
   if (Object.keys(testResults).length > 0) {
-    results.summary = ["chrome", "edge", "firefox", "safari"].reduce(
-      (acc, browser) => {
-        const statuses = Object.values(testResults).map((r) => r[browser]);
-        acc[browser] = statuses.every((s) => s === "PASS") ? "passes" : "fails";
-        return acc;
-      },
-      {}
-    );
+    results.summary = ['chrome', 'edge', 'firefox', 'safari'].reduce((acc, browser) => {
+      const statuses = Object.values(testResults).map((r) => r[browser]);
+      acc[browser] = statuses.every((s) => s === 'PASS') ? 'passes' : 'fails';
+      return acc;
+    }, {});
 
     const passedTests = Object.fromEntries(
-      Object.entries(testResults).filter(
-        (t) => !Object.values(t[1]).includes("FAIL")
-      )
+      Object.entries(testResults).filter((t) => !Object.values(t[1]).includes('FAIL')),
     );
     const failedTests = Object.fromEntries(
-      Object.entries(testResults).filter((t) =>
-        Object.values(t[1]).includes("FAIL")
-      )
+      Object.entries(testResults).filter((t) => Object.values(t[1]).includes('FAIL')),
     );
 
     hasPassingTests = Object.keys(passedTests).length > 0;
@@ -118,8 +116,7 @@ const getWptResults = async (testScopes) => {
 // TODO: Allow filtering of subtests for example /css-scoping/ filter by host-has-*
 export default {
   eleventyComputed: {
-    wptResults: async (data) =>
-      data.wpt ? await getWptResults(data.wpt) : false,
+    wptResults: async (data) => (data.wpt ? await getWptResults(data.wpt) : false),
     wptBrowsers: await getBrowserVersions(),
   },
 };

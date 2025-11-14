@@ -36,7 +36,7 @@ layout: base.liquid
         <div class="feature-card feature-card--{{ support }}">
             <div class="feature-card__body">
 
-                {% include "partial/support-definition.liquid" %}
+                {% include "components/support-definition" %}
 
                 <div class="feature-card__content flow-content">
                     {{ content }}
@@ -48,14 +48,14 @@ layout: base.liquid
 
                 <div class="responsive-grid">
                     {% for issue in issues %}
-                        {% include "partial/related-issues.liquid" %}
+                        {% include "components/related-issues" %}
                     {% endfor %}
                 </div>
             {% endif %}
 
             {% if wpt %}
                 <div class="feature-card__wpt">
-                    {% include "partial/wpt-results.liquid" %}
+                    {% include "components/wpt-results" %}
                 </div>
             {% endif %}
         </div>

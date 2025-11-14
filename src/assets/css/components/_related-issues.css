@@ -18,7 +18,7 @@
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  grid-template-areas: "label label" "description description" "status links";
+  grid-template-areas: 'label label' 'description description' 'status links';
   grid-template-columns: 1fr auto;
 
   h4 {

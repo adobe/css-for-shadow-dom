@@ -1,9 +1,9 @@
 {
-  "testQueryDate": "11/7/2025",
+  "testQueryDate": "11/14/2025",
   "browserVersions": {
     "chrome": "142",
     "edge": "142",
-    "firefox": "144",
+    "firefox": "145",
     "safari": "26.1"
   },
   "results": [

@@ -11,10 +11,10 @@
  * governing permissions and limitations under the License.
  */
 
-import dayjs from "dayjs";
-import slugify from "slugify";
-import { titleCase as titleCaseFn } from "title-case";
-import { url } from "../src/_data/meta.js";
+import dayjs from 'dayjs';
+import slugify from 'slugify';
+import { titleCase as titleCaseFn } from 'title-case';
+import { url } from '../src/_data/meta.js';
 
 const toISOString = (dateString) => dayjs(dateString).toISOString();
 
@@ -22,23 +22,23 @@ const formatDate = (date, format) => dayjs(date).format(format);
 
 const slugifyString = (str) => {
   return slugify(str, {
-    replacement: "-",
+    replacement: '-',
     remove: /[#,&,+()$~%.'":*¿?¡!<>{}]/g,
     lower: true,
   });
 };
 
 const titleCase = (str) => {
-  let title = "";
+  let title = '';
   switch (str) {
-    case "light-dom-priority":
-      title = "Light DOM Priority";
+    case 'light-dom-priority':
+      title = 'Light DOM Priority';
       break;
-    case "will-change":
-      title = "Will Change";
+    case 'will-change':
+      title = 'Will Change';
       break;
-    case "may-change":
-      title = "May Change";
+    case 'may-change':
+      title = 'May Change';
       break;
     default:
       return titleCaseFn(str);
@@ -48,7 +48,7 @@ const titleCase = (str) => {
   return title;
 };
 
-const removeExtension = (str) => str.replace(/\.[^\/.]+$/, "");
+const removeExtension = (str) => str.replace(/\.[^\/.]+$/, '');
 
 const issueID = (str) => {
   const match = str.match(/issues\/(\d*)/);
@@ -57,7 +57,7 @@ const issueID = (str) => {
     return match[1];
   }
 
-  return "";
+  return '';
 };
 
 const absoluteUrl = (href) => `${url}${href}`;

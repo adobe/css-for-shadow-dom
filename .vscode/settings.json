@@ -1,0 +1,23 @@
+{
+  "[markdown]": {
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "bounded",
+    // Turned off to prevent Emmet when writing code fenced blocks
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[nunjucks]": {
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "bounded"
+  },
+  "[liquid]": {
+    "editor.wordWrapColumn": 120,
+    "editor.wordWrap": "bounded"
+  },
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  }
+}

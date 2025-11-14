@@ -14,7 +14,7 @@
 <!doctype html>
 <html lang="{{ meta.lang }}" class="spectrum spectrum--medium spectrum--light">
   <head>
-    {% include "head/meta.liquid"
+    {% include "head/meta"
       title:title,
       description:description,
       meta:meta
@@ -29,9 +29,9 @@
     <link rel="stylesheet" href="/assets/css/styles.css" />
   </head>
   <body class="page--{% if page.fileSlug %}{{ page.fileSlug }}{% else %}home{% endif %} layout--{{ layout | removeExtension }} spectrum spectrum--light spectrum-Body spectrum-Body--sizeM">
-    {% include "nav.liquid" %}
+    {% include "nav" %}
     {{ content }}
-    {% include "footer.liquid" %}
-  {% spriteSheet %}
+    {% include "footer" %}
+    {% spriteSheet %}
   </body>
 </html>

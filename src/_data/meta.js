@@ -11,14 +11,14 @@
  * governing permissions and limitations under the License.
  */
 
-export const url = process.env.URL || "http://localhost:8080";
-export const siteName = "Modern CSS for Shadow DOM";
-export const siteDescription = "";
-export const sitePublisher = "Adobe";
-export const siteType = "website";
-export const locale = "en_US";
-export const lang = "en";
-export const skipContent = "Skip to content";
-export const themeColor = "";
-export const opengraph_default = "";
-export const opengraph_default_alt = "";
+export const url = process.env.URL || 'http://localhost:8080';
+export const siteName = 'Modern CSS for Shadow DOM';
+export const siteDescription = '';
+export const sitePublisher = 'Adobe';
+export const siteType = 'website';
+export const locale = 'en_US';
+export const lang = 'en';
+export const skipContent = 'Skip to content';
+export const themeColor = '';
+export const opengraph_default = '';
+export const opengraph_default_alt = '';

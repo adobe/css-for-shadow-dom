@@ -11,11 +11,11 @@
  * governing permissions and limitations under the License.
  */
 
-import filters from "./config/filters.js";
-import pairedShortcodes from "./config/paired-shortcodes.js";
-import shortcodes from "./config/shortcodes.js";
-import plugins from "./config/plugins/index.js";
-import pluginIcons from "eleventy-plugin-icons";
+import filters from './config/filters.js';
+import pairedShortcodes from './config/paired-shortcodes.js';
+import shortcodes from './config/shortcodes.js';
+import plugins from './config/plugins/index.js';
+import pluginIcons from 'eleventy-plugin-icons';
 
 export default async function (eleventyConfig) {
   // Filters
@@ -25,10 +25,7 @@ export default async function (eleventyConfig) {
 
   // Paired Shortcodes
   Object.keys(pairedShortcodes).forEach((shortcodeName) => {
-    eleventyConfig.addPairedShortcode(
-      shortcodeName,
-      pairedShortcodes[shortcodeName]
-    );
+    eleventyConfig.addPairedShortcode(shortcodeName, pairedShortcodes[shortcodeName]);
   });
 
   // Shortcodes
@@ -45,8 +42,8 @@ export default async function (eleventyConfig) {
   // Place icon svgs in assets/icons
   // @link https://www.npmjs.com/package/eleventy-plugin-icons
   eleventyConfig.addPlugin(pluginIcons, {
-    mode: "sprite",
-    sources: [{ name: "default", path: "./src/assets/icons", default: true }],
+    mode: 'sprite',
+    sources: [{ name: 'default', path: './src/assets/icons', default: true }],
     sprite: {
       attributes: {
         width: 0,
@@ -56,14 +53,14 @@ export default async function (eleventyConfig) {
   });
 
   // passthroughs
-  eleventyConfig.addPassthroughCopy("src/assets/css/styles.css");
-  eleventyConfig.addPassthroughCopy("src/assets/images");
+  eleventyConfig.addPassthroughCopy('src/assets/css/styles.css');
+  eleventyConfig.addPassthroughCopy('src/assets/images');
 
   return {
     dir: {
-      output: "dist",
-      input: "src",
-      layouts: "_layouts",
+      output: 'dist',
+      input: 'src',
+      layouts: '_layouts',
     },
   };
 }

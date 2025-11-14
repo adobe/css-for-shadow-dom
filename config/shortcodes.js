@@ -11,7 +11,7 @@
  * governing permissions and limitations under the License.
  */
 
-import supportLevels from "../src/_data/support-levels.js";
+import supportLevels from '../src/_data/support-levels.js';
 
 const support = (supportLevel) => {
   const tagClass = `tag tag--${supportLevel} spectrum-Body spectrum-Body--sizeXS`;
@@ -24,7 +24,7 @@ const wptSources = (sources) => {
     const sourceLabel = source.match(/(\/([\w|-]+)\.html)/);
     return `<a href="https://wpt.fyi/results${source}">${sourceLabel[2]}</a>`;
   });
-  return `<strong>WPT sources:</strong> ${sourceLinks.join(", ")}`;
+  return `<strong>WPT sources:</strong> ${sourceLinks.join(', ')}`;
 };
 
 const year = () => `${new Date().getFullYear()}`;

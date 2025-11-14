@@ -14,7 +14,7 @@
 body {
   min-block-size: 100vb;
   display: grid;
-  grid-template-areas: "nav" "header" "main" "footer";
+  grid-template-areas: 'nav' 'header' 'main' 'footer';
   grid-template-rows: auto auto 1fr auto;
   align-items: start;
 }

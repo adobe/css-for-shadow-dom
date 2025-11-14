@@ -14,13 +14,13 @@
 nav {
   display: grid;
   column-gap: var(--spectrum-spacing-200);
-  grid-template-areas: "id links updated";
+  grid-template-areas: 'id links updated';
   grid-template-columns: auto 1fr auto;
   align-items: start;
 
   &:not(.page--home *) {
     @media (max-width: 700px) {
-      grid-template-areas: "id updated" "links links";
+      grid-template-areas: 'id updated' 'links links';
       grid-template-columns: minmax(15ch, 1fr) auto;
     }
   }
@@ -61,7 +61,8 @@ nav {
     padding-inline: var(--spectrum-spacing-200);
     padding-block: var(--spectrum-spacing-200);
     border-radius: 0 0 4px 4px;
-    box-shadow: 0 1px 2px color-mix(in hsl, transparent, var(--text-body) 15%),
+    box-shadow:
+      0 1px 2px color-mix(in hsl, transparent, var(--text-body) 15%),
       0 1px 3px 1px color-mix(in hsl, transparent, var(--text-body) 15%);
     text-align: center;
 

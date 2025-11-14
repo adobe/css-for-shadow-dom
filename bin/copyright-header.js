@@ -31,15 +31,15 @@
  * - Handles shebang (#!) lines and CSS @charset special case
  */
 
-import { promises as fs } from "fs";
-import path from "path";
+import { promises as fs } from 'fs';
+import path from 'path';
 
-const HEADER_DEFAULT = "./COPYRIGHT";
-const ROOT_DEFAULT = ".";
-const IGNORE_DIRS = new Set(["node_modules", ".git"]);
-const IGNORE_FILES = new Set(["README.md", "CODE_OF_CONDUCT.md", "prism.css"]);
+const HEADER_DEFAULT = './COPYRIGHT';
+const ROOT_DEFAULT = '.';
+const IGNORE_DIRS = new Set(['node_modules', '.git']);
+const IGNORE_FILES = new Set(['README.md', 'CODE_OF_CONDUCT.md', 'prism.css']);
 
-const targetExtensions = new Set([".js", ".css", ".liquid", ".md"]);
+const targetExtensions = new Set(['.js', '.css', '.liquid', '.md']);
 
 function errorExit(msg) {
   if (msg) console.error(msg);
@@ -64,46 +64,46 @@ function updateHeaderYear(content) {
 }
 
 function wrapHeaderForExt(ext, header) {
-  const trimmed = header.replace(/\r\n/g, "\n").trim();
+  const trimmed = header.replace(/\r\n/g, '\n').trim();
   // Use block comment with a leading star on every line (conventional)
   const lines = trimmed
-    .split("\n")
+    .split('\n')
     .map((l) => ` * ${l}`)
-    .join("\n");
+    .join('\n');
 
-  if (ext === ".js") {
+  if (ext === '.js') {
     // JS comment
     return `/*\n${lines}\n */\n\n`;
-  } else if (ext === ".css") {
+  } else if (ext === '.css') {
     // CSS block comment
     return `/*\n${lines}\n */\n\n`;
-  } else if (ext === ".liquid") {
+  } else if (ext === '.liquid') {
     // Liquid template comment
     return `{% comment %}\n/*\n${lines}\n*/\n{% endcomment %}\n`;
-  } else if (ext === ".md") {
+  } else if (ext === '.md') {
     // Markdown templates comment
     return `<!--\n/*\n${lines}\n*/\n-->\n`;
   } else {
-    throw new Error("Unsupported extension: " + ext);
+    throw new Error('Unsupported extension: ' + ext);
   }
 }
 
 function normalizeForComparison(s) {
-  if (!s) return "";
+  if (!s) return '';
   return (
     s
       // normalize newlines
-      .replace(/\r\n/g, "\n")
+      .replace(/\r\n/g, '\n')
       // remove block/HTML comment delimiters
-      .replace(/\/\*|\*\/|<!--|-->/g, " ")
+      .replace(/\/\*|\*\/|<!--|-->/g, ' ')
       // remove common line comment markers (e.g., //) and leading '*' used in boxed comments
-      .replace(/(^|\n)\s*[*\/]{0,2}\s*/g, "$1")
+      .replace(/(^|\n)\s*[*\/]{0,2}\s*/g, '$1')
       // remove shebang marker if present
-      .replace(/#!+/g, " ")
+      .replace(/#!+/g, ' ')
       // remove stray punctuation that commonly varies, keep alphanumerics and whitespace
-      .replace(/[^\w\s\-.,:;()/@]+/g, " ")
+      .replace(/[^\w\s\-.,:;()/@]+/g, ' ')
       // collapse whitespace
-      .replace(/\s+/g, " ")
+      .replace(/\s+/g, ' ')
       .trim()
       .toLowerCase()
   );
@@ -123,7 +123,7 @@ async function walkDir(root, onFile) {
     for (const dirent of entries) {
       const name = dirent.name;
       if (dirent.isDirectory()) {
-        if (IGNORE_DIRS.has(name) || name.startsWith(".")) continue;
+        if (IGNORE_DIRS.has(name) || name.startsWith('.')) continue;
         stack.push(path.join(cur, name));
       } else if (dirent.isFile()) {
         if (IGNORE_FILES.has(name)) continue; // skip specific files
@@ -133,69 +133,59 @@ async function walkDir(root, onFile) {
   }
 }
 
-async function processFile(
-  filePath,
-  headerPlain,
-  headerWrappedByExt,
-  normalizedWrappedHeader
-) {
+async function processFile(filePath, headerPlain, headerWrappedByExt, normalizedWrappedHeader) {
   const ext = path.extname(filePath).toLowerCase();
-  if (!targetExtensions.has(ext))
-    return { skipped: true, reason: "not-target" };
+  if (!targetExtensions.has(ext)) return { skipped: true, reason: 'not-target' };
 
   let content;
   try {
-    content = await fs.readFile(filePath, "utf8");
+    content = await fs.readFile(filePath, 'utf8');
   } catch (err) {
-    return { skipped: true, reason: "read-error", err };
+    return { skipped: true, reason: 'read-error', err };
   }
 
   // File already has header — try updating year
   const { content: updatedContent, updated } = updateHeaderYear(content);
   if (updated) {
-    await fs.writeFile(filePath, updatedContent, "utf8");
-    return { skipped: false, reason: "updated-year" };
+    await fs.writeFile(filePath, updatedContent, 'utf8');
+    return { skipped: false, reason: 'updated-year' };
   }
 
   const normalizedContent = normalizeForComparison(content);
 
   // Use the wrapped/normalized header for this file extension
-  const normalizedHeaderForThisExt =
-    normalizedWrappedHeader[ext] || normalizeForComparison(headerPlain);
+  const normalizedHeaderForThisExt = normalizedWrappedHeader[ext] || normalizeForComparison(headerPlain);
 
   if (normalizedContent.includes(normalizedHeaderForThisExt)) {
-    return { skipped: true, reason: "already-has-header" };
+    return { skipped: true, reason: 'already-has-header' };
   }
 
   // Prepare insertion point: handle shebang and CSS @charset rules
   let newContent = content;
-  const wrappedHeader =
-    headerWrappedByExt[ext] ?? wrapHeaderForExt(ext, headerPlain);
+  const wrappedHeader = headerWrappedByExt[ext] ?? wrapHeaderForExt(ext, headerPlain);
 
   // If file starts with a shebang, preserve it as first line
-  if (content.startsWith("#!")) {
-    const firstNewline = content.indexOf("\n");
+  if (content.startsWith('#!')) {
+    const firstNewline = content.indexOf('\n');
     if (firstNewline === -1) {
       // single-line shebang-only file; append header after
-      newContent = content + "\n" + wrappedHeader;
+      newContent = content + '\n' + wrappedHeader;
     } else {
       const shebangLine = content.slice(0, firstNewline + 1);
       const rest = content.slice(firstNewline + 1);
       newContent = shebangLine + wrappedHeader + rest;
     }
-  } else if (ext === ".css") {
+  } else if (ext === '.css') {
     // If CSS file has @charset "..."; as first token, preserve it at top (must be first).
     const charsetMatch = /^\s*@charset\s+[^;]+;/i.exec(content);
     if (charsetMatch && content.indexOf(charsetMatch[0]) === 0) {
-      const charsetLine =
-        charsetMatch[0] +
-        (content[charsetMatch[0].length] === "\n" ? "\n" : "\n");
+      const charsetLine = charsetMatch[0] + (content[charsetMatch[0].length] === '\n' ? '\n' : '\n');
       const rest = content.slice(charsetLine.length);
       newContent = charsetLine + wrappedHeader + rest;
     } else {
       newContent = wrappedHeader + content;
     }
-  } else if (ext === ".liquid" || ext === ".md") {
+  } else if (ext === '.liquid' || ext === '.md') {
     // Detect YAML front matter block at the top of the file
     const frontMatterMatch = content.match(/^---\s*\n[\s\S]*?\n---\s*\n?/);
     if (frontMatterMatch && frontMatterMatch.index === 0) {
@@ -211,9 +201,9 @@ async function processFile(
   }
 
   try {
-    await fs.writeFile(filePath, newContent, "utf8");
+    await fs.writeFile(filePath, newContent, 'utf8');
   } catch (err) {
-    return { skipped: true, reason: "write-error", err };
+    return { skipped: true, reason: 'write-error', err };
   }
 
   return { skipped: false };
@@ -226,27 +216,27 @@ async function main() {
   // Read header file
   let headerPlain;
   try {
-    headerPlain = await fs.readFile(headerPath, "utf8");
+    headerPlain = await fs.readFile(headerPath, 'utf8');
   } catch (err) {
     errorExit(`Could not read header file at "${headerPath}": ${err.message}`);
   }
   if (!headerPlain.trim()) {
-    errorExit("Header file is empty.");
+    errorExit('Header file is empty.');
   }
 
   // Precompute wrapped forms for ext to avoid re-wrapping
   const headerWrappedByExt = {
-    ".js": wrapHeaderForExt(".js", headerPlain),
-    ".css": wrapHeaderForExt(".css", headerPlain),
-    ".liquid": wrapHeaderForExt(".liquid", headerPlain),
-    ".md": wrapHeaderForExt(".md", headerPlain),
+    '.js': wrapHeaderForExt('.js', headerPlain),
+    '.css': wrapHeaderForExt('.css', headerPlain),
+    '.liquid': wrapHeaderForExt('.liquid', headerPlain),
+    '.md': wrapHeaderForExt('.md', headerPlain),
   };
 
   const normalizedWrappedHeader = {
-    ".js": normalizeForComparison(headerWrappedByExt[".js"]),
-    ".css": normalizeForComparison(headerWrappedByExt[".css"]),
-    ".liquid": normalizeForComparison(headerWrappedByExt[".liquid"]),
-    ".md": normalizeForComparison(headerWrappedByExt[".md"]),
+    '.js': normalizeForComparison(headerWrappedByExt['.js']),
+    '.css': normalizeForComparison(headerWrappedByExt['.css']),
+    '.liquid': normalizeForComparison(headerWrappedByExt['.liquid']),
+    '.md': normalizeForComparison(headerWrappedByExt['.md']),
   };
 
   let processed = 0;
@@ -258,12 +248,7 @@ async function main() {
     const ext = path.extname(filePath).toLowerCase();
     if (!targetExtensions.has(ext)) return;
     processed++;
-    const res = await processFile(
-      filePath,
-      headerPlain,
-      headerWrappedByExt,
-      normalizedWrappedHeader
-    );
+    const res = await processFile(filePath, headerPlain, headerWrappedByExt, normalizedWrappedHeader);
     if (res.skipped) {
       skipped++;
     } else {
@@ -274,26 +259,22 @@ async function main() {
     }
   });
 
-  console.log("--- add-header summary ---");
+  console.log('--- add-header summary ---');
   console.log(`Header source: ${path.resolve(headerPath)}`);
   console.log(`Root walked: ${path.resolve(rootPath)}`);
   console.log(`Files scanned (target extensions): ${processed}`);
   console.log(`Headers inserted: ${inserted}`);
-  console.log(
-    `Files skipped (already had header or not applicable): ${skipped}`
-  );
+  console.log(`Files skipped (already had header or not applicable): ${skipped}`);
   if (errors.length) {
     console.log(`Errors: ${errors.length}`);
     errors.slice(0, 10).forEach((e) => {
-      console.error(
-        `  ${e.file}: ${e.reason} ${e.err ? "- " + e.err.message : ""}`
-      );
+      console.error(`  ${e.file}: ${e.reason} ${e.err ? '- ' + e.err.message : ''}`);
     });
   }
-  console.log("Done.");
+  console.log('Done.');
 }
 
 main().catch((err) => {
-  console.error("Fatal error:", err);
+  console.error('Fatal error:', err);
   process.exit(1);
 });

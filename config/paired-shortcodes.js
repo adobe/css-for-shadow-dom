@@ -12,12 +12,12 @@
  */
 
 const button = (content, href, btnSize, btnType) => {
-  const type = btnType || "secondary";
-  const size = btnSize || "M";
+  const type = btnType || 'secondary';
+  const size = btnSize || 'M';
   const classes = `spectrum-Button spectrum-Button--fill spectrum-Button--${type} spectrum-Button--size${size}`;
   const label = `<span class="spectrum-Button-label">${content}</span>`;
 
-  if (href != "") {
+  if (href != '') {
     return `<a href="${href}" class="${classes}">${label}</a>`;
   } else {
     return `<button class="${classes}">${label}</button>`;
@@ -25,13 +25,13 @@ const button = (content, href, btnSize, btnType) => {
 };
 
 const testResult = (content, result) => {
-  let status = "";
+  let status = '';
   switch (result) {
-    case "passes":
-      status = "pass";
+    case 'passes':
+      status = 'pass';
       break;
-    case "fails":
-      status = "fail";
+    case 'fails':
+      status = 'fail';
       break;
     default:
       status = result;

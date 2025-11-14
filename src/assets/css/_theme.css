@@ -37,10 +37,5 @@
   --gradient-start: var(--color-supported);
   --gradient-mid: var(--spectrum-fuchsia-700);
   --gradient-stop: var(--spectrum-indigo-1000);
-  --gradient: linear-gradient(
-    to right,
-    var(--gradient-start),
-    var(--gradient-mid) 70%,
-    var(--gradient-stop) 100%
-  );
+  --gradient: linear-gradient(to right, var(--gradient-start), var(--gradient-mid) 70%, var(--gradient-stop) 100%);
 }

@@ -14,5 +14,4 @@ node_modules
 Thumbs.db
 
 # IDE files
-.vscode
 .zed
