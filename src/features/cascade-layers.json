@@ -1,0 +1,13 @@
+{
+  "wpt": ["/css/css-cascade/layer-slotted-rule.html"],
+  "resources": [
+    {
+      "label": "Cascade Layers on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer"
+    },
+    {
+      "label": "Getting Started With CSS Cascade Layers",
+      "url": "https://www.smashingmagazine.com/2022/01/introduction-css-cascade-layers/"
+    }
+  ]
+}

@@ -66,6 +66,15 @@ const getWptResults = async (testScopes) => {
 
         const tests = browserResults.subtests;
 
+        if (tests.length === 0 && browserResults.status) {
+          const testName = testScope.split('/').pop().replace('.html', '');
+
+          testResults[testName] = {
+            ...testResults[testName],
+            [browser.name]: browserResults.status,
+          };
+        }
+
         for (const test of tests) {
           testResults[test.name] = {
             ...testResults[test.name],

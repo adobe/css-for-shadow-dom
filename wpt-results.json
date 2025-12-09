@@ -1,8 +1,8 @@
 {
-  "testQueryDate": "11/14/2025",
+  "testQueryDate": "12/9/2025",
   "browserVersions": {
-    "chrome": "142",
-    "edge": "142",
+    "chrome": "143",
+    "edge": "143",
     "firefox": "145",
     "safari": "26.1"
   },
@@ -76,6 +76,10 @@
           "safari": "FAIL"
         }
       }
+    },
+    {
+      "title": "Cascade layers",
+      "failing": "none"
     }
   ]
 }
