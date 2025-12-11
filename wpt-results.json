@@ -88,6 +88,10 @@
       "failing": "none"
     },
     {
+      "title": "Color Scheme",
+      "failing": "none"
+    },
+    {
       "title": "Native Nesting",
       "summary": {
         "chrome": "passes",
