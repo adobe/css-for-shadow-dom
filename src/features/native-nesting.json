@@ -1,0 +1,31 @@
+{
+  "wpt": [
+    "/css/css-nesting/host-nesting-001.html",
+    "/css/css-nesting/host-nesting-002.html",
+    "/css/css-nesting/host-nesting-003.html",
+    "/css/css-nesting/host-nesting-004.html",
+    "/css/css-nesting/host-nesting-005.html"
+  ],
+  "issues": [
+    {
+      "label": "Allowing & after ::part()",
+      "description": "Discussion has closed on allowing & after ::part()",
+      "status": "stable",
+      "links": [
+        {
+          "url": "https://github.com/w3c/csswg-drafts/issues/10788"
+        }
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "label": "Using CSS Nesting on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting/Using"
+    },
+    {
+      "label": "CSS Nesting",
+      "url": "https://ishadeed.com/article/css-nesting/"
+    }
+  ]
+}
