@@ -1,5 +1,5 @@
 {
-  "testQueryDate": "12/11/2025",
+  "testQueryDate": "12/12/2025",
   "browserVersions": {
     "chrome": "143",
     "edge": "143",
@@ -88,10 +88,6 @@
       "failing": "none"
     },
     {
-      "title": "Color Scheme",
-      "failing": "none"
-    },
-    {
       "title": "Native Nesting",
       "summary": {
         "chrome": "passes",
@@ -99,6 +95,14 @@
         "firefox": "passes",
         "safari": "passes"
       },
+      "failing": "none"
+    },
+    {
+      "title": "light-dark()",
+      "failing": "none"
+    },
+    {
+      "title": "Color Scheme",
       "failing": "none"
     }
   ]

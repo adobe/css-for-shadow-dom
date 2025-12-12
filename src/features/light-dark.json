@@ -1,0 +1,33 @@
+{
+  "resources": [
+    {
+      "label": "light-dark() on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark"
+    },
+    {
+      "label": "Come to the light-dark() Side",
+      "url": "https://css-tricks.com/come-to-the-light-dark-side/"
+    },
+    {
+      "label": "The Future of CSS: light-dark()",
+      "url": "https://www.bram.us/2023/10/09/the-future-of-css-easy-light-dark-mode-color-switching-with-light-dark/"
+    },
+    {
+      "label": "Querying the Color Scheme",
+      "url": "https://blog.kizu.dev/querying-the-color-scheme/"
+    },
+    {
+      "label": "Page and Component Light/Dark Strategies",
+      "url": "https://nerdy.dev/page-and-component-light-dark-strategies"
+    },
+    {
+      "label": "light-dark() on web.dev",
+      "url": "https://web.dev/articles/light-dark"
+    },
+    {
+      "label": "CSS light-dark()",
+      "url": "https://12daysofweb.dev/2024/css-light-dark/"
+    }
+  ]
+}
+
