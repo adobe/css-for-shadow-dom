@@ -1,0 +1,42 @@
+{
+  "wpt": [
+    "/css/css-scoping/has-slotted-001.html",
+    "/css/css-scoping/has-slotted-002.html",
+    "/css/css-scoping/has-slotted-003.html",
+    "/css/css-scoping/host-has-internal-001.html",
+    "/css/css-scoping/host-has-internal-002.html",
+    "/css/css-scoping/host-has-internal-003.html",
+    "/css/css-scoping/host-has-internal-004.html",
+    "/css/css-scoping/slotted-has-001.html",
+    "/css/css-scoping/slotted-has-002.html",
+    "/css/css-scoping/slotted-has-003.html",
+    "/css/css-scoping/slotted-has-004.html"
+  ],
+  "resources": [
+    {
+      "label": ":has() on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+    },
+    {
+      "label": "Using :has() as a CSS Parent Selector",
+      "url": "https://webkit.org/blog/13096/css-has-pseudo-class/"
+    },
+    {
+      "label": "The :has() Selector",
+      "url": "https://www.joshwcomeau.com/css/has/"
+    },
+    {
+      "label": "CSS :has() Guide",
+      "url": "https://ishadeed.com/article/css-has-guide/"
+    },
+    {
+      "label": "Level Up Your CSS Skills With The :has() Selector",
+      "url": "https://www.smashingmagazine.com/2023/01/level-up-css-skills-has-selector/"
+    },
+    {
+      "label": "CSS :has() Selector",
+      "url": "https://12daysofweb.dev/2022/css-has-selector/"
+    }
+  ]
+}
+

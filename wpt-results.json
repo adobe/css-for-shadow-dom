@@ -1,10 +1,10 @@
 {
-  "testQueryDate": "12/12/2025",
+  "testQueryDate": "12/15/2025",
   "browserVersions": {
     "chrome": "143",
     "edge": "143",
     "firefox": "146",
-    "safari": "26.1"
+    "safari": "26.2"
   },
   "results": [
     {
@@ -33,12 +33,6 @@
         "safari": "fails"
       },
       "failing": {
-        "Match container for ::before in ::slotted selector's originating element tree": {
-          "chrome": "PASS",
-          "edge": "PASS",
-          "firefox": "PASS",
-          "safari": "FAIL"
-        },
         "Container name set inside a shadow tree should match query using ::part on the outside": {
           "chrome": "FAIL",
           "edge": "PASS",
@@ -49,25 +43,19 @@
           "chrome": "FAIL",
           "edge": "PASS",
           "firefox": "PASS",
-          "safari": "FAIL"
+          "safari": "PASS"
         },
         "Container name set on :host from inside a shadow tree should match query for slotted from the outside of the shadow tree": {
           "chrome": "FAIL",
           "edge": "PASS",
           "firefox": "PASS",
-          "safari": "FAIL"
-        },
-        "The originating element should be the first container candidate of ::before": {
-          "chrome": "PASS",
-          "edge": "PASS",
-          "firefox": "PASS",
-          "safari": "FAIL"
+          "safari": "PASS"
         },
         "Outer scope query should match container-name set by :host rule in shadow tree": {
           "chrome": "FAIL",
           "edge": "PASS",
           "firefox": "PASS",
-          "safari": "FAIL"
+          "safari": "PASS"
         },
         "Outer scope query should match container-name set by ::slotted rule in shadow tree": {
           "chrome": "FAIL",
@@ -98,11 +86,82 @@
       "failing": "none"
     },
     {
-      "title": "light-dark()",
+      "title": "Color Scheme",
       "failing": "none"
     },
     {
-      "title": "Color Scheme",
+      "title": ":has()",
+      "summary": {
+        "chrome": "fails",
+        "edge": "fails",
+        "firefox": "fails",
+        "safari": "fails"
+      },
+      "failing": {
+        "has-slotted-001": {
+          "chrome": "FAIL",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        },
+        "has-slotted-003": {
+          "chrome": "FAIL",
+          "edge": "PASS",
+          "firefox": "PASS",
+          "safari": "FAIL"
+        },
+        "host-has-internal-001": {
+          "chrome": "PASS",
+          "edge": "PASS",
+          "firefox": "FAIL",
+          "safari": "FAIL"
+        },
+        "host-has-internal-002": {
+          "chrome": "PASS",
+          "edge": "PASS",
+          "firefox": "FAIL",
+          "safari": "FAIL"
+        },
+        "host-has-internal-003": {
+          "chrome": "PASS",
+          "edge": "PASS",
+          "firefox": "FAIL",
+          "safari": "FAIL"
+        },
+        "host-has-internal-004": {
+          "chrome": "PASS",
+          "edge": "PASS",
+          "firefox": "FAIL",
+          "safari": "FAIL"
+        },
+        "slotted-has-001": {
+          "chrome": "FAIL",
+          "edge": "FAIL",
+          "firefox": "PASS",
+          "safari": "PASS"
+        },
+        "slotted-has-002": {
+          "chrome": "FAIL",
+          "edge": "FAIL",
+          "firefox": "PASS",
+          "safari": "PASS"
+        },
+        "slotted-has-003": {
+          "chrome": "FAIL",
+          "edge": "FAIL",
+          "firefox": "PASS",
+          "safari": "PASS"
+        },
+        "slotted-has-004": {
+          "chrome": "FAIL",
+          "edge": "FAIL",
+          "firefox": "PASS",
+          "safari": "PASS"
+        }
+      }
+    },
+    {
+      "title": "light-dark()",
       "failing": "none"
     }
   ]
