@@ -2,7 +2,6 @@
 title: 'light-dark()'
 description: 'A color function for defining two values, the first responding to light mode and the second to dark mode based on user preference or in response to an explicit value on color-scheme.'
 support: 'caution'
-baseline: 'newly'
 functional: 'supported'
 usage: 'cross-boundary'
 ---

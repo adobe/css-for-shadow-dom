@@ -37,6 +37,7 @@ class WPTResults {
       const failingTests = feature.data.wptResults.failing;
       output.results.push({
         title: feature.data.title,
+        baseline: feature.data.baseline,
         summary: feature.data.wptResults.summary,
         failing: failingTests ?? 'none',
       });

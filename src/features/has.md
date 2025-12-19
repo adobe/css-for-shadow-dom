@@ -2,7 +2,6 @@
 title: ':has()'
 description: 'Selector for selecting the parent or previous element based on detecting the presence of child elements or sibling relationships'
 support: 'caution'
-baseline: 'newly'
 functional: 'progressing'
 usage: 'cross-context'
 ---

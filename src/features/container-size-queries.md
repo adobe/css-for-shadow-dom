@@ -2,9 +2,9 @@
 title: 'Container Size Queries'
 description: 'Enable querying the size of a defined container and responding to that size by applying rulesets to its children.'
 support: 'acceptable'
-baseline: 'newly'
 functional: 'critical'
 usage: 'cross-boundary'
+baselineFeature: 'container-queries'
 ---
 
 <!--

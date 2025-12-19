@@ -2,7 +2,6 @@
 title: 'Native Nesting'
 description: ''
 support: 'acceptable'
-baseline: 'widely'
 functional: 'supported'
 usage: 'cross-context'
 ---

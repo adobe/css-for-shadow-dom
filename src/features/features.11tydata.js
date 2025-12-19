@@ -18,6 +18,8 @@
  */
 import Fetch from '@11ty/eleventy-fetch';
 
+import { features } from 'web-features';
+
 const getBrowserRuns = async () => {
   const browserRunsUrl =
     'https://wpt.fyi/api/runs?label=master&label=stable&max-count=1&product=chrome&product=edge&product=firefox&product=safari';
@@ -122,10 +124,23 @@ const getWptResults = async (testScopes) => {
   return results;
 };
 
+const getBaselineStatus = (data) => {
+  const feature = data.baselineFeature || data.page.fileSlug;
+  const status = features[feature].status.baseline;
+
+  return (
+    {
+      low: 'newly',
+      high: 'widely',
+    }[status] ?? 'limited'
+  );
+};
+
 // TODO: Allow filtering of subtests for example /css-scoping/ filter by host-has-*
 export default {
   eleventyComputed: {
     wptResults: async (data) => (data.wpt ? await getWptResults(data.wpt) : false),
     wptBrowsers: await getBrowserVersions(),
+    baseline: (data) => getBaselineStatus(data),
   },
 };

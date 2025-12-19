@@ -2,9 +2,9 @@
 title: '@property'
 description: 'Allows for property type checking and constraining, setting default values, and defining whether or not a custom property can inherit values. '
 support: 'acceptable'
-baseline: 'newly'
 functional: 'critical'
 usage: 'light-dom-priority'
+baselineFeature: 'registered-custom-properties'
 ---
 
 <!--

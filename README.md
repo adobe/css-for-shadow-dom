@@ -81,13 +81,15 @@ The Markdown file expects the following frontmatter:
 title: 'Main Feature Title'
 description: 'Short definition for the CSS property/feature'
 support: 'acceptable|supported|caution|discouraged'
-baseline: 'newly|widely|limited' # TODO: automate this status
 functional: 'unsupported|low|progressing|critical|supported'
 usage: 'light-dom-priority|cross-context|cross-boundary'
+baselineFeature: '' # Include only if filename differs from feature ID
 ---
 ```
 
-Where `support`, `baseline`, `functional`, and `usage` maps to definitions provided in corresponding global data files in `_data`.
+Where `support`, `functional`, and `usage` maps to definitions provided in corresponding global data files in `_data`.
+
+For `baselineFeature`, find the match in [the web-features repo](https://github.com/web-platform-dx/web-features/tree/main/features) by doing a file search in the sidebar. If it differs from the filename in use, use the web-features name as the value for `baselineFeature`. Otherwise, the automation to pull the correct Baseline status will fail.
 
 > [!IMPORTANT]
 > Each build has the potential to update the generated `wpt-results.json`, and those diffs should be examined to see if modified test results necessitate changing support definitions for the corresponding features.

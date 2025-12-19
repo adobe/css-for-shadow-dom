@@ -2,7 +2,6 @@
 title: 'Cascade layers'
 description: 'Allows for controlling the specificity and order of rule sets across stylesheets'
 support: 'supported'
-baseline: 'widely'
 functional: 'supported'
 usage: 'cross-context'
 ---

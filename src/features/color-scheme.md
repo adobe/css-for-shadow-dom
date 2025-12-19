@@ -2,7 +2,6 @@
 title: 'Color Scheme'
 description: 'Allows elements to define which color schemes they may be rendered in: light, dark, or prioritizing the order for both'
 support: 'supported'
-baseline: 'widely'
 functional: 'supported'
 usage: 'cross-boundary'
 ---
