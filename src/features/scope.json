@@ -1,0 +1,56 @@
+{
+  "wpt": [
+    "/css/css-cascade/scope-shadow.html",
+    "/css/css-cascade/scope-shadow-sharing.html",
+    "/css/css-scoping/scope-pseudo-in-shadow.html"
+  ],
+  "resources": [
+    {
+      "label": "@scope on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@scope"
+    },
+    {
+      "label": "Scope in CSS",
+      "url": "https://fullystacked.net/scope-in-css/"
+    },
+    {
+      "label": "@scope on Chrome Developers",
+      "url": "https://developer.chrome.com/docs/css-ui/at-scope"
+    },
+    {
+      "label": "CSS @scope Rule",
+      "url": "https://css-tricks.com/almanac/rules/s/scope/"
+    },
+    {
+      "label": "CSS @scope",
+      "url": "https://12daysofweb.dev/2023/css-scope/"
+    },
+    {
+      "label": "Scoped CSS is Back",
+      "url": "https://keithjgrant.com/posts/2023/04/scoped-css-is-back/"
+    }
+  ],
+  "issues": [
+    {
+      "label": ":root should resolve to :host in shadow trees",
+      "description": "Discussion on whether :root should resolve to :host when used within shadow DOM context",
+      "status": "may-change",
+      "links": [
+        {
+          "url": "https://github.com/w3c/csswg-drafts/issues/11000"
+        }
+      ]
+    },
+    {
+      "label": ":scope and featureless elements",
+      "description": "Issue regarding :scope behavior with featureless elements like :host",
+      "status": "may-change",
+      "links": [
+        {
+          "url": "https://github.com/w3c/csswg-drafts/issues/9025"
+        }
+      ]
+    }
+  ]
+}
+

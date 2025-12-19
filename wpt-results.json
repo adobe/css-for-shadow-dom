@@ -9,7 +9,6 @@
   "results": [
     {
       "title": "@property",
-      "baseline": "newly",
       "summary": {
         "chrome": "fails",
         "edge": "fails",
@@ -26,24 +25,7 @@
       }
     },
     {
-      "title": "Cascade layers",
-      "baseline": "widely",
-      "summary": {
-        "chrome": "passes",
-        "edge": "passes",
-        "firefox": "passes",
-        "safari": "passes"
-      },
-      "failing": "none"
-    },
-    {
-      "title": "Color Scheme",
-      "baseline": "widely",
-      "failing": "none"
-    },
-    {
       "title": "Container Size Queries",
-      "baseline": "widely",
       "summary": {
         "chrome": "fails",
         "edge": "passes",
@@ -84,8 +66,35 @@
       }
     },
     {
+      "title": "Cascade layers",
+      "summary": {
+        "chrome": "passes",
+        "edge": "passes",
+        "firefox": "passes",
+        "safari": "passes"
+      },
+      "failing": "none"
+    },
+    {
+      "title": "Native Nesting",
+      "summary": {
+        "chrome": "passes",
+        "edge": "passes",
+        "firefox": "passes",
+        "safari": "passes"
+      },
+      "failing": "none"
+    },
+    {
+      "title": "Color Scheme",
+      "failing": "none"
+    },
+    {
+      "title": "light-dark()",
+      "failing": "none"
+    },
+    {
       "title": ":has()",
-      "baseline": "newly",
       "summary": {
         "chrome": "fails",
         "edge": "fails",
@@ -156,13 +165,7 @@
       }
     },
     {
-      "title": "light-dark()",
-      "baseline": "newly",
-      "failing": "none"
-    },
-    {
-      "title": "Native Nesting",
-      "baseline": "newly",
+      "title": "@scope",
       "summary": {
         "chrome": "passes",
         "edge": "passes",
