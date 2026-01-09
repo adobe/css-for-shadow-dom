@@ -1,73 +1,104 @@
 {% comment %}
-/*
- * Copyright 2025 Adobe. All rights reserved.
- * 
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
- * 
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
-*/
+  /*
+   * Copyright 2026 Adobe. All rights reserved.
+   *
+   * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License. You may obtain a copy
+   * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
+   *
+   * Unless required by applicable law or agreed to in writing, software distributed under
+   * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+   * OF ANY KIND, either express or implied. See the License for the specific language
+   * governing permissions and limitations under the License.
+  */
+{% endcomment %}
+{% comment %}
+  /*
+   * Copyright 2026 Adobe. All rights reserved.
+   *
+   * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License. You may obtain a copy
+   * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
+   *
+   * Unless required by applicable law or agreed to in writing, software distributed under
+   * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+   * OF ANY KIND, either express or implied. See the License for the specific language
+   * governing permissions and limitations under the License.
+  */
+{% endcomment %}
+{% comment %}
+  /*
+   * Copyright 2026 Adobe. All rights reserved.
+   *
+   * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License. You may obtain a copy
+   * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
+   *
+   * Unless required by applicable law or agreed to in writing, software distributed under
+   * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+   * OF ANY KIND, either express or implied. See the License for the specific language
+   * governing permissions and limitations under the License.
+  */
 {% endcomment %}
 <footer>
-    <div class="wrapper">
-        <h2 class="visually-hidden">Support Definition Keys</h2>
-        <div id="keys">
-            <div class="stack stack--gapS">
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium">Support Categories</h3>
-                <ul role="list" class="stack stack--gapS">
-                    <li>{% support "supported" %}</li>
-                    <li>{% support "acceptable" %}</li>
-                    <li>{% support "caution" %}</li>
-                    <li>{% support "discouraged" %}</li>
-                </ul>
-            </div>
-            <div class="stack stack--gapS">
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium">Functional Support Key</h3>
-                <ul role="list" class="stack stack--gapS icon-list">
-                    {%- for item in functional-levels -%}
-                        {%- assign label = item[0] -%}
-                        {%- assign description = item[1] -%}
-                        {% assign iconName = "functional-" | append: label %}
-                        <li class="spectrum-Body spectrum-Body--sizeXS">
-                            <span class="icon">
-                                {% icon iconName %}
-                            </span>
-                            <span>
-                                <strong>{{ label | titleCase }}:</strong>
-                                {{ description }}
-                            </span>
-                        </li>
-                    {%- endfor -%}
-                </ul>
-            </div>
-            <div class="stack stack--gapS">
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium">Shadow DOM Usage Key</h3>
-                <ul role="list" class="stack stack--gapS icon-list">
-                    {%- for item in shadow-dom-usage-types -%}
-                        {%- assign label = item[0] -%}
-                        {%- assign description = item[1] -%}
-                        {% assign iconName = "usage-" | append: label %}
-                        <li class="spectrum-Body spectrum-Body--sizeXS">
-                            <span class="icon">
-                                {% icon iconName %}
-                            </span>
-                            <span>
-                                <strong>{{ label | titleCase }}:</strong>
-                                {{ description }}
-                            </span>
-                        </li>
-                    {%- endfor -%}
-                </ul>
-            </div>
-            
-        </div>
-        <div id="copyright" class="spectrum-Body spectrum-Body--sizeS text-color--medium">
-            <p class="spectrum-Body-strong">Made with <span class="text-color--adobe">&hearts;</span> by the Adobe Spectrum CSS team</p>
-            <p>Copyright © {% year %} Adobe. All rights reserved.</p>
-        </div>
+  <div class='wrapper'>
+    <h2 class='visually-hidden'>Support Definition Keys</h2>
+    <div id='keys'>
+      <div class='stack stack--gapS'>
+        <h3 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium'>Support Categories</h3>
+        <ul role='list' class='stack stack--gapS'>
+          <li>{% support "supported" %}</li>
+          <li>{% support "acceptable" %}</li>
+          <li>{% support "caution" %}</li>
+          <li>{% support "discouraged" %}</li>
+        </ul>
+      </div>
+      <div class='stack stack--gapS'>
+        <h3 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium'>
+          Functional Support Key
+        </h3>
+        <ul role='list' class='stack stack--gapS icon-list'>
+          {%- for item in functional-levels -%}
+            {%- assign label = item[0] -%}
+            {%- assign description = item[1] -%}
+            {% assign iconName = 'functional-' | append: label %}
+            <li class='spectrum-Body spectrum-Body--sizeXS'>
+              <span class='icon'>
+                {% icon iconName %}
+              </span>
+              <span>
+                <strong>{{ label | titleCase }}:</strong>
+                {{ description }}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class='stack stack--gapS'>
+        <h3 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-strong text-color--medium'>Shadow DOM Usage Key</h3>
+        <ul role='list' class='stack stack--gapS icon-list'>
+          {%- for item in shadow-dom-usage-types -%}
+            {%- assign label = item[0] -%}
+            {%- assign description = item[1] -%}
+            {% assign iconName = 'usage-' | append: label %}
+            <li class='spectrum-Body spectrum-Body--sizeXS'>
+              <span class='icon'>
+                {% icon iconName %}
+              </span>
+              <span>
+                <strong>{{ label | titleCase }}:</strong>
+                {{ description }}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
     </div>
+    <div id='copyright' class='spectrum-Body spectrum-Body--sizeS text-color--medium'>
+      <p class='spectrum-Body-strong'>
+        Made with <span class='text-color--adobe'>&hearts;</span> by the Adobe Spectrum CSS team
+      </p>
+      <p>Copyright © {% year %} Adobe. All rights reserved.</p>
+    </div>
+  </div>
 </footer>
