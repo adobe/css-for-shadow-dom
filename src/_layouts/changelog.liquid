@@ -16,11 +16,10 @@ layout: base.liquid
   */
 {% endcomment %}
 <header>
-  <div class='wrapper'>
-    <h1 class='spectrum-Heading spectrum-Heading--sizeXXL'>{{ title }}</h1>
-    {%- if description -%}
-      <p class='spectrum-Body spectrum-Body--sizeXXXL'>{{ description }}</p>
-    {%- endif -%}
+  <div class='wrapper stack stack--gapS'>
+    <h1 class='spectrum-Heading spectrum-Heading--sizeXXL'>Changelog for: {{ feature | titleCase }}</h1>
+
+    <a href='/features/{{ feature }}/'>View Feature</a>
   </div>
 </header>
 

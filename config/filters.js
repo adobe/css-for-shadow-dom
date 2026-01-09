@@ -12,13 +12,19 @@
  */
 
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime.js';
 import slugify from 'slugify';
 import { titleCase as titleCaseFn } from 'title-case';
 import { url } from '../src/_data/meta.js';
 
+dayjs.extend(relativeTime);
+
 const toISOString = (dateString) => dayjs(dateString).toISOString();
 
 const formatDate = (date, format) => dayjs(date).format(format);
+
+// Only useful if we are able to do daily builds
+const relativeDate = (date) => dayjs().to(date);
 
 const slugifyString = (str) => {
   return slugify(str, {
@@ -30,22 +36,21 @@ const slugifyString = (str) => {
 
 const titleCase = (str) => {
   let title = '';
-  switch (str) {
-    case 'light-dom-priority':
-      title = 'Light DOM Priority';
-      break;
-    case 'will-change':
-      title = 'Will Change';
-      break;
-    case 'may-change':
-      title = 'May Change';
-      break;
-    default:
-      return titleCaseFn(str);
-      break;
+
+  if (str.startsWith('at-')) {
+    title = str.replace('at-', '@');
+  } else {
+    switch (str) {
+      case 'light-dom-priority':
+        title = 'Light DOM Priority';
+        break;
+      default:
+        title = titleCaseFn(str);
+        break;
+    }
   }
 
-  return title;
+  return !title.includes('Cross-') ? title.replaceAll('-', ' ') : title;
 };
 
 const removeExtension = (str) => str.replace(/\.[^\/.]+$/, '');
@@ -60,14 +65,29 @@ const issueID = (str) => {
   return '';
 };
 
+const testStatus = (status) => (status === 'FAIL' ? 'fails' : 'passes');
+
+const changelogEntryTitle = (type) => {
+  return {
+    'test-added': 'New failing test',
+    'test-removed': 'New passing test',
+    'test-result': 'Updated test result',
+    baseline: 'Updated Baseline',
+    milestone: 'New milestone',
+  }[type];
+};
+
 const absoluteUrl = (href) => `${url}${href}`;
 
 export default {
   toISOString,
   formatDate,
+  relativeDate,
   slugifyString,
   titleCase,
   removeExtension,
   issueID,
+  testStatus,
+  changelogEntryTitle,
   absoluteUrl,
 };

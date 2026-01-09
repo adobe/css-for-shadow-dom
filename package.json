@@ -9,14 +9,15 @@
     "node": ">=20.x.x"
   },
   "scripts": {
-    "start": "cross-env npm run clean && ENV=dev eleventy --serve",
-    "build": "cross-env npm run clean && ENV=prod eleventy",
+    "start": "cross-env npm run clean && npm run changelogs && ENV=dev eleventy --serve",
+    "build": "cross-env npm run clean && npm run changelogs && ENV=prod eleventy",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
     "clean": "rimraf dist .cache",
     "clean:gh-pages": "rimraf node_modules/.cache/gh-pages",
     "publish:docs": "cross-env URL=https://oneadobe.github.io/css-for-shadow-dom npm run build --pathprefix=/css-for-shadow-dom/ && gh-pages -d dist/ -f -e . --nojekyll",
     "prepare": "husky",
-    "copyright": "node bin/copyright-header.js"
+    "copyright": "node bin/copyright-header.js",
+    "changelogs": "node bin/changelogs.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

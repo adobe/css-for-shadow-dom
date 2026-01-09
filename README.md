@@ -74,6 +74,8 @@ For each feature, two files are expected:
 - [feature-name].md - provides the critical metadata and support definition
 - [feature-name].json - supplemental data, described in next section
 
+Additionally, a changelog file is auto-generated, but may also be manually modified.
+
 The Markdown file expects the following frontmatter:
 
 ```md
@@ -89,10 +91,8 @@ baselineFeature: '' # Include only if filename differs from feature ID
 
 Where `support`, `functional`, and `usage` maps to definitions provided in corresponding global data files in `_data`.
 
-For `baselineFeature`, find the match in [the web-features repo](https://github.com/web-platform-dx/web-features/tree/main/features) by doing a file search in the sidebar. If it differs from the filename in use, use the web-features name as the value for `baselineFeature`. Otherwise, the automation to pull the correct Baseline status will fail.
-
 > [!IMPORTANT]
-> Each build has the potential to update the generated `wpt-results.json`, and those diffs should be examined to see if modified test results necessitate changing support definitions for the corresponding features.
+> Each build has the potential to update the changelogs, and those diffs should be examined to see if modified test results necessitate changing support definitions for the corresponding features.
 
 ### Feature JSON Data
 
@@ -103,12 +103,14 @@ The data may include:
 - Web Platform Test sources
 - resource links
 - related issues
+- baseline feature id - _include only if different from file name_
 
 Here is the full available schema:
 
 ```json
 {
   "wpt": ["/css/[full-test-path-1].html", "/css/[full-test-path-2].html"],
+  "baselineFeature": "",
   "resources": [
     {
       "label": "",
@@ -130,6 +132,8 @@ Here is the full available schema:
   ]
 }
 ```
+
+For `baselineFeature`, find the match in [the web-features repo](https://github.com/web-platform-dx/web-features/tree/main/features) by doing a file search in the sidebar. If it differs from the local filename in use, use the web-features name as the value for `baselineFeature`. Otherwise, the automation to pull the correct Baseline status will fail.
 
 ### `wpt` data
 
@@ -154,7 +158,7 @@ The naming convention for these tests usually follows the spec, hence why contai
 You can use the search on WPT to do partial string searches for the primary CSS feature, such as `at-property` to get a list of available test suites. From there, you'll have to check sub-tests to determine if relevant shadow DOM tests are available.
 
 > [!IMPORTANT]
-> Build-time compiled test result data is saved to `wpt-results.json` for tracking test history to enable reviewing and updating feature support definitions when changes occur.
+> Build-time compiled test result data is saved to `_data/snapshot.json` for tracking test history to enable reviewing and updating feature support definitions when changes occur.
 
 The fetched test results are locally cached for 12 hours. You can refresh the data by removing the cache with `npm run clean`.
 
@@ -179,3 +183,11 @@ Acceptable `status` values include:
 - `will-change` - issue discussion shows progress towards an implementation adjustment or agreement towards making an adjustment (like a CSSWG resolution)
 - `may-change` - there is active discussion but no, or only partial, implementation progression
 - `stable` - issue has discussion or resolution pointing to no-change to identified behavior
+
+## Changelogs
+
+Changelogs are auto-generated based on the Baseline status and results from WPT.
+
+They are located in `src/_data/changelogs`, one per feature.
+
+If needed, you can modify the entry or add a manual entry. Manual entries should follow the shape of existing entries, with the `id` field tagged with the date and `-manual` as well as use the `type` of `manual`.

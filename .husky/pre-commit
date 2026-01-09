@@ -1,4 +1,5 @@
 node bin/copyright-header.js && git add -A .
+node bin/changelogs.js && git add -A .
 npx lint-staged
 npm run clean:gh-pages
 npm run publish:docs

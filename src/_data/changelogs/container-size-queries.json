@@ -1,0 +1,15 @@
+[
+  {
+    "id": "2025-12-17-automated",
+    "date": "2025-12-17",
+    "type": "automated",
+    "severity": "improvement",
+    "summary": "Began tracking feature",
+    "changes": [
+      {
+        "type": "feature-added",
+        "severity": "improvement"
+      }
+    ]
+  }
+]

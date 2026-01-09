@@ -1,3 +1,10 @@
+---
+title: 'Changelog for All Features'
+layout: 'page.liquid'
+eleventyExcludeFromCollections: true
+---
+
+<!--
 /*
  * Copyright 2025 Adobe. All rights reserved.
  *
@@ -9,15 +16,20 @@
  * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
- */
+*/
+-->
 
-import { getWptResults, getBrowserVersions, getBaselineStatus } from '../scripts/feature-data.js';
+{% for day in changelog-index %}
 
-// TODO: Allow filtering of subtests for example /css-scoping/ filter by host-has-*
-export default {
-  eleventyComputed: {
-    wptResults: async (data) => (data.wpt ? await getWptResults(data.wpt) : false),
-    wptBrowsers: await getBrowserVersions(),
-    baseline: (data) => getBaselineStatus(data),
-  },
-};
+  <article>
+    <h2 class="spectrum-Body spectrum-Body--sizeS"><em>{{ day.date | formatDate: 'MMMM D, YYYY' }}</em></h2>
+
+    <ul>
+    {% for entry in day.entries %}
+        <li><strong><a href="/changelog/{{ entry.feature}}/">{{ entry.feature | titleCase }}</a>:</strong> {{ entry.summary }}</li>
+    {% endfor %}
+    </ul>
+
+  </article>
+
+{% endfor %}

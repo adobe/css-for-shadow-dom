@@ -11,13 +11,25 @@
  * governing permissions and limitations under the License.
  */
 
-import { getWptResults, getBrowserVersions, getBaselineStatus } from '../scripts/feature-data.js';
+import fs from 'fs';
+import path from 'path';
 
-// TODO: Allow filtering of subtests for example /css-scoping/ filter by host-has-*
-export default {
-  eleventyComputed: {
-    wptResults: async (data) => (data.wpt ? await getWptResults(data.wpt) : false),
-    wptBrowsers: await getBrowserVersions(),
-    baseline: (data) => getBaselineStatus(data),
-  },
-};
+const DIR = 'src/_data/changelogs';
+
+export default function () {
+  const entries = [];
+
+  const files = fs.readdirSync(DIR).filter((f) => f.endsWith('.json'));
+
+  for (const file of files) {
+    const feature = path.basename(file, '.json');
+    const data = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+
+    entries.push({
+      feature,
+      data,
+    });
+  }
+
+  return entries;
+}

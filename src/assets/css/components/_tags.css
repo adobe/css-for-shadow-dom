@@ -18,6 +18,7 @@
   color: var(--tag-color, var(--text-body));
   font-weight: 500;
   line-height: 1;
+  letter-spacing: 0.01em;
 }
 
 .tag--supported {
@@ -29,7 +30,8 @@
   --tag-background: var(--color-caution);
 }
 
-.tag--discouraged {
+.tag--discouraged,
+.tag--regression {
   --tag-background: var(--color-negative);
   --tag-color: var(--color-light);
 }

@@ -1,5 +1,6 @@
 {
   "wpt": ["/css/css-properties-values-api/at-property-shadow.html"],
+  "baselineFeature": "registered-custom-properties",
   "issues": [
     {
       "label": "@property registration within shadow DOM",

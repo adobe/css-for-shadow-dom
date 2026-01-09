@@ -11,12 +11,19 @@
  * governing permissions and limitations under the License.
  */
 
+import { titleCase } from 'title-case';
 import supportLevels from '../src/_data/support-levels.js';
 
 const support = (supportLevel) => {
   const tagClass = `tag tag--${supportLevel} spectrum-Body spectrum-Body--sizeXS`;
 
   return `<span class="${tagClass}">${supportLevels[supportLevel]}</span>`;
+};
+
+const severity = (level) => {
+  const tagClass = `tag tag--${level} spectrum-Body spectrum-Body--sizeXS`;
+
+  return `<span class="${tagClass}">${titleCase(level)}</span>`;
 };
 
 const wptSources = (sources) => {
@@ -29,8 +36,12 @@ const wptSources = (sources) => {
 
 const year = () => `${new Date().getFullYear()}`;
 
+const severityStatus = (before, after) => (before === 'FAIL' && after === 'PASS' ? 'improved' : 'regressed');
+
 export default {
   support,
+  severity,
   wptSources,
   year,
+  severityStatus,
 };

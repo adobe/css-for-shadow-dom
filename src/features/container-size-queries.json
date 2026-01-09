@@ -3,6 +3,7 @@
     "/css/css-conditional/container-queries/container-for-shadow-dom.html",
     "/css/css-conditional/container-queries/container-name-tree-scoped.html"
   ],
+  "baselineFeature": "container-queries",
   "resources": [
     {
       "label": "Container Size Queries on MDN",

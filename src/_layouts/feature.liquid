@@ -1,89 +1,89 @@
 ---
 layout: base.liquid
 ---
-
 {% comment %}
-/*
- * Copyright 2025 Adobe. All rights reserved.
- * 
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
- * 
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
-*/
+  /*
+   * Copyright 2025 Adobe. All rights reserved.
+   *
+   * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License. You may obtain a copy
+   * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
+   *
+   * Unless required by applicable law or agreed to in writing, software distributed under
+   * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+   * OF ANY KIND, either express or implied. See the License for the specific language
+   * governing permissions and limitations under the License.
+  */
 {% endcomment %}
 <header>
-    <div class="wrapper stack stack--gapM">
-       <h1 class="spectrum-Heading spectrum-Heading--sizeXXL">{{ title }}</h1>
-       <div class="flex-row">
-            {% support support %}
-
-            <em class="spectrum-Body spectrum-Body--sizeS">Updated: 1 day ago</em>
-        </div>
+  <div class='wrapper stack stack--gapM'>
+    <h1 class='spectrum-Heading spectrum-Heading--sizeXXL'>{{ title }}</h1>
+    <div class='flex-row'>
+      {% support support %}
+      <em class='spectrum-Body spectrum-Body--sizeS'>
+        {% for log in changelogs[page.fileSlug] limit: 1 %}
+          Updated: <a href='/changelog/{{ page.fileSlug }}/'>{{ log.date | formatDate: 'MMM D, YYYY' }}</a>
+        {% endfor %}
+      </em>
     </div>
+  </div>
 </header>
 
-<main class="wrapper">
-    <p class="spectrum-Body spectrum-Body--sizeL">
-        {{ description }}
-    </p>
+<main class='wrapper'>
+  <p class='spectrum-Body spectrum-Body--sizeL'>
+    {{ description }}
+  </p>
 
-    <article class="feature">
-        <div class="feature-card feature-card--{{ support }}">
-            <div class="feature-card__body">
+  <article class='feature'>
+    <div class='feature-card feature-card--{{ support }}'>
+      <div class='feature-card__body'>
+        {% include 'components/support-definition' %}
 
-                {% include "components/support-definition" %}
-
-                <div class="feature-card__content flow-content">
-                    {{ content }}
-                </div>
-            </div>
-
-            {% if issues %}
-                <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
-
-                <div class="responsive-grid">
-                    {% for issue in issues %}
-                        {% include "components/related-issues" %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-
-            {% if wpt %}
-                <div class="feature-card__wpt">
-                    {% include "components/wpt-results" %}
-                </div>
-            {% endif %}
+        <div class='feature-card__content flow-content'>
+          {{ content }}
         </div>
-        <aside class="feature__sidebar">
-            {% comment %} 
-            TODO: populate once Blog is an available feature
-            <div class="feature-layout__blog-posts padded">
-               <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">From the Blog</h3>
-               <ul class="spectrum-Body spectrum-Body--sizeS">
-                   <li><em>July 1:</em> <a href="">A linked blog post title that pertains to this feature’s support</a></li>
-                   <li><em>April 24:</em> <a href="">Another related blog post</a></li>
-               </ul>
-           </div>
-            {% endcomment %}
+      </div>
 
-            {% if resources %}
-                <div class="padded">
-                    <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Resources</h3>
-                    <ul class="spectrum-Body spectrum-Body--sizeS">
-                        {% for resource in resources %}
-                            <li>
-                                <a href="{{ resource.url }}">{{ resource.label }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
+      {% if issues %}
+        <h3 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-strong'>Shadow DOM Related Issues</h3>
 
-        </aside>
-    </article>
+        <div class='responsive-grid'>
+          {% for issue in issues %}
+            {% include 'components/related-issues' %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if wpt %}
+        <div class='feature-card__wpt'>
+          {% include 'components/wpt-results' %}
+        </div>
+      {% endif %}
+    </div>
+    <aside class='feature__sidebar'>
+      {% comment %}
+         TODO: populate once Blog is an available feature
+         <div class="feature-layout__blog-posts padded">
+            <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">From the Blog</h3>
+            <ul class="spectrum-Body spectrum-Body--sizeS">
+                <li><em>July 1:</em> <a href="">A linked blog post title that pertains to this feature’s support</a></li>
+                <li><em>April 24:</em> <a href="">Another related blog post</a></li>
+            </ul>
+        </div>
+      {% endcomment %}
+
+      {% if resources %}
+        <div class='padded'>
+          <h3 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-strong'>Resources</h3>
+          <ul class='spectrum-Body spectrum-Body--sizeS'>
+            {% for resource in resources %}
+              <li>
+                <a href='{{ resource.url }}'>{{ resource.label }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </aside>
+  </article>
 </main>

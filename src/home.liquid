@@ -4,91 +4,101 @@ title: Modern CSS Feature Support For Shadow DOM
 description:
 permalink: "/"
 ---
-
 {% comment %}
-/*
- * Copyright 2025 Adobe. All rights reserved.
- * 
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
- * 
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
-*/
+  /*
+   * Copyright 2025 Adobe. All rights reserved.
+   *
+   * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License. You may obtain a copy
+   * of the License at <http://www.apache.org/licenses/LICENSE-2.0>
+   *
+   * Unless required by applicable law or agreed to in writing, software distributed under
+   * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+   * OF ANY KIND, either express or implied. See the License for the specific language
+   * governing permissions and limitations under the License.
+  */
 {% endcomment %}
-<header class="hero">
-    <div class="wrapper">
-        <h1 class="spectrum-Heading spectrum-Heading--sizeXXL">Modern CSS Feature Support For Shadow DOM</h1>
-        <p class="spectrum-Body spectrum-Body--sizeXXXL">Tracking the state of support for CSS features within and across the shadow DOM to provide visibility into feature parity, usage details, and outstanding issues and bugs.</p>
-        <div class="flex-row flex-row--baseline">
-            {% button "/about/", "L", "staticWhite"%}
-                About the Project
-            {% endbutton %}
-            <em class="text-wrap--pretty">Maintained by <a href="https://opensource.adobe.com/spectrum-css/">Adobe Spectrum CSS</a></em>
-        </div>
+<header class='hero'>
+  <div class='wrapper'>
+    <h1 class='spectrum-Heading spectrum-Heading--sizeXXL'>Modern CSS Feature Support For Shadow DOM</h1>
+    <p class='spectrum-Body spectrum-Body--sizeXXXL'>
+      Tracking the state of support for CSS features within and across the shadow DOM to provide visibility into feature
+      parity, usage details, and outstanding issues and bugs.
+    </p>
+    <div class='flex-row flex-row--baseline'>
+      {% button "/about/", "L", "staticWhite" %}
+      About the Project
+      {% endbutton %}
+      <em class='text-wrap--pretty'
+        >Maintained by <a href='https://opensource.adobe.com/spectrum-css/'>Adobe Spectrum CSS</a></em
+      >
     </div>
+  </div>
 </header>
 
-<main class="wrapper stack">
-    {%  for feature in collections.features  %}
-        {% assign featureSlug = feature.data.title | slugify %}
-        <article id="{{ featureSlug }}" class="feature">
-            <div class="feature-card feature-card--{{ feature.data.support }}">
-                <div class="feature-card__header">
-                    <h2 class="spectrum-Heading spectrum-Heading--sizeL"><a href="{{ feature.url }}" class="link-subtle">{{ feature.data.title }}</a></h2>
-                    <div class="flex-row">
-                        {% support feature.data.support %}
-    
-                        <em class="spectrum-Body spectrum-Body--sizeS">Updated: 1 day ago</em>
-                    </div>
-                    <p>{{ feature.data.description }}</p>
-                </div>
+<main class='wrapper stack'>
+  {% for feature in collections.features %}
+    {% assign featureSlug = feature.data.title | slugify %}
+    <article id='{{ featureSlug }}' class='feature'>
+      <div class='feature-card feature-card--{{ feature.data.support }}'>
+        <div class='feature-card__header'>
+          <h2 class='spectrum-Heading spectrum-Heading--sizeL'>
+            <a href='{{ feature.url }}' class='link-subtle'>{{ feature.data.title }}</a>
+          </h2>
+          <div class='flex-row'>
+            {% support feature.data.support %}
 
-                <div class="feature-card__body spectrum-Body spectrum-Body--sizeS">
+            <em class='spectrum-Body spectrum-Body--sizeS'>
+              {% for log in changelogs[feature.fileSlug] limit: 1 %}
+                Updated: <a href='/changelog/{{ feature.fileSlug }}/'>{{ log.date | formatDate: 'MMM D, YYYY' }}</a>
+              {% endfor %}
+            </em>
+          </div>
+          <p>{{ feature.data.description }}</p>
+        </div>
 
-                    {% include "components/support-definition" %}
+        <div class='feature-card__body spectrum-Body spectrum-Body--sizeS'>
+          {% include 'components/support-definition' %}
 
-                    <div class="feature-card__content flow-content">
-                        {{ feature.templateContent }}
-                    </div>
-                </div>
+          <div class='feature-card__content flow-content'>
+            {{ feature.templateContent }}
+          </div>
+        </div>
 
-                {% comment %} 
-                TODO: populate once Blog is an available feature
-                <div class="feature-card__blog-cta padded">
-                    <h3 class="spectrum-Body spectrum-Body--sizeS"><em>From the Blog - July 9</em></h3>
-                    <a href="" class="link-subtle spectrum-Body-strong">A linked blog post title that pertains to this feature’s support</a>
-                </div> {% endcomment %}
+        {% comment %}
+          TODO: populate once Blog is an available feature
+          <div class="feature-card__blog-cta padded">
+              <h3 class="spectrum-Body spectrum-Body--sizeS"><em>From the Blog - July 9</em></h3>
+              <a href="" class="link-subtle spectrum-Body-strong">A linked blog post title that pertains to this feature’s support</a>
+          </div>
+        {% endcomment %}
 
-                {% if feature.data.wpt %}
-                    <div class="feature-card__wpt">
-                        {% include "components/wpt-summary" %}
-                    </div>
-                {% endif %}
+        {% if feature.data.wpt %}
+          <div class='feature-card__wpt'>
+            {% include 'components/wpt-summary' %}
+          </div>
+        {% endif %}
 
-                <a class="feature-card__anchor" href="#{{ featureSlug }}">
-                    <span aria-hidden="true">#</span>
-                    <span class="visually-hidden">Anchor link for {{ feature.data.title }}</span>
-                </a>
-            </div>
-            {%- if feature.data.issues -%}
-                <aside class="feature__sidebar">
-                    <h3 class="spectrum-Body spectrum-Body--sizeS spectrum-Body-strong">Shadow DOM Related Issues</h3>
-                    <div class="responsive-grid">
-                        {%- for issue in feature.data.issues limit: 2 -%}
-                            {%- include "components/related-issues.liquid" -%}
-                        {%- endfor -%}
-                        {%- if feature.data.issues.size > 2 -%}
-                            {%- button feature.url -%}
-                                View All Issues
-                            {%- endbutton -%}
-                        {% endif %}
-                    </div>
-                </aside>
-            {%- endif -%}
-        </article>
-    {% endfor %}
+        <a class='feature-card__anchor' href='#{{ featureSlug }}'>
+          <span aria-hidden='true'>#</span>
+          <span class='visually-hidden'>Anchor link for {{ feature.data.title }}</span>
+        </a>
+      </div>
+      {%- if feature.data.issues -%}
+        <aside class='feature__sidebar'>
+          <h3 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-strong'>Shadow DOM Related Issues</h3>
+          <div class='responsive-grid'>
+            {%- for issue in feature.data.issues limit: 2 -%}
+              {%- include 'components/related-issues.liquid' -%}
+            {%- endfor -%}
+            {%- if feature.data.issues.size > 2 -%}
+              {%- button feature.url -%}
+              View All Issues
+              {%- endbutton -%}
+            {% endif %}
+          </div>
+        </aside>
+      {%- endif -%}
+    </article>
+  {% endfor %}
 </main>
