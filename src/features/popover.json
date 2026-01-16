@@ -1,0 +1,33 @@
+{
+  "wpt": [
+    "/html/semantics/popovers/popover-shadow-dom.html",
+    "/html/semantics/popovers/popover-focus-inside-shadow-dom.html",
+    "/html/semantics/popovers/popover-shadowhost-focus.html"
+  ],
+  "resources": [
+    {
+      "label": "Popover API on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API"
+    },
+    {
+      "label": "Using the Popover API",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using"
+    },
+    {
+      "label": "Dialogs and Popovers: How Are They Different?",
+      "url": "https://developer.chrome.com/docs/css-ui/popover-api#dialogs_and_popovers_seem_similar_how_are_they_different"
+    },
+    {
+      "label": "Semantics and the Popover Attribute",
+      "url": "https://www.hidde.dev/popover-attribute-semantics/"
+    },
+    {
+      "label": "Open UI Popover API Explainer",
+      "url": "https://open-ui.org/components/popover.explainer/"
+    },
+    {
+      "label": "Accessible Toggle Tip Using Popover",
+      "url": "https://www.scottohara.me/blog/2024/01/15/popover-toggletip.html"
+    }
+  ]
+}

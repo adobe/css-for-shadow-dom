@@ -1,0 +1,15 @@
+[
+  {
+    "id": "2026-01-13-automated",
+    "date": "2026-01-13",
+    "type": "automated",
+    "severity": "improvement",
+    "summary": "Began tracking feature",
+    "changes": [
+      {
+        "type": "feature-added",
+        "severity": "improvement"
+      }
+    ]
+  }
+]
