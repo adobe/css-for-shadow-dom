@@ -1,0 +1,33 @@
+{
+  "wpt": [
+    "/css/css-anchor-position/anchor-name-cross-shadow.html",
+    "/css/css-anchor-position/anchor-name-in-shadow.html",
+    "/css/css-anchor-position/anchor-name-in-shadow-002.html",
+    "/css/css-anchor-position/anchor-scope-shadow-all.html",
+    "/css/css-anchor-position/anchor-scope-shadow-flat-tree.html",
+    "/css/css-anchor-position/anchor-scope-shadow-names.html",
+    "/css/css-anchor-position/at-position-try-invalidation-shadow-dom.html"
+  ],
+  "resources": [
+    {
+      "label": "CSS Anchor Positioning on MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning"
+    },
+    {
+      "label": "Anchor Positioning on Chrome Developers",
+      "url": "https://developer.chrome.com/blog/anchor-positioning-api"
+    },
+    {
+      "label": "CSS Anchor Positioning Guide",
+      "url": "https://css-tricks.com/css-anchor-positioning-guide/"
+    },
+    {
+      "label": "Anchor Positioning is Disruptive",
+      "url": "https://keithjgrant.com/posts/2023/anchor-positioning-is-disruptive/"
+    },
+    {
+      "label": "Future CSS: Anchor Positioning",
+      "url": "https://www.bram.us/2023/03/01/future-css-anchor-positioning/"
+    }
+  ]
+}

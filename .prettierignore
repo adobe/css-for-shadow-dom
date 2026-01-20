@@ -1,2 +1,1 @@
-# Copyright file uses angle brackets around URLs which confuses the Liquid parser
 src/_generate/COPYRIGHT.liquid

@@ -1,13 +1,79 @@
 {
-  "snapshotDate": "2026-01-14",
+  "snapshotDate": "2026-01-20",
   "data": {
     "browserVersions": {
       "chrome": "143",
-      "edge": "143",
+      "edge": "144",
       "firefox": "147",
       "safari": "26.2"
     },
     "results": [
+      {
+        "feature": "anchor-positioning",
+        "baseline": "limited",
+        "summary": {
+          "chrome": "passes",
+          "edge": "passes",
+          "firefox": "fails",
+          "safari": "passes"
+        },
+        "failing": {
+          "Should be able to set anchor-name to a shadow DOM part and anchor to it": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "anchor-scope:all is tree-scoped": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "anchor-scope scopes to the flat tree": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "anchor-scope matches tree-scoped names": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "anchor-scope in shadow does not affect slotted-in element": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "anchor-scope in ::slotted() rule does not affect anchoring outside": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "anchor-scope in shadow does not affected slotted-in element (:host)": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "#host with inserted @position-try applied": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "#slotted with inserted @position-try applied": {
+            "chrome": "PASS",
+            "edge": "PASS",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          }
+        }
+      },
       {
         "feature": "at-property",
         "baseline": "newly",
@@ -96,64 +162,22 @@
         },
         "failing": {
           "has-slotted-001": {
-            "chrome": "FAIL",
-            "edge": "PASS",
-            "firefox": "PASS",
             "safari": "FAIL"
           },
           "has-slotted-003": {
-            "chrome": "FAIL",
-            "edge": "PASS",
-            "firefox": "PASS",
             "safari": "FAIL"
           },
           "host-has-internal-001": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
             "safari": "FAIL"
           },
           "host-has-internal-002": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
             "safari": "FAIL"
           },
           "host-has-internal-003": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
             "safari": "FAIL"
           },
           "host-has-internal-004": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
             "safari": "FAIL"
-          },
-          "slotted-has-001": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
-            "firefox": "PASS",
-            "safari": "PASS"
-          },
-          "slotted-has-002": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
-            "firefox": "PASS",
-            "safari": "PASS"
-          },
-          "slotted-has-003": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
-            "firefox": "PASS",
-            "safari": "PASS"
-          },
-          "slotted-has-004": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
-            "firefox": "PASS",
-            "safari": "PASS"
           }
         }
       },
@@ -196,9 +220,9 @@
         "feature": "scope",
         "baseline": "newly",
         "summary": {
-          "chrome": "passes",
-          "edge": "passes",
-          "firefox": "passes",
+          "chrome": "fails",
+          "edge": "fails",
+          "firefox": "fails",
           "safari": "passes"
         },
         "failing": "none"
