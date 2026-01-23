@@ -1,16 +1,16 @@
 {
   "wpt": [
-    "/css/css-scoping/has-slotted-001.html",
-    "/css/css-scoping/has-slotted-002.html",
-    "/css/css-scoping/has-slotted-003.html",
-    "/css/css-scoping/host-has-internal-001.html",
-    "/css/css-scoping/host-has-internal-002.html",
-    "/css/css-scoping/host-has-internal-003.html",
-    "/css/css-scoping/host-has-internal-004.html",
-    "/css/css-scoping/slotted-has-001.html",
-    "/css/css-scoping/slotted-has-002.html",
-    "/css/css-scoping/slotted-has-003.html",
-    "/css/css-scoping/slotted-has-004.html"
+    "/css/css-shadow/has-slotted-001.html",
+    "/css/css-shadow/has-slotted-002.html",
+    "/css/css-shadow/has-slotted-003.html",
+    "/css/css-shadow/host-has-internal-001.html",
+    "/css/css-shadow/host-has-internal-002.html",
+    "/css/css-shadow/host-has-internal-003.html",
+    "/css/css-shadow/host-has-internal-004.html",
+    "/css/css-shadow/slotted-has-001.html",
+    "/css/css-shadow/slotted-has-002.html",
+    "/css/css-shadow/slotted-has-003.html",
+    "/css/css-shadow/slotted-has-004.html"
   ],
   "resources": [
     {
@@ -39,4 +39,3 @@
     }
   ]
 }
-

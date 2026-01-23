@@ -1,5 +1,42 @@
 [
   {
+    "id": "2026-01-23-automated",
+    "date": "2026-01-23",
+    "type": "automated",
+    "severity": "improvement",
+    "summary": "✔ 5 improvements",
+    "changes": [
+      {
+        "type": "test-removed",
+        "test": "Container name set inside a shadow tree should match query using ::part on the outside",
+        "severity": "improvement"
+      },
+      {
+        "type": "test-removed",
+        "test": "Container name set inside a shadow tree should match query for host child on the outside",
+        "severity": "improvement"
+      },
+      {
+        "type": "test-removed",
+        "test": "Container name set on :host from inside a shadow tree should match query for slotted from the outside of the shadow tree",
+        "severity": "improvement"
+      },
+      {
+        "type": "test-removed",
+        "test": "Outer scope query should match container-name set by :host rule in shadow tree",
+        "severity": "improvement"
+      },
+      {
+        "type": "test-result",
+        "test": "Outer scope query should match container-name set by ::slotted rule in shadow tree",
+        "browser": "chrome",
+        "before": "FAIL",
+        "after": "PASS",
+        "severity": "improvement"
+      }
+    ]
+  },
+  {
     "id": "2025-12-17-automated",
     "date": "2025-12-17",
     "type": "automated",

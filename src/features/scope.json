@@ -2,7 +2,7 @@
   "wpt": [
     "/css/css-cascade/scope-shadow.html",
     "/css/css-cascade/scope-shadow-sharing.html",
-    "/css/css-scoping/scope-pseudo-in-shadow.html"
+    "/css/css-shadow/scope-pseudo-in-shadow.html"
   ],
   "resources": [
     {
@@ -53,4 +53,3 @@
     }
   ]
 }
-
