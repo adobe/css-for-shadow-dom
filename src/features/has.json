@@ -1,8 +1,5 @@
 {
   "wpt": [
-    "/css/css-shadow/has-slotted-001.html",
-    "/css/css-shadow/has-slotted-002.html",
-    "/css/css-shadow/has-slotted-003.html",
     "/css/css-shadow/host-has-internal-001.html",
     "/css/css-shadow/host-has-internal-002.html",
     "/css/css-shadow/host-has-internal-003.html",

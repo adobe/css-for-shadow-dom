@@ -1,5 +1,5 @@
 {
-  "snapshotDate": "2026-01-23",
+  "snapshotDate": "2026-01-30",
   "data": {
     "browserVersions": {
       "chrome": "144",
@@ -137,18 +137,6 @@
           "safari": "fails"
         },
         "failing": {
-          "has-slotted-001": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
-            "firefox": "PASS",
-            "safari": "FAIL"
-          },
-          "has-slotted-003": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
-            "firefox": "PASS",
-            "safari": "FAIL"
-          },
           "host-has-internal-001": {
             "chrome": "PASS",
             "edge": "PASS",
