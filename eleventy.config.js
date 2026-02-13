@@ -52,6 +52,16 @@ export default async function (eleventyConfig) {
     },
   });
 
+  eleventyConfig.addCollection('alphaOrderFeatures', (collectionsApi) => {
+    const allFeatures = collectionsApi.getFilteredByTag('features');
+
+    return allFeatures.sort((a, b) => {
+      const titleA = (a.data.title || '').toLowerCase();
+      const titleB = (b.data.title || '').toLowerCase();
+      return titleA.localeCompare(titleB);
+    });
+  });
+
   // passthroughs
   eleventyConfig.addPassthroughCopy('src/assets/css/styles.css');
   eleventyConfig.addPassthroughCopy('src/assets/images');

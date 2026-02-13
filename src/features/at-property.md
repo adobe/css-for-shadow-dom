@@ -22,4 +22,6 @@ baselineFeature: 'registered-custom-properties'
 */
 -->
 
+<!-- NOTE: if registration support changes, also update example for the About page -->
+
 Per current browser support, `@property` definitions can only exist in light DOM. However, applied defined properties in shadow DOM respect those definitions. This makes them usable for applications that are able to host a global stylesheet.

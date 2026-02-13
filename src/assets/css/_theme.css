@@ -32,7 +32,7 @@
   --color-stable: #1d883d;
   --color-warning: #cf4915;
 
-  --color-adobe: var(--spectrum-red-800);
+  --color-adobe: #d42d19;
 
   --gradient-start: var(--color-supported);
   --gradient-mid: var(--spectrum-fuchsia-700);
