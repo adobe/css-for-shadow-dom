@@ -1,8 +1,8 @@
 {
-  "snapshotDate": "2026-01-30",
+  "snapshotDate": "2026-02-13",
   "data": {
     "browserVersions": {
-      "chrome": "144",
+      "chrome": "145",
       "edge": "144",
       "firefox": "147",
       "safari": "26.2"
@@ -55,18 +55,6 @@
             "safari": "PASS"
           },
           "anchor-scope in shadow does not affected slotted-in element (:host)": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "#host with inserted @position-try applied": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "#slotted with inserted @position-try applied": {
             "chrome": "PASS",
             "edge": "PASS",
             "firefox": "FAIL",

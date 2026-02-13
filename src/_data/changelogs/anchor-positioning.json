@@ -1,5 +1,24 @@
 [
   {
+    "id": "2026-02-13-automated",
+    "date": "2026-02-13",
+    "type": "automated",
+    "severity": "improvement",
+    "summary": "✔ 2 improvements",
+    "changes": [
+      {
+        "type": "test-removed",
+        "test": "#host with inserted @position-try applied",
+        "severity": "improvement"
+      },
+      {
+        "type": "test-removed",
+        "test": "#slotted with inserted @position-try applied",
+        "severity": "improvement"
+      }
+    ]
+  },
+  {
     "id": "2026-01-16-automated",
     "date": "2026-01-16",
     "type": "automated",
