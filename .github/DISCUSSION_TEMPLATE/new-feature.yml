@@ -1,0 +1,49 @@
+title: '[Feature Proposal] '
+labels: ['feature-proposal']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a feature to track!
+
+        Please include enough detail for others to validate the behavior (links to WPT/spec/issues are ideal).
+
+  - type: input
+    id: feature_name
+    attributes:
+      label: Feature name
+      description: What should we call this feature in the dashboard?
+      placeholder: 'e.g., Anchor Positioning'
+    validations:
+      required: true
+
+  - type: textarea
+    id: why_track
+    attributes:
+      label: Why should we track this?
+      description: Focus on architectural impact, adoption relevance, or cross-context complexity.
+      placeholder: 'What decisions does this affect for web component library authors?'
+    validations:
+      required: true
+
+  - type: textarea
+    id: shadow_dom_behavior
+    attributes:
+      label: Shadow DOM behavior / expectation mismatches
+      description: Describe expected vs observed behavior in shadow DOM (compared to light DOM).
+      placeholder: 'What’s surprising, different, or easy to get wrong?'
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Relevant links
+      description: Links help others validate and follow progress upstream.
+      value: |
+        - WPT:
+        - Spec:
+        - CSSWG issue:
+        - Browser bug:
+    validations:
+      required: false

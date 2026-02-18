@@ -1,0 +1,40 @@
+name: Rating Change Proposal
+description: Propose a change to a feature's support rating
+title: '[Rating Change] '
+labels: ['rating-review']
+body:
+  - type: input
+    id: feature
+    attributes:
+      label: Feature Name
+      placeholder: e.g., @property
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Proposed Rating
+      description: What is the current rating and what do you believe it should change to?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: Supporting Evidence
+      description: Include WPT links, browser versions tested, repro cases, spec links, or issue references.
+      placeholder: |
+        - WPT:
+        - Browser version(s):
+        - Spec:
+        - CSSWG issue:
+        - Browser bug:
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Context
+      description: Any nuance, edge cases, or implementation notes.

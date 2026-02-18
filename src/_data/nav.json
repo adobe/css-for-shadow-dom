@@ -2,5 +2,9 @@
   {
     "title": "About",
     "url": "/about/"
+  },
+  {
+    "title": "Contribute",
+    "url": "/contributing/"
   }
 ]

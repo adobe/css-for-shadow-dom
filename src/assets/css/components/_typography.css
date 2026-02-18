@@ -20,7 +20,7 @@
 /* Used for h1 (XXL), h2 (L) */
 .spectrum-Heading--sizeL,
 .spectrum-Heading--sizeXXL {
-  --mod-heading-sans-serif-font-weight: 900;
+  --mod-heading-sans-serif-font-weight: 800;
   --mod-heading-line-height: 1.1;
 
   text-wrap: balance;

@@ -37,7 +37,7 @@ import path from 'path';
 const HEADER_DEFAULT = './COPYRIGHT';
 const ROOT_DEFAULT = '.';
 const IGNORE_DIRS = new Set(['node_modules', '.git']);
-const IGNORE_FILES = new Set(['README.md', 'CODE_OF_CONDUCT.md', 'prism.css']);
+const IGNORE_FILES = new Set(['README.md', 'CODE_OF_CONDUCT.md', 'CONTRIBUTING.md', 'prism.css']);
 
 const targetExtensions = new Set(['.js', '.css', '.liquid', '.md']);
 

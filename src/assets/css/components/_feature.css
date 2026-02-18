@@ -73,7 +73,7 @@
   gap: var(--spectrum-spacing-200) var(--spectrum-spacing-400);
   align-items: start;
 
-  @media (min-width: 60ch) {
+  @media (min-width: 70ch) {
     grid-template-columns: auto 1fr;
   }
 }
@@ -98,7 +98,7 @@
   inset-block-start: 27px;
   padding: 0.15em 0.25em;
   font-size: 1.25rem;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
   color: var(--text-body);
   background-color: var(--background-neutral);
@@ -107,6 +107,6 @@
 
   @media (min-width: 900px) {
     /* Account for border width (10px) */
-    transform: translateX(calc(-100% - 10px));
+    transform: translateX(calc(-100% - 11px));
   }
 }

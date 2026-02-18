@@ -39,3 +39,9 @@
   --gradient-stop: var(--spectrum-indigo-1000);
   --gradient: linear-gradient(to right, var(--gradient-start), var(--gradient-mid) 70%, var(--gradient-stop) 100%);
 }
+
+.spectrum {
+  --spectrum-sans-font-family-stack:
+    adobe-clean-spectrum-vf, 'Adobe Clean Spectrum VF', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Ubuntu, 'Trebuchet MS', 'Lucida Grande', sans-serif;
+}

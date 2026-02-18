@@ -1,0 +1,22 @@
+name: Correction or Clarification
+description: Report incorrect or incomplete information
+title: '[Correction] '
+labels: ['needs-review']
+body:
+  - type: input
+    id: feature
+    attributes:
+      label: Related Feature (if applicable)
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: What appears incorrect or incomplete?
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting Links
+      description: Include WPT links, specs, browser bugs, or repro cases if available.

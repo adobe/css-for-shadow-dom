@@ -29,7 +29,7 @@ const severity = (level) => {
 const wptSources = (sources) => {
   const sourceLinks = sources.map((source) => {
     const sourceLabel = source.match(/(\/([\w|-]+)\.html)/);
-    return `<a href="https://wpt.fyi/results${source}">${sourceLabel[2]}</a>`;
+    return `<a href="https://wpt.fyi/results${source}?label=master&label=stable&aligned">${sourceLabel[2]}</a>`;
   });
   return `<strong>WPT sources:</strong> ${sourceLinks.join(', ')}`;
 };
