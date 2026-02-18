@@ -1,6 +1,6 @@
 ---
 title: ':has()'
-description: 'Selector for selecting the parent or previous element based on detecting the presence of child elements or sibling relationships'
+description: 'Selector for selecting the parent or previous element based on detecting the presence of child elements or sibling relationships.'
 support: 'caution'
 functional: 'progressing'
 usage: 'cross-context'
@@ -21,6 +21,6 @@ usage: 'cross-context'
 */
 -->
 
-The `:has()` selector has mixed browser support for shadow DOM usage, with missing consensus on expected behavior. Cross-browser, `:has()` cannot cross the light/shadow boundary to peer into a different scope. Host-based selectors like `:host:has()` and `:host(:has())` have inconsistent support across browsers.
+The `:has()` selector has mixed browser support for shadow DOM usage, with missing consensus on expected behavior. Cross-browser, `:has()` cannot cross the light/shadow boundary to peer into a different scope. Host-based selectors like `:host:has()` and `:host(:has())` have inconsistent support across browsers. Only `:host:has()` is presently accepted in the spec.
 
 Ranked **caution** due to mixed browser consensus — effective use is limited to elements within the same scope, without relying on host-based or cross-boundary selectors.

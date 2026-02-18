@@ -21,6 +21,6 @@ usage: 'cross-boundary'
 */
 -->
 
-The `light-dark()` function works fully within shadow DOM contexts: it inherits correctly, works through custom properties, with `::slotted()`, and when set directly within shadow DOM. Requires `color-scheme: light dark` to be set. Note that `light-dark()` only applies to color values — other properties like border styles still require preference queries or container style queries.
+The `light-dark()` function works fully within shadow DOM contexts: it inherits correctly, works through custom properties, with `::slotted()`, and when set directly within shadow DOM. Requires a `color-scheme` value to be set. Note that `light-dark()` only applies to color values.
 
-Ranked **caution** due to Baseline newly available status (May 2024) — unsupporting browsers revert colors to initial values, risking severe visual breakage. Transpilation available via LightningCSS or PostCSS.
+Ranked **caution** due to Baseline newly available status (May 2024). Unsupporting browsers revert colors to initial values, risking severe visual breakage.

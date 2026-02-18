@@ -1,6 +1,6 @@
 ---
 title: 'Native Nesting'
-description: ''
+description: 'The ability to nest one style rule inside of another.'
 support: 'acceptable'
 functional: 'supported'
 usage: 'cross-context'

@@ -1,6 +1,6 @@
 ---
 title: 'Cascade layers'
-description: 'Allows for controlling the specificity and order of rule sets across stylesheets'
+description: 'Allows for controlling the specificity and order of rule sets across stylesheets.'
 support: 'supported'
 functional: 'supported'
 usage: 'cross-context'
@@ -21,4 +21,6 @@ usage: 'cross-context'
 */
 -->
 
-Cascade layers can be defined and used independently within both light DOM and shadow DOM stylesheets with full support for shadow DOM selectors like `::slotted()`. Cascade layers cannot interact with or impact global layer order, even with identical layer names, as each shadow root is isolated.
+Cascade layers can be defined and used independently within both light DOM and shadow DOM stylesheets with full support for shadow DOM selectors like `::slotted()`.
+
+Shadow-defined cascade layers cannot interact with or impact global layer order, even with identical layer names, as each shadow root is isolated.

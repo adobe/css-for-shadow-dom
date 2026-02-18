@@ -32,9 +32,9 @@
   ],
   "issues": [
     {
-      "label": ":root should resolve to :host in shadow trees",
-      "description": "Discussion on whether :root should resolve to :host when used within shadow DOM context",
-      "status": "may-change",
+      "label": ":scope resolves to :host in shadow trees",
+      "description": "Resolved to work, but browser support is lagging and WPT expect failure",
+      "status": "stable",
       "links": [
         {
           "url": "https://github.com/w3c/csswg-drafts/issues/11000"
@@ -43,8 +43,8 @@
     },
     {
       "label": ":scope and featureless elements",
-      "description": "Issue regarding :scope behavior with featureless elements like :host",
-      "status": "may-change",
+      "description": "Resolved that :scope is a valid ref to :host within @scope (:host), available cross-browser",
+      "status": "stable",
       "links": [
         {
           "url": "https://github.com/w3c/csswg-drafts/issues/9025"

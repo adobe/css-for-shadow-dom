@@ -23,3 +23,5 @@ baselineFeature: 'container-queries'
 -->
 
 Essential access to query light DOM-defined containers from within the shadow DOM is supported.
+
+Additionally, most other queries for `:host`, `::slotted()`, and `::part()` defined containers will work as expected.

@@ -1,6 +1,6 @@
 ---
 title: 'Anchor Positioning'
-description: 'Positions elements relative to anchor elements anywhere on the page, independent of containing block layout'
+description: 'Positions elements relative to anchor elements anywhere on the page, independent of containing block layout.'
 support: 'discouraged'
 baseline: 'limited'
 functional: 'progressing'
@@ -24,4 +24,4 @@ usage: 'cross-context'
 
 Anchor positioning is spec'd to work within shadow DOM contexts; anchors can be named and positioned within the same shadow tree. Cross-shadow anchoring (referencing an anchor from a different shadow tree) presently has mixed browser support. The `anchor-scope` property for controlling anchor visibility across shadow boundaries shows similar browser inconsistencies.
 
-Ranked **discouraged** due to limited browser support, and specificially shadow DOM feature failures. Adoption likely should wait for full cross-browser support. Strongly recommend a fallback strategy using positioning libraries like Floating UI.
+**Not recommended** due to limited browser support, and specificially shadow DOM feature failures. Adoption likely should wait for full cross-browser support. Strongly recommend a fallback strategy using positioning libraries like Floating UI.

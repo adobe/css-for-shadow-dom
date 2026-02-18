@@ -9,6 +9,28 @@
     "/css/css-shadow/slotted-has-003.html",
     "/css/css-shadow/slotted-has-004.html"
   ],
+  "issues": [
+    {
+      "label": "Should :host:has() match",
+      "description": "Resolved that :host:has() should be allowed to match, but browser support is inconsistent.",
+      "status": "stable",
+      "links": [
+        {
+          "url": "https://github.com/w3c/csswg-drafts/issues/10693"
+        }
+      ]
+    },
+    {
+      "label": "Should :host(:has()) match",
+      "description": "Discussion is still occurring, given Safari and Firefox are presently able to support at least a simple selector.",
+      "status": "may-change",
+      "links": [
+        {
+          "url": "https://github.com/w3c/csswg-drafts/issues/11859"
+        }
+      ]
+    }
+  ],
   "resources": [
     {
       "label": ":has() on MDN",

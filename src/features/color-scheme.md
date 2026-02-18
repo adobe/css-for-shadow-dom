@@ -1,6 +1,6 @@
 ---
 title: 'Color Scheme'
-description: 'Allows elements to define which color schemes they may be rendered in: light, dark, or prioritizing the order for both'
+description: 'Allows elements to define which color schemes they may be rendered in: light, dark, or prioritizing the order for both.'
 support: 'supported'
 functional: 'supported'
 usage: 'cross-boundary'
@@ -21,4 +21,6 @@ usage: 'cross-boundary'
 */
 -->
 
-The `color-scheme` property is inherited across the shadow boundary, allowing shadow DOM elements to respond to the document's color scheme settings. This enables automatic adaptation of page elements to the user's preferred color scheme, with form elements adjusting their appearance for improved contrast.
+The `color-scheme` property is inherited across the shadow boundary, allowing shadow DOM elements to respond to the document or an ancestor's color scheme. This enables automatic adaptation of page elements to the user's preferred color scheme, with form elements adjusting their appearance for improved contrast.
+
+A shadow-defined `color-scheme` is also inheritable by slotted children.

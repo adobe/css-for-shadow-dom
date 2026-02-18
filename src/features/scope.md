@@ -1,6 +1,6 @@
 ---
 title: '@scope'
-description: 'Enables scoped styling with upper and lower boundaries, where proximity to defined scopes affects which rules win'
+description: 'Enables scoped styling with upper and lower boundaries, where proximity to defined scopes affects which rules win.'
 support: 'caution'
 baseline: 'newly'
 functional: 'progressing'
@@ -24,4 +24,4 @@ usage: 'cross-context'
 
 Global `@scope` cannot cross the shadow boundary to apply to shadow elements. Within shadow DOM, `@scope` works with `:host` and `:host()` as the scoping root, and implicit `@scope` (without a boundary) correctly scopes to the shadow root. Note that `::slotted()` within `@scope` lacks test coverage and may have inconsistent support.
 
-Ranked **caution** due to limited real-world testing with shadow DOM — while WPT tests pass and Firefox 131+ completes cross-browser support, some edge cases like `::slotted()` in `@scope` remain unverified.
+Ranked **caution** due to limited real-world testing with shadow DOM. While WPT tests pass and Firefox 131+ completes cross-browser support, some edge cases like `::slotted()` in `@scope` remain unverified.
