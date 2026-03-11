@@ -3,6 +3,22 @@ description: Report incorrect or incomplete information
 title: '[Correction] '
 labels: ['needs-review']
 body:
+  - type: checkboxes
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [code of conduct](https://github.com/adobe/spectrum-web-components/blob/main/CODE_OF_CONDUCT.md#adobe-code-of-conduct).
+      options:
+        - label: I agree to follow this project's code of conduct.
+          required: true
+  - type: checkboxes
+    id: cla
+    attributes:
+      label: Contributor License Agreement
+      description: First-time Adobe contributor? [Signing our CLA](https://opensource.adobe.com/cla.html) is a requirement for accepting your contribution.
+      options:
+        - label: I have signed the CLA.
+          required: true
   - type: input
     id: feature
     attributes:

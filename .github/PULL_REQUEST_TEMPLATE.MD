@@ -26,3 +26,11 @@ Link relevant Issue or Discussion, if available. Required for rating changes or 
 ## Notes
 
 Anything reviewers should know (edge cases, assumptions, open questions).
+
+## To-do list
+
+<!-- Put an "x" to indicate you've done each of the following. Add/remove additional tasks, as needed. -->
+
+- [ ] I have read the [contribution guidelines](/CONTRIBUTING.md).
+- [ ] First-time Adobe contributor? [Signing our CLA](https://opensource.adobe.com/cla.html) is a requirement for accepting your contribution.
+- [ ] ✨ This pull request is ready to merge. ✨
