@@ -16,7 +16,7 @@ export const origin = process.env.ORIGIN || url;
 export const siteName = 'Modern CSS for Shadow DOM';
 export const siteDescription =
   'Tracking the state of support for CSS features within and across the shadow DOM to provide visibility into feature parity, usage details, and outstanding issues and bugs.';
-export const sitePublisher = 'Adobe';
+export const sitePublisher = 'Adobe Spectrum Web Engineering';
 export const siteType = 'website';
 export const locale = 'en_US';
 export const lang = 'en';
