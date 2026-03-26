@@ -16,20 +16,68 @@
  * Data is cached locally for 12 hours.
  * Refresh the data by removing the cache with `npm run clean`.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import Fetch from '@11ty/eleventy-fetch';
 
 import { features } from 'web-features';
 
 const CACHE_DURATION = '12h';
+const SNAPSHOT_FILE = path.join('src', '_data', 'snapshot.json');
+const FETCH_RETRY_DELAYS = [1000, 2000, 4000];
+let browserRunsPromise;
+let browserRunsError;
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+const readSnapshot = () => {
+  if (!fs.existsSync(SNAPSHOT_FILE)) {
+    return null;
+  }
+
+  return JSON.parse(fs.readFileSync(SNAPSHOT_FILE, 'utf8'));
+};
+
+const fetchJsonWithRetry = async (url, label) => {
+  let lastError;
+
+  for (let attempt = 0; attempt < FETCH_RETRY_DELAYS.length; attempt++) {
+    try {
+      return await Fetch(url, {
+        duration: CACHE_DURATION,
+        type: 'json',
+      });
+    } catch (error) {
+      lastError = error;
+
+      if (attempt < FETCH_RETRY_DELAYS.length - 1) {
+        console.warn(
+          `Retrying ${label} fetch (${attempt + 1}/${FETCH_RETRY_DELAYS.length - 1}) after failure: ${error.message}`,
+        );
+        await sleep(FETCH_RETRY_DELAYS[attempt]);
+      }
+    }
+  }
+
+  throw lastError;
+};
 
 const getBrowserRuns = async () => {
-  const browserRunsUrl =
-    'https://wpt.fyi/api/runs?label=master&label=stable&max-count=1&product=chrome&product=edge&product=firefox&product=safari';
+  if (browserRunsError) {
+    throw browserRunsError;
+  }
 
-  return await Fetch(browserRunsUrl, {
-    duration: CACHE_DURATION,
-    type: 'json',
-  });
+  if (!browserRunsPromise) {
+    const browserRunsUrl =
+      'https://wpt.fyi/api/runs?label=master&label=stable&max-count=1&product=chrome&product=edge&product=firefox&product=safari';
+
+    browserRunsPromise = fetchJsonWithRetry(browserRunsUrl, 'browser runs').catch((error) => {
+      browserRunsError = error;
+      throw error;
+    });
+  }
+
+  return await browserRunsPromise;
 };
 
 const formatResultsUrl = (resultsUrl, testScope) => {
@@ -37,21 +85,59 @@ const formatResultsUrl = (resultsUrl, testScope) => {
 };
 
 const getBrowserVersions = async () => {
-  const browserRuns = await getBrowserRuns();
-  const browsers = {};
+  try {
+    const browserRuns = await getBrowserRuns();
+    const browsers = {};
 
-  for (const browser of browserRuns) {
-    const browserName = browser.browser_name;
-    const shortVersion = /^\d+(\.?(?!0))\d+/.exec(browser.browser_version)[0];
+    for (const browser of browserRuns) {
+      const browserName = browser.browser_name;
+      const shortVersion = /^\d+(\.?(?!0))\d+/.exec(browser.browser_version)[0];
 
-    browsers[browserName] = shortVersion;
+      browsers[browserName] = shortVersion;
+    }
+
+    return browsers;
+  } catch (error) {
+    const snapshot = readSnapshot();
+    const cachedBrowserVersions = snapshot?.data?.browserVersions;
+
+    if (cachedBrowserVersions) {
+      console.warn(`Using cached browser versions from snapshot after WPT fetch failure: ${error.message}`);
+      return cachedBrowserVersions;
+    }
+
+    throw error;
   }
-
-  return browsers;
 };
 
-const getWptResults = async (testScopes) => {
-  const browserRuns = await getBrowserRuns();
+const getCachedFeatureResults = (featureKey) => {
+  if (!featureKey) {
+    return null;
+  }
+
+  const snapshot = readSnapshot();
+  return snapshot?.data?.results?.find((entry) => entry.feature === featureKey) ?? null;
+};
+
+const getWptResults = async (testScopes, featureKey) => {
+  let browserRuns;
+
+  try {
+    browserRuns = await getBrowserRuns();
+  } catch (error) {
+    const cachedFeatureResults = getCachedFeatureResults(featureKey);
+
+    if (cachedFeatureResults) {
+      console.warn(`Using cached WPT results for "${featureKey}" after WPT fetch failure: ${error.message}`);
+      return {
+        summary: cachedFeatureResults.summary || {},
+        failing: cachedFeatureResults.failing,
+      };
+    }
+
+    console.warn(`Skipping WPT results for "${featureKey || 'unknown feature'}": ${error.message}`);
+    return {};
+  }
 
   const testResults = {};
 
@@ -66,10 +152,7 @@ const getWptResults = async (testScopes) => {
 
     for (const browser of browsers) {
       try {
-        const browserResults = await Fetch(browser.resultsUrl, {
-          duration: CACHE_DURATION,
-          type: 'json',
-        });
+        const browserResults = await fetchJsonWithRetry(browser.resultsUrl, `"${testScope}" for ${browser.name}`);
 
         const tests = browserResults.subtests;
 
@@ -86,8 +169,8 @@ const getWptResults = async (testScopes) => {
             [browser.name]: test.status,
           };
         }
-      } catch (e) {
-        console.log(`Error fetching "${testScope}"`);
+      } catch (error) {
+        console.warn(`Error fetching "${testScope}" for ${browser.name}: ${error.message}`);
       }
     }
   }

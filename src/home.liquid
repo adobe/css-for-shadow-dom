@@ -19,12 +19,11 @@ permalink: "/"
   */
 {% endcomment %}
 
-<header class='hero'>
+<header class='hero' style="--hero-image: url('{{ '/assets/images/hero-home.png' | htmlBaseUrl: meta.origin }}')">
   <div class='wrapper'>
     <h1 class='spectrum-Heading spectrum-Heading--sizeXXL'>Modern CSS Feature Support For Shadow DOM</h1>
     <p class='spectrum-Body spectrum-Body--sizeXXXL'>
-      Tracking the state of support for CSS features within and across the shadow DOM to provide visibility into feature
-      parity, usage details, and outstanding issues and bugs.
+      {{ meta.siteDescription }}
     </p>
     <div class='flex-row flex-row--baseline'>
       {% button "/about/", "L", "staticWhite" %}

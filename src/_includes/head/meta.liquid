@@ -13,9 +13,11 @@
   */
 {% endcomment %}
 
-{%- assign fullUrl = meta.url | append: page.url -%}
 {%- assign pageTitle = meta.siteName -%}
 {%- assign pageDescription = meta.siteDescription -%}
+{%- assign pageCanonicalUrl = page.url | htmlBaseUrl: meta.origin -%}
+{%- assign defaultOpenGraphImage = '/assets/images/open-graph-image.jpg' | htmlBaseUrl: meta.origin -%}
+{%- assign feedUrl = '/feed.xml' | htmlBaseUrl: meta.origin -%}
 
 {%- if title -%}
   {% if page.url != '/' %}
@@ -37,22 +39,20 @@
 <meta name='generator' content='{{ eleventy.generator }}'>
 <meta name='color-scheme' content='light'>
 <meta name='view-transition' content='same-origin'>
-<link rel='canonical' href='{{ fullUrl }}'>
+<link rel='canonical' href='{{ pageCanonicalUrl }}'>
 
-{% comment %}
-  <meta property="og:url" content="{{ page.url | absoluteUrl }}" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{ pageTitle }}" />
-  <meta property="og:image" content="/assets/images/open-graph-image.png" />
-  <meta property="og:image:alt" content="Spectrum blog: 404 page not found illustration" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:description" content="{{ pageDescription }}" />
-  <meta property="og:site_name" content="{{ meta.siteName }}" />
-  <meta property="og:locale" content="{{ meta.locale }}" />
-  <meta property="article:author" content="{{ meta.author.name }}" />
-  <link href="/feed.xml" rel="alternate" title="{{ meta.siteName }} RSS feed">
-{% endcomment %}
+<meta property='og:url' content='{{ pageCanonicalUrl }}'>
+<meta property='og:type' content='website'>
+<meta property='og:title' content='{{ pageTitle }}'>
+<meta property='og:image' content='{{ defaultOpenGraphImage }}'>
+<meta property='og:image:alt' content='{{ meta.siteName }}'>
+<meta property='og:image:width' content='1200'>
+<meta property='og:image:height' content='630'>
+<meta property='og:description' content='{{ pageDescription }}'>
+<meta property='og:site_name' content='{{ meta.siteName }}'>
+<meta property='og:locale' content='{{ meta.locale }}'>
+
+{% comment %} <link href="{{ feedUrl }}" rel="alternate" title="{{ meta.siteName }} RSS feed"> {% endcomment %}
 
 <link rel='icon' href='/assets/images/favicon.ico' sizes='any'>
 <link rel='icon' href='/assets/images/favicon.svg' type='image/svg+xml'>

@@ -13,6 +13,7 @@
 
 import { HtmlBasePlugin } from '@11ty/eleventy';
 import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import rss from '@11ty/eleventy-plugin-rss';
 
 import { htmlConfig } from './html-config.js';
 import { cssConfig } from './css-config.js';
@@ -20,6 +21,7 @@ import { cssConfig } from './css-config.js';
 export default {
   HtmlBasePlugin,
   syntaxHighlight,
+  rss,
   cssConfig,
   htmlConfig,
 };

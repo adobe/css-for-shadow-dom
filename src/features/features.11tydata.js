@@ -16,7 +16,7 @@ import { getWptResults, getBrowserVersions, getBaselineStatus } from '../scripts
 // TODO: Allow filtering of subtests for example /css-scoping/ filter by host-has-*
 export default {
   eleventyComputed: {
-    wptResults: async (data) => (data.wpt ? await getWptResults(data.wpt) : false),
+    wptResults: async (data) => (data.wpt ? await getWptResults(data.wpt, data.page.fileSlug) : false),
     wptBrowsers: await getBrowserVersions(),
     baseline: (data) => getBaselineStatus(data),
   },
