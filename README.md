@@ -31,6 +31,7 @@ It runs only on pushes to `main` and on manual dispatch, so pull requests do not
 ### Additional Commands
 
 - `npm run build` - preview build files, available in `dist`
+- `npm run build:deploy` - build from committed snapshot/changelog data without re-scraping WPT APIs
 - `npm run clean` - clean out `dist` and the `.cache`
   - this is also run prior to `start` and `build` to ensure freshest WPT data
 - `npm run debug` - enables verbose console output of 11ty processing

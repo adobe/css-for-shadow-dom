@@ -1,10 +1,10 @@
 {
-  "snapshotDate": "2026-03-26",
+  "snapshotDate": "2026-04-02",
   "data": {
     "browserVersions": {
-      "chrome": "146",
+      "chrome": "147",
       "edge": "146",
-      "firefox": "148",
+      "firefox": "149",
       "safari": "26.4"
     },
     "results": [
@@ -14,53 +14,10 @@
         "summary": {
           "chrome": "passes",
           "edge": "passes",
-          "firefox": "fails",
+          "firefox": "passes",
           "safari": "passes"
         },
-        "failing": {
-          "Should be able to set anchor-name to a shadow DOM part and anchor to it": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "anchor-scope:all is tree-scoped": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "anchor-scope scopes to the flat tree": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "anchor-scope matches tree-scoped names": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "anchor-scope in shadow does not affect slotted-in element": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "anchor-scope in ::slotted() rule does not affect anchoring outside": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          },
-          "anchor-scope in shadow does not affected slotted-in element (:host)": {
-            "chrome": "PASS",
-            "edge": "PASS",
-            "firefox": "FAIL",
-            "safari": "PASS"
-          }
-        }
+        "failing": "none"
       },
       {
         "feature": "at-property",

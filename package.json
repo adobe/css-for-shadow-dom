@@ -9,8 +9,9 @@
     "node": ">=20.x.x"
   },
   "scripts": {
-    "start": "cross-env npm run clean && npm run changelogs && ENV=dev eleventy --serve",
-    "build": "cross-env npm run clean && npm run changelogs && ENV=prod eleventy",
+    "start": "npm run clean && npm run changelogs && cross-env ENV=dev eleventy --serve",
+    "build": "npm run clean && npm run changelogs && cross-env ENV=prod eleventy",
+    "build:deploy": "npm run clean && cross-env USE_COMMITTED_DATA=true ENV=prod eleventy",
     "debug": "DEBUG=Eleventy* npx @11ty/eleventy --serve",
     "clean": "rimraf dist .cache",
     "prepare": "husky",

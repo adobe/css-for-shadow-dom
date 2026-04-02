@@ -25,6 +25,7 @@ import { features } from 'web-features';
 const CACHE_DURATION = '12h';
 const SNAPSHOT_FILE = path.join('src', '_data', 'snapshot.json');
 const FETCH_RETRY_DELAYS = [1000, 2000, 4000];
+const USE_COMMITTED_DATA = process.env.USE_COMMITTED_DATA === 'true';
 let browserRunsPromise;
 let browserRunsError;
 
@@ -37,6 +38,8 @@ const readSnapshot = () => {
 
   return JSON.parse(fs.readFileSync(SNAPSHOT_FILE, 'utf8'));
 };
+
+const getSnapshotData = () => readSnapshot()?.data ?? null;
 
 const fetchJsonWithRetry = async (url, label) => {
   let lastError;
@@ -63,6 +66,10 @@ const fetchJsonWithRetry = async (url, label) => {
 };
 
 const getBrowserRuns = async () => {
+  if (USE_COMMITTED_DATA) {
+    throw new Error('Live WPT fetch disabled in committed-data mode');
+  }
+
   if (browserRunsError) {
     throw browserRunsError;
   }
@@ -85,6 +92,16 @@ const formatResultsUrl = (resultsUrl, testScope) => {
 };
 
 const getBrowserVersions = async () => {
+  if (USE_COMMITTED_DATA) {
+    const cachedBrowserVersions = getSnapshotData()?.browserVersions;
+
+    if (cachedBrowserVersions) {
+      return cachedBrowserVersions;
+    }
+
+    throw new Error('Committed-data mode requires browser versions in src/_data/snapshot.json');
+  }
+
   try {
     const browserRuns = await getBrowserRuns();
     const browsers = {};
@@ -115,11 +132,23 @@ const getCachedFeatureResults = (featureKey) => {
     return null;
   }
 
-  const snapshot = readSnapshot();
-  return snapshot?.data?.results?.find((entry) => entry.feature === featureKey) ?? null;
+  return getSnapshotData()?.results?.find((entry) => entry.feature === featureKey) ?? null;
 };
 
 const getWptResults = async (testScopes, featureKey) => {
+  if (USE_COMMITTED_DATA) {
+    const cachedFeatureResults = getCachedFeatureResults(featureKey);
+
+    if (cachedFeatureResults) {
+      return {
+        summary: cachedFeatureResults.summary || {},
+        failing: cachedFeatureResults.failing,
+      };
+    }
+
+    throw new Error(`Committed-data mode requires WPT results for "${featureKey}" in src/_data/snapshot.json`);
+  }
+
   let browserRuns;
 
   try {

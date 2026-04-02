@@ -39,6 +39,18 @@ PRs are great for:
 
 A minimal PR template will prompt for references where relevant.
 
+### Refreshing generated data before a PR
+
+Deploys on `main` build from committed generated data and do not re-scrape WPT at deploy time.
+
+Before opening a PR, run a command that refreshes generated data, such as `npm run changelogs`, `npm run build`, or `npm start`, when your change depends on current WPT results or changelog output, such as:
+
+- Updating a tracked feature’s WPT coverage
+- Changing support or severity ratings based on fresh test results
+- Expecting `src/_data/snapshot.json` or generated changelog entries to change
+
+For copy-only, template-only, or styling-only changes, you usually do not need to refresh generated data first.
+
 ## What makes a contribution easy to review
 
 Include as many of these as apply:

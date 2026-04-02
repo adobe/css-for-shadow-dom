@@ -46,7 +46,7 @@ jobs:
             BUILD_PATH_PREFIX="/"
           fi
 
-          npm run build -- --pathprefix "${BUILD_PATH_PREFIX}"
+          npm run build:deploy -- --pathprefix "${BUILD_PATH_PREFIX}"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
