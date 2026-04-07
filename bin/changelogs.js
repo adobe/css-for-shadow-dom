@@ -54,7 +54,7 @@ const getFeatureData = async () => {
       feature: slug,
       baseline: baselineStatus,
       summary: wptResults.summary || {},
-      failing: wptResults.failing ?? 'none',
+      failing: wptResults.failing ?? null,
     });
   }
 
@@ -80,6 +80,7 @@ function baselineSeverity(before, after) {
 }
 
 function isAllPassing(feature) {
+  if (!feature.failing) return true;
   return Object.values(feature.failing).every((test) => Object.values(test).every((r) => r === 'PASS'));
 }
 
@@ -171,7 +172,7 @@ function diffFeature(prev, next) {
     }
   }
 
-  changes.push(...diffFailing(prev.failing, next.failing));
+  changes.push(...diffFailing(prev.failing ?? {}, next.failing ?? {}));
 
   if (!isAllPassing(prev) && isAllPassing(next)) {
     changes.push({
