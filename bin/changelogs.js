@@ -47,7 +47,7 @@ const getFeatureData = async () => {
 
     const slug = path.basename(file, '.json');
 
-    const wptResults = data.wpt ? await getWptResults(data.wpt) : [];
+    const wptResults = data.wpt ? await getWptResults(data.wpt, slug) : [];
     const baselineStatus = await getBaselineStatus({ baselineFeature: data.baselineFeature || slug });
 
     features.push({
@@ -262,8 +262,12 @@ const main = async () => {
 
   // 1️⃣ First-ever run
   if (!existingSnapshot) {
-    writeJSON(SNAPSHOT_FILE, await generateSnapshot());
-    console.log('Initial snapshot created');
+    try {
+      writeJSON(SNAPSHOT_FILE, await generateSnapshot());
+      console.log('Initial snapshot created');
+    } catch (error) {
+      console.warn(`Skipping initial snapshot generation because upstream data fetch failed: ${error.message}`);
+    }
     return;
   }
 
@@ -274,7 +278,14 @@ const main = async () => {
   }
 
   // 3️⃣ New day → diff + changelog
-  const nextSnapshotData = await generateSnapshot();
+  let nextSnapshotData;
+
+  try {
+    nextSnapshotData = await generateSnapshot();
+  } catch (error) {
+    console.warn(`Skipping snapshot refresh because upstream data fetch failed: ${error.message}`);
+    return;
+  }
 
   runChangelogDiffs({
     previous: existingSnapshot.data,

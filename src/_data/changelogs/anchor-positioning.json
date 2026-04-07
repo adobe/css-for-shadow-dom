@@ -1,5 +1,19 @@
 [
   {
+    "id": "2026-04-02-manual",
+    "date": "2026-04-02",
+    "type": "manual",
+    "severity": "improvement",
+    "summary": "🎉 New milestone",
+    "changes": [
+      {
+        "type": "milestone",
+        "milestone": "all-browsers-passing",
+        "severity": "improvement"
+      }
+    ]
+  },
+  {
     "id": "2026-02-13-automated",
     "date": "2026-02-13",
     "type": "automated",

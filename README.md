@@ -19,15 +19,19 @@ Upon pre-commit, the following will be run via husky:
 
 - `prepare` - inits husky
 - `copyright` - adds or updates the Adobe copyright to all eligible files
-- `clean:gh-pages` - cleans local cache to allow publish operation
-- `publish:docs` - publishes the project to GitHub Pages
+- `changelogs` - refreshes generated changelog data
+- `lint-staged` - formats staged files
 
-> [!NOTE]
-> Publishing to GitHub Pages via pre-commit is temporary since Actions are disabled in GitHub Enterprise
+## Deployment
+
+GitHub Pages deployment is handled by the workflow at `.github/workflows/deploy-pages.yml`.
+
+It runs only on pushes to `main` and on manual dispatch, so pull requests do not publish preview deployments.
 
 ### Additional Commands
 
 - `npm run build` - preview build files, available in `dist`
+- `npm run build:deploy` - build from committed snapshot/changelog data without re-scraping WPT APIs
 - `npm run clean` - clean out `dist` and the `.cache`
   - this is also run prior to `start` and `build` to ensure freshest WPT data
 - `npm run debug` - enables verbose console output of 11ty processing

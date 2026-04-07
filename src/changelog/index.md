@@ -19,7 +19,7 @@ eleventyExcludeFromCollections: true
 */
 -->
 
-{% for day in changelog-index %}
+{% for day in changelogIndex %}
 
   <article>
     <h2 class="spectrum-Body spectrum-Body--sizeS"><em>{{ day.date | formatDate: 'MMMM D, YYYY' }}</em></h2>

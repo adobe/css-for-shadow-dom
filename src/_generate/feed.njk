@@ -1,0 +1,36 @@
+---
+permalink: "feed.xml"
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ meta.lang }}">
+    <title>{{ meta.siteName }}</title>
+    <subtitle>{{ meta.siteDescription }}</subtitle>
+    <link href="{{ permalink | htmlBaseUrl(meta.origin) }}" rel="self" />
+    <link href="{{ meta.origin | addPathPrefixToFullUrl }}" />
+    <updated>{{ changelogIndex[0].date | formatDate('YYYY-MM-DD[T]00:00:00[Z]') }}</updated>
+    <id>{{ meta.origin | addPathPrefixToFullUrl }}</id>
+    <author>
+        <name>{{ meta.sitePublisher }}</name>
+    </author>
+    {%- for day in changelogIndex %}
+    {%- set absolutePostUrl %}{{ '/changelog/' | htmlBaseUrl(meta.origin) }}{% endset  %}
+    <entry>
+        <title>{{ day.date | formatDate('MMMM D, YYYY') }}</title>
+        <link href="{{ absolutePostUrl }}" />
+        <updated>{{ day.date | formatDate('YYYY-MM-DD[T]00:00:00[Z]') }}</updated>
+        <id>{{ absolutePostUrl }}{{ day.date }}</id>
+        <content type="html">
+            {%- set entryContent %}
+            <ul>
+            {%- for entry in day.entries %}
+            {%- set entryUrl %}/changelog/{{entry.feature}}/{% endset  %}
+                <li><strong><a href="{{ entryUrl | htmlBaseUrl(meta.origin) }}">{{ entry.feature | titleCase }}</a>:</strong> {{ entry.summary }}</li>
+            {%- endfor %}
+            </ul>
+            {% endset %}
+            {{ entryContent }}
+        </content>
+    </entry>
+    {%- endfor %}
+</feed>

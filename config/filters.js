@@ -15,7 +15,6 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime.js';
 import slugify from 'slugify';
 import { titleCase as titleCaseFn } from 'title-case';
-import { url } from '../src/_data/meta.js';
 
 dayjs.extend(relativeTime);
 
@@ -77,8 +76,6 @@ const changelogEntryTitle = (type) => {
   }[type];
 };
 
-const absoluteUrl = (href) => `${url}${href}`;
-
 export default {
   toISOString,
   formatDate,
@@ -89,5 +86,4 @@ export default {
   issueID,
   testStatus,
   changelogEntryTitle,
-  absoluteUrl,
 };

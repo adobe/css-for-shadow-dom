@@ -43,7 +43,7 @@
   <p id='last-updated' class='text-wrap--balance'>
     <span class='spectrum-Body-strong'>Last Updated:</span>
     <a href='/changelog/'>
-      {% for day in changelog-index limit: 1 -%}
+      {% for day in changelogIndex limit: 1 -%}
         {{- day.date | formatDate: 'MMMM D, YYYY' -}}
       {%- endfor %}
     </a>

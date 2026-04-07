@@ -12,13 +12,12 @@
  */
 
 export const url = process.env.URL || 'http://localhost:8080';
+export const origin = process.env.ORIGIN || url;
 export const siteName = 'Modern CSS for Shadow DOM';
-export const siteDescription = '';
-export const sitePublisher = 'Adobe';
+export const siteDescription =
+  'Tracking the state of support for CSS features within and across the shadow DOM to provide visibility into feature parity, usage details, and outstanding issues and bugs.';
+export const sitePublisher = 'Adobe Spectrum Web Engineering';
 export const siteType = 'website';
 export const locale = 'en_US';
 export const lang = 'en';
-export const skipContent = 'Skip to content';
-export const themeColor = '';
-export const opengraph_default = '';
-export const opengraph_default_alt = '';
+export const themeColor = '#3A62F0';
