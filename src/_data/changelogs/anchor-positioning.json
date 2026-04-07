@@ -1,64 +1,14 @@
 [
   {
-    "id": "2026-04-02-automated",
+    "id": "2026-04-02-manual",
     "date": "2026-04-02",
-    "type": "automated",
-    "severity": "regression",
-    "summary": "✔ 7 improvements, ⚠ 4 regressions",
+    "type": "manual",
+    "severity": "improvement",
+    "summary": "🎉 New milestone",
     "changes": [
       {
-        "type": "test-added",
-        "test": "0",
-        "severity": "regression"
-      },
-      {
-        "type": "test-added",
-        "test": "1",
-        "severity": "regression"
-      },
-      {
-        "type": "test-added",
-        "test": "2",
-        "severity": "regression"
-      },
-      {
-        "type": "test-added",
-        "test": "3",
-        "severity": "regression"
-      },
-      {
-        "type": "test-removed",
-        "test": "Should be able to set anchor-name to a shadow DOM part and anchor to it",
-        "severity": "improvement"
-      },
-      {
-        "type": "test-removed",
-        "test": "anchor-scope:all is tree-scoped",
-        "severity": "improvement"
-      },
-      {
-        "type": "test-removed",
-        "test": "anchor-scope scopes to the flat tree",
-        "severity": "improvement"
-      },
-      {
-        "type": "test-removed",
-        "test": "anchor-scope matches tree-scoped names",
-        "severity": "improvement"
-      },
-      {
-        "type": "test-removed",
-        "test": "anchor-scope in shadow does not affect slotted-in element",
-        "severity": "improvement"
-      },
-      {
-        "type": "test-removed",
-        "test": "anchor-scope in ::slotted() rule does not affect anchoring outside",
-        "severity": "improvement"
-      },
-      {
-        "type": "test-removed",
-        "test": "anchor-scope in shadow does not affected slotted-in element (:host)",
+        "type": "milestone",
+        "milestone": "all-browsers-passing",
         "severity": "improvement"
       }
     ]
