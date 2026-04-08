@@ -62,19 +62,20 @@ For example, `@property` can only be registered in light DOM today, but the regi
 ## Who is this for?
 
 This project is for engineers designing, building, or maintaining systems that span light and shadow DOM and who manage the styling challenges mixed contexts introduce.
+
 Use it to understand how modern CSS behaves across boundaries. The data and references are meant to support architectural decisions and make CSS integration with web components more predictable.
 
 ## How can I get involved?
 
 Contributions improve shared understanding across specs, tests, and implementations.
 
-- Share the project
+- Share the project and [repo](https://github.com/adobe/css-for-shadow-dom)
 - File or contribute to CSSWG and browser issues
 - Add context or real-world use cases to linked issues
-- Suggest features to track
+- [Suggest features to track](https://github.com/adobe/css-for-shadow-dom/discussions/new?category=feature-proposal)
 - Suggest additional feature tests to include in this dashboard
 - Propose new or expanded Web Platform tests
 
-If you believe a result is incorrect or lacks context, please open a discussion.
+If you believe a result is incorrect or lacks context, please open an issue.
 
 Help keep the information accurate as the platform evolves → see the [contributing guidelines](/contributing/).

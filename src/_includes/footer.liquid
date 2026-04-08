@@ -67,11 +67,28 @@
         </ul>
       </div>
     </div>
-    <div id='copyright' class='spectrum-Body spectrum-Body--sizeS text-color--medium'>
-      <p class='spectrum-Body-strong'>
-        Made with <span class='text-color--adobe'>&hearts;</span> by the Adobe Spectrum Web Engineering team
-      </p>
-      <p>Copyright © {% year %} Adobe. All rights reserved.</p>
+    <div id='footer-meta' class='spectrum-Body spectrum-Body--sizeS text-color--medium flex-row flex-row--wrap'>
+      <div class='footer__copyright'>
+        <p class='spectrum-Body-strong'>
+          Made with <span class='text-color--adobe'>&hearts;</span> by the Adobe Spectrum Web Engineering team
+        </p>
+        <p>Copyright © {% year %} Adobe. All rights reserved.</p>
+      </div>
+      <ul role='list' class='footer__nav flex-row flex-row--wrap'>
+        {% for link in nav %}
+          <li>
+            <a
+              {% if currentUrl == link.url %}
+                aria-current='page'
+              {% endif %}
+              href='{{ link.url }}'
+            >
+              {{ link.title }}
+            </a>
+          </li>
+        {%- endfor %}
+        <li><a href='https://github.com/adobe/css-for-shadow-dom'>Star on GitHub</a></li>
+      </ul>
     </div>
   </div>
 </footer>

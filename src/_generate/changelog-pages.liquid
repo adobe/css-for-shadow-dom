@@ -36,39 +36,41 @@ eleventyComputed:
       {% endif %}
     </div>
 
-    {% if firstChangeType == 'feature-added' %}
-      <p>{{ entry.summary }}</p>
-    {% else %}
-      <h3>{{ entry.summary }}</h3>
+    <div class='flow-content'>
+      {% if firstChangeType == 'feature-added' %}
+        <p>{{ entry.summary }}</p>
+      {% else %}
+        <h3>{{ entry.summary }}</h3>
 
-      <ul>
-        {% for change in entry.changes %}
-          <li>
-            <strong>{{ change.type | changelogEntryTitle }}:</strong>
+        <ul>
+          {% for change in entry.changes %}
+            <li>
+              <strong>{{ change.type | changelogEntryTitle }}:</strong>
 
-            {% if change.test %}
-              {% if change.type == 'test-result' %}
-                Test "<em>{{ change.test }}</em>" now {{ change.after | testStatus }} in
-                {{ change.browser | titleCase }}
-              {% else %}
-                <em>{{ change.test }}</em>
+              {% if change.test %}
+                {% if change.type == 'test-result' %}
+                  Test "<em>{{ change.test }}</em>" now {{ change.after | testStatus }} in
+                  {{ change.browser | titleCase }}
+                {% else %}
+                  <em>{{ change.test }}</em>
+                {% endif %}
               {% endif %}
-            {% endif %}
 
-            {% if change.type == 'baseline' %}
-              availability has {% severityStatus change.before change.after %} to "{{ change.after | titleCase }}"
-            {% endif %}
+              {% if change.type == 'baseline' %}
+                availability has {% severityStatus change.before change.after %} to "{{ change.after | titleCase }}"
+              {% endif %}
 
-            {% if change.milestone == 'baseline-widely-available' %}
-              🎉 Feature is now Baseline widely available!
-            {% endif %}
+              {% if change.milestone == 'baseline-widely-available' %}
+                🎉 Feature is now Baseline widely available!
+              {% endif %}
 
-            {% if change.milestone == 'all-browsers-passing' %}
-              🎉 All browsers now pass WPT!
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+              {% if change.milestone == 'all-browsers-passing' %}
+                🎉 All browsers now pass WPT!
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
   </article>
 {% endfor %}

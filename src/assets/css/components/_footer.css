@@ -19,6 +19,7 @@ footer {
 
 #keys {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
   align-items: start;
   gap: var(--spectrum-spacing-200) var(--spectrum-spacing-400);
 
@@ -28,8 +29,16 @@ footer {
   }
 }
 
-#copyright {
+#footer-meta {
   border-top: 1px solid #c4c4c4;
   padding-block-start: var(--spectrum-spacing-400);
   margin-block-start: var(--spectrum-spacing-600);
+}
+
+.footer__copyright {
+  flex: 1 1 40ch;
+
+  p {
+    line-height: 1.3;
+  }
 }

@@ -23,11 +23,11 @@ You can contribute directly to this dashboard or help move the platform forward 
 
 ## Quick Paths
 
-Templates are available in the repo for each designated contribution path to help guide you.
+Templates are available [in the repo](https://github.com/adobe/css-for-shadow-dom) for each designated contribution path to help guide you.
 
-- **Something is wrong / missing?** Open an **Issue** (correction).
-- **Think a rating should change?** Open an **Issue** (rating change proposal).
-- **Want us to track a new feature?** Start a **Discussion** (feature proposal).
+- **Something is wrong / missing?** [Open an **Issue**](https://github.com/adobe/css-for-shadow-dom/issues) (correction).
+- **Think a rating should change?** [Open an **Issue**](https://github.com/adobe/css-for-shadow-dom/issues) (rating change proposal).
+- **Want us to track a new feature?** [Start a **Discussion**](https://github.com/adobe/css-for-shadow-dom/discussions/new?category=feature-proposal) (feature proposal).
 - **Have a concrete fix?** Open a **Pull Request**.
 
 ## Direct Contributions
@@ -38,7 +38,7 @@ We welcome issues, pull requests, and discussions.
 
 If something looks incomplete, unclear, or incorrect:
 
-- Open an issue to describe the problem
+- [Open an issue](https://github.com/adobe/css-for-shadow-dom/issues) to describe the problem
 - Submit a pull request with corrections or additional context
 
 You can also use issues or PRs to:
@@ -51,7 +51,7 @@ If you believe a feature’s support rating should change, use the rating change
 
 ## Suggesting a New Feature to Track
 
-Use the feature proposal discussion form. The most helpful proposals include:
+Use the [feature proposal discussion form](https://github.com/adobe/css-for-shadow-dom/discussions/new?category=feature-proposal). The most helpful proposals include:
 
 - The feature name
 - A brief description of how it behaves in shadow DOM
@@ -76,5 +76,5 @@ Improving test coverage and clarifying specs benefits the entire ecosystem. Than
 
 ## Getting started
 
-- Review the repo’s `CONTRIBUTING.md` for workflow details
+- Review [the repo’s CONTRIBUTING doc](https://github.com/adobe/css-for-shadow-dom/blob/main/CONTRIBUTING.md) for workflow details
 - Use the templates (Issues / Discussions / PRs) to keep things consistent
