@@ -28,6 +28,10 @@
   &.flex-row--baseline {
     --flex-row-alignment: baseline;
   }
+
+  &.flex-row--wrap {
+    flex-wrap: wrap;
+  }
 }
 
 .responsive-grid {
