@@ -17,7 +17,7 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": "none"
+        "failing": null
       },
       {
         "feature": "at-property",
@@ -46,13 +46,13 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": "none"
+        "failing": null
       },
       {
         "feature": "color-scheme",
         "baseline": "widely",
         "summary": {},
-        "failing": "none"
+        "failing": null
       },
       {
         "feature": "container-size-queries",
@@ -136,7 +136,7 @@
         "feature": "light-dark",
         "baseline": "newly",
         "summary": {},
-        "failing": "none"
+        "failing": null
       },
       {
         "feature": "nesting",
@@ -147,7 +147,7 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": "none"
+        "failing": null
       },
       {
         "feature": "popover",
@@ -176,7 +176,7 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": "none"
+        "failing": null
       }
     ]
   }
