@@ -13,8 +13,6 @@ _The browser will not automatically launch._
 
 ### Commits and Pre-Commit
 
-If your commit push doesn't go through, ensure you are on Corp VPN and logged in to Enterprise GitHub (can be done in-browser).
-
 Upon pre-commit, the following will be run via husky:
 
 - `prepare` - inits husky
@@ -27,6 +25,8 @@ Upon pre-commit, the following will be run via husky:
 GitHub Pages deployment is handled by the workflow at `.github/workflows/deploy-pages.yml`.
 
 It runs only on pushes to `main` and on manual dispatch, so pull requests do not publish preview deployments.
+
+The live site URL is [shadow-dom-css.adobe.com](https://shadow-dom-css.adobe.com/).
 
 ### Additional Commands
 
