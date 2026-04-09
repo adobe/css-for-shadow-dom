@@ -17,6 +17,7 @@ body {
   grid-template-areas: 'nav' 'header' 'main' 'footer';
   grid-template-rows: auto auto 1fr auto;
   align-items: start;
+  overflow-x: hidden;
 }
 
 nav {
