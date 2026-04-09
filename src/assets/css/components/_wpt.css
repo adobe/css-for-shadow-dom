@@ -96,6 +96,9 @@
   flex-grow: 1;
   flex-shrink: 0;
 
+  /* Prevent overflow */
+  max-inline-size: 100%;
+
   /* "Flexbox albatross" = < 50rem of total space, the header will sit on its own line  */
   /* var required to prevent pre-calc by postcss */
   --flex-min: 50rem;
