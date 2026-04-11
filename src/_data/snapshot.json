@@ -1,9 +1,9 @@
 {
-  "snapshotDate": "2026-04-09",
+  "snapshotDate": "2026-04-17",
   "data": {
     "browserVersions": {
       "chrome": "147",
-      "edge": "146",
+      "edge": "147",
       "firefox": "149",
       "safari": "26.4"
     },
@@ -18,6 +18,36 @@
           "safari": "passes"
         },
         "failing": null
+      },
+      {
+        "feature": "at-keyframes",
+        "baseline": "widely",
+        "summary": {
+          "chrome": "fails",
+          "edge": "fails",
+          "firefox": "fails",
+          "safari": "passes"
+        },
+        "failing": {
+          "@keyframes from the document should apply in the shadow tree": {
+            "chrome": "FAIL",
+            "edge": "FAIL",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          },
+          "@keyframes in shadow tree applies to the slotted element": {
+            "chrome": "FAIL",
+            "edge": "FAIL",
+            "firefox": "PASS",
+            "safari": "PASS"
+          },
+          "@keyframes should not leak out of the shadow tree.": {
+            "chrome": "FAIL",
+            "edge": "FAIL",
+            "firefox": "FAIL",
+            "safari": "PASS"
+          }
+        }
       },
       {
         "feature": "at-property",

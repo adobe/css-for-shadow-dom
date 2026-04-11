@@ -1,0 +1,28 @@
+{
+	"baselineFeature": "animations-css",
+	"wpt": [
+		"/css/css-shadow/keyframes-001.html",
+		"/css/css-shadow/keyframes-002.html",
+		"/css/css-shadow/keyframes-003.html",
+		"/css/css-shadow/keyframes-004.html",
+		"/css/css-shadow/keyframes-005.html"
+	],
+	"resources": [
+		{
+      "label": "@keyframes on MDN",
+      "url": "https://developer.mozilla.org/docs/Web/CSS/Reference/At-rules/@keyframes"
+    },
+		{
+			"label": "@keyframes in the CSS-Tricks Almanac",
+			"url": "https://css-tricks.com/almanac/rules/k/keyframes/"
+		},
+		{
+			"label": "Animations on web.dev",
+			"url": "https://web.dev/learn/css/animations"
+		},
+		{
+      "label": "Using CSS Animations on MDN",
+      "url": "https://developer.mozilla.org/docs/Web/CSS/Guides/Animations/Using"
+    }
+	]
+}
