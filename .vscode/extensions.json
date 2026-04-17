@@ -2,7 +2,6 @@
   "recommendations": [
     "sissel.shopify-liquid",
     "davidanson.vscode-markdownlint",
-    "esbenp.prettier-vscode",
-    "rajdeepchandra.spectrum-design-tokens-for-vscode"
+    "esbenp.prettier-vscode"
   ]
 }
