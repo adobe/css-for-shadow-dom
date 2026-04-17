@@ -14,7 +14,13 @@
 import fs from 'fs';
 import path from 'path';
 
-import { getWptResults, getBrowserVersions, getBaselineStatus } from '../src/scripts/feature-data.js';
+import {
+  getWptResults,
+  getBrowserVersions,
+  getBaselineStatus,
+  normalizeFeatureResults,
+  serializePassingTests,
+} from '../src/scripts/feature-data.js';
 
 const FEATURES_DIR = 'src/features';
 const DATA_DIR = 'src/_data';
@@ -34,6 +40,16 @@ function writeJSON(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2));
 }
 
+function snapshotIncludesPassing(snapshot) {
+  const results = snapshot?.data?.results;
+
+  if (!results?.length) {
+    return false;
+  }
+
+  return results.every((feature) => feature.passing === null || Array.isArray(feature.passing));
+}
+
 const getFeatureData = async () => {
   const featureFiles = fs
     .readdirSync(FEATURES_DIR)
@@ -49,12 +65,14 @@ const getFeatureData = async () => {
 
     const wptResults = data.wpt ? await getWptResults(data.wpt, slug) : [];
     const baselineStatus = await getBaselineStatus({ baselineFeature: data.baselineFeature || slug });
+    const normalizedWptResults = normalizeFeatureResults(wptResults);
 
     features.push({
       feature: slug,
       baseline: baselineStatus,
-      summary: wptResults.summary || {},
-      failing: wptResults.failing ?? null,
+      summary: normalizedWptResults.summary,
+      failing: normalizedWptResults.failing,
+      passing: serializePassingTests(normalizedWptResults.passing),
     });
   }
 
@@ -273,7 +291,7 @@ const main = async () => {
   }
 
   // 2️⃣ Same-day run → no-op
-  if (existingSnapshot.snapshotDate === TODAY) {
+  if (existingSnapshot.snapshotDate === TODAY && snapshotIncludesPassing(existingSnapshot)) {
     console.log('Snapshot already up to date; skipping diff');
     return;
   }

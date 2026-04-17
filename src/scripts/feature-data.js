@@ -26,6 +26,7 @@ const CACHE_DURATION = '12h';
 const SNAPSHOT_FILE = path.join('src', '_data', 'snapshot.json');
 const FETCH_RETRY_DELAYS = [1000, 2000, 4000];
 const USE_COMMITTED_DATA = process.env.USE_COMMITTED_DATA === 'true';
+const TRACKED_BROWSERS = ['chrome', 'edge', 'firefox', 'safari'];
 let browserRunsPromise;
 let browserRunsError;
 
@@ -40,6 +41,41 @@ const readSnapshot = () => {
 };
 
 const getSnapshotData = () => readSnapshot()?.data ?? null;
+
+const getPassingBrowserResults = () => Object.fromEntries(TRACKED_BROWSERS.map((browser) => [browser, 'PASS']));
+
+const normalizePassingTests = (passingTests) => {
+  if (!passingTests) {
+    return null;
+  }
+
+  if (Array.isArray(passingTests)) {
+    return Object.fromEntries(passingTests.map((testName) => [testName, getPassingBrowserResults()]));
+  }
+
+  return passingTests;
+};
+
+const normalizeFeatureResults = (results = {}) => ({
+  summary: results.summary || {},
+  failing: results.failing ?? null,
+  passing: normalizePassingTests(results.passing),
+});
+
+const serializePassingTests = (passingTests) => {
+  if (!passingTests) {
+    return null;
+  }
+
+  return Object.keys(passingTests);
+};
+
+const hasAllBrowserResults = (resultsByBrowser) => TRACKED_BROWSERS.every((browser) => resultsByBrowser[browser]);
+
+const isPassingTestResult = (resultsByBrowser) =>
+  hasAllBrowserResults(resultsByBrowser) && TRACKED_BROWSERS.every((browser) => resultsByBrowser[browser] === 'PASS');
+
+const isFailingTestResult = (resultsByBrowser) => Object.values(resultsByBrowser).includes('FAIL');
 
 const fetchJsonWithRetry = async (url, label) => {
   let lastError;
@@ -132,7 +168,9 @@ const getCachedFeatureResults = (featureKey) => {
     return null;
   }
 
-  return getSnapshotData()?.results?.find((entry) => entry.feature === featureKey) ?? null;
+  const cachedFeatureResults = getSnapshotData()?.results?.find((entry) => entry.feature === featureKey) ?? null;
+
+  return cachedFeatureResults ? normalizeFeatureResults(cachedFeatureResults) : null;
 };
 
 const getWptResults = async (testScopes, featureKey) => {
@@ -140,10 +178,7 @@ const getWptResults = async (testScopes, featureKey) => {
     const cachedFeatureResults = getCachedFeatureResults(featureKey);
 
     if (cachedFeatureResults) {
-      return {
-        summary: cachedFeatureResults.summary || {},
-        failing: cachedFeatureResults.failing,
-      };
+      return cachedFeatureResults;
     }
 
     throw new Error(`Committed-data mode requires WPT results for "${featureKey}" in src/_data/snapshot.json`);
@@ -158,10 +193,7 @@ const getWptResults = async (testScopes, featureKey) => {
 
     if (cachedFeatureResults) {
       console.warn(`Using cached WPT results for "${featureKey}" after WPT fetch failure: ${error.message}`);
-      return {
-        summary: cachedFeatureResults.summary || {},
-        failing: cachedFeatureResults.failing,
-      };
+      return cachedFeatureResults;
     }
 
     console.warn(`Skipping WPT results for "${featureKey || 'unknown feature'}": ${error.message}`);
@@ -210,18 +242,14 @@ const getWptResults = async (testScopes, featureKey) => {
   const results = {};
 
   if (Object.keys(testResults).length > 0) {
-    results.summary = ['chrome', 'edge', 'firefox', 'safari'].reduce((acc, browser) => {
+    results.summary = TRACKED_BROWSERS.reduce((acc, browser) => {
       const statuses = Object.values(testResults).map((r) => r[browser]);
       acc[browser] = statuses.every((s) => s === 'PASS') ? 'passes' : 'fails';
       return acc;
     }, {});
 
-    const passedTests = Object.fromEntries(
-      Object.entries(testResults).filter((t) => !Object.values(t[1]).includes('FAIL')),
-    );
-    const failedTests = Object.fromEntries(
-      Object.entries(testResults).filter((t) => Object.values(t[1]).includes('FAIL')),
-    );
+    const passedTests = Object.fromEntries(Object.entries(testResults).filter(([, test]) => isPassingTestResult(test)));
+    const failedTests = Object.fromEntries(Object.entries(testResults).filter(([, test]) => isFailingTestResult(test)));
 
     hasPassingTests = Object.keys(passedTests).length > 0;
     hasFailingTests = Object.keys(failedTests).length > 0;
@@ -251,4 +279,4 @@ const getBaselineStatus = (data) => {
   );
 };
 
-export { getWptResults, getBrowserVersions, getBaselineStatus };
+export { getWptResults, getBrowserVersions, getBaselineStatus, normalizeFeatureResults, serializePassingTests };

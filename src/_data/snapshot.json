@@ -17,7 +17,25 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": null
+        "failing": null,
+        "passing": [
+          "Should be able to set anchor-name to a shadow DOM part and anchor to it",
+          "Should be able to set anchor-name to the shadow host and anchor to it",
+          "anchor-name should not leak out of a shadow tree",
+          "anchor() in shadow tree should not match host anchor-name",
+          "Anchor names in different tree scopes should not be confused",
+          "anchor-scope:all is tree-scoped",
+          "anchor-scope scopes to the flat tree",
+          "anchor-scope matches tree-scoped names",
+          "anchor-scope in shadow does not affect slotted-in element",
+          "anchor-scope in ::slotted() rule does not affect anchoring outside",
+          "anchor-scope in shadow does not affected slotted-in element (:host)",
+          "anchor-scope in ::part() affects slotted-in element",
+          "#host is initially left: 999999px",
+          "#slotted is initially left: 999999px",
+          "#host with inserted @position-try applied",
+          "#slotted with inserted @position-try applied"
+        ]
       },
       {
         "feature": "at-keyframes",
@@ -47,7 +65,11 @@
             "firefox": "FAIL",
             "safari": "PASS"
           }
-        }
+        },
+        "passing": [
+          "@keyframes applies in the shadow tree",
+          "@keyframes applies to the shadow host"
+        ]
       },
       {
         "feature": "at-property",
@@ -65,7 +87,8 @@
             "firefox": "FAIL",
             "safari": "FAIL"
           }
-        }
+        },
+        "passing": null
       },
       {
         "feature": "cascade-layers",
@@ -76,13 +99,17 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": null
+        "failing": null,
+        "passing": [
+          "layer-slotted-rule"
+        ]
       },
       {
         "feature": "color-scheme",
         "baseline": "widely",
         "summary": {},
-        "failing": null
+        "failing": null,
+        "passing": null
       },
       {
         "feature": "container-size-queries",
@@ -100,7 +127,33 @@
             "firefox": "PASS",
             "safari": "FAIL"
           }
-        }
+        },
+        "passing": [
+          "Match container in outer tree",
+          "Match container in walking flat tree ancestors",
+          "Match container in ::slotted selector's originating element tree",
+          "Match container in outer tree for :host",
+          "Match container in ::part selector's originating element tree",
+          "Match container for ::before in ::slotted selector's originating element tree",
+          "Match container in outer tree for :host::before",
+          "Match container for ::before in ::part selector's originating element tree",
+          "Match container for ::part selector's originating element tree for exportparts",
+          "Match container for slot light tree child fallback",
+          "Should match container inside shadow tree for ::part()",
+          "A :host::part rule should match containers in the originating element tree",
+          "Container name set inside a shadow tree should match query using ::part on the outside",
+          "Container name set with a ::part should match query inside the shadow tree",
+          "Container name set inside a shadow tree should match query for a ::slotted() rule inside the tree",
+          "Container name set inside a shadow tree should match query for host child on the outside",
+          "Container name set on :host from inside a shadow tree matching query inside the shadow tree",
+          "Container name set on :host from inside a shadow tree matching query for ::slotted inside the shadow tree",
+          "Container name set on :host from inside a shadow tree should match query for slotted from the outside of the shadow tree",
+          "The originating element should be the first container candidate of ::before",
+          "Search flat tree anchestors of the originating element of ::before",
+          "Outer scope query should match container-name set by :host rule in shadow tree",
+          "Inner scope query should match container-name set by :host rule in shadow tree",
+          "Inner scope query containing ::slotted should match container-name set by :host rule in shadow tree"
+        ]
       },
       {
         "feature": "has",
@@ -160,13 +213,15 @@
             "firefox": "PASS",
             "safari": "PASS"
           }
-        }
+        },
+        "passing": null
       },
       {
         "feature": "light-dark",
         "baseline": "newly",
         "summary": {},
-        "failing": null
+        "failing": null,
+        "passing": null
       },
       {
         "feature": "nesting",
@@ -177,7 +232,14 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": null
+        "failing": null,
+        "passing": [
+          "host-nesting-001",
+          "host-nesting-002",
+          "host-nesting-003",
+          "host-nesting-004",
+          "host-nesting-005"
+        ]
       },
       {
         "feature": "popover",
@@ -195,7 +257,16 @@
             "firefox": "FAIL",
             "safari": "FAIL"
           }
-        }
+        },
+        "passing": [
+          "Popovers located inside shadow DOM can still be shown",
+          "The popover stack is preserved across shadow-inclusive ancestors",
+          "Popover ancestor relationships are within a root, not within the document",
+          "autofocus=true, delegatesfocus=false",
+          "autofocus=true, delegatesfocus=true",
+          "autofocus=false, delegatesfocus=false",
+          "autofocus=false, delegatesfocus=true"
+        ]
       },
       {
         "feature": "scope",
@@ -206,7 +277,20 @@
           "firefox": "passes",
           "safari": "passes"
         },
-        "failing": null
+        "failing": null,
+        "passing": [
+          "@scope can match :host",
+          "@scope can match :host(...)",
+          ":scope matches host via the scoping root",
+          ":scope within :is() matches host via the scoping root",
+          "Implicit @scope as direct child of shadow root",
+          "Implicit @scope in construted stylesheet",
+          "Matching :host via &, :scope (subject)",
+          "Matching :host via &, :scope (non-subject)",
+          "Matching :host via &, :scope (non-subject, >)",
+          "scope-shadow-sharing",
+          ":scope does not match in shadow root"
+        ]
       }
     ]
   }
