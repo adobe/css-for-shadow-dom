@@ -1,11 +1,11 @@
 {
-  "snapshotDate": "2026-04-17",
+  "snapshotDate": "2026-05-12",
   "data": {
     "browserVersions": {
-      "chrome": "147",
-      "edge": "147",
-      "firefox": "149",
-      "safari": "26.4"
+      "chrome": "148",
+      "edge": "148",
+      "firefox": "150",
+      "safari": "26.5"
     },
     "results": [
       {
@@ -53,22 +53,17 @@
             "firefox": "FAIL",
             "safari": "PASS"
           },
-          "@keyframes in shadow tree applies to the slotted element": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
-            "firefox": "PASS",
-            "safari": "PASS"
-          },
           "@keyframes should not leak out of the shadow tree.": {
-            "chrome": "FAIL",
-            "edge": "FAIL",
+            "chrome": "PASS",
+            "edge": "PASS",
             "firefox": "FAIL",
             "safari": "PASS"
           }
         },
         "passing": [
           "@keyframes applies in the shadow tree",
-          "@keyframes applies to the shadow host"
+          "@keyframes applies to the shadow host",
+          "@keyframes in shadow tree applies to the slotted element"
         ]
       },
       {

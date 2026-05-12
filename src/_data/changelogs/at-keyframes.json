@@ -1,5 +1,35 @@
 [
   {
+    "id": "2026-05-12-automated",
+    "date": "2026-05-12",
+    "type": "automated",
+    "severity": "improvement",
+    "summary": "✔ 3 improvements",
+    "changes": [
+      {
+        "type": "test-removed",
+        "test": "@keyframes in shadow tree applies to the slotted element",
+        "severity": "improvement"
+      },
+      {
+        "type": "test-result",
+        "test": "@keyframes should not leak out of the shadow tree.",
+        "browser": "chrome",
+        "before": "FAIL",
+        "after": "PASS",
+        "severity": "improvement"
+      },
+      {
+        "type": "test-result",
+        "test": "@keyframes should not leak out of the shadow tree.",
+        "browser": "edge",
+        "before": "FAIL",
+        "after": "PASS",
+        "severity": "improvement"
+      }
+    ]
+  },
+  {
     "id": "2026-04-11-automated",
     "date": "2026-04-11",
     "type": "automated",
