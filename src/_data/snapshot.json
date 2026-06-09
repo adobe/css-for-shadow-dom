@@ -1,10 +1,10 @@
 {
-  "snapshotDate": "2026-05-12",
+  "snapshotDate": "2026-06-09",
   "data": {
     "browserVersions": {
-      "chrome": "148",
-      "edge": "148",
-      "firefox": "150",
+      "chrome": "149",
+      "edge": "149",
+      "firefox": "151",
       "safari": "26.5"
     },
     "results": [
@@ -242,14 +242,14 @@
         "summary": {
           "chrome": "passes",
           "edge": "passes",
-          "firefox": "fails",
+          "firefox": "passes",
           "safari": "fails"
         },
         "failing": {
           "Focus behavior of popover elements inside shadow DOM": {
             "chrome": "PASS",
             "edge": "PASS",
-            "firefox": "FAIL",
+            "firefox": "PASS",
             "safari": "FAIL"
           }
         },

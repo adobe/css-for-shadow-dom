@@ -1,5 +1,22 @@
 [
   {
+    "id": "2026-06-09-automated",
+    "date": "2026-06-09",
+    "type": "automated",
+    "severity": "improvement",
+    "summary": "✔ 1 improvements",
+    "changes": [
+      {
+        "type": "test-result",
+        "test": "Focus behavior of popover elements inside shadow DOM",
+        "browser": "firefox",
+        "before": "FAIL",
+        "after": "PASS",
+        "severity": "improvement"
+      }
+    ]
+  },
+  {
     "id": "2026-01-13-automated",
     "date": "2026-01-13",
     "type": "automated",
