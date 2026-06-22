@@ -55,6 +55,10 @@
     {
       "label": "CSS :has() Selector",
       "url": "https://12daysofweb.dev/2022/css-has-selector/"
+    },
+    {
+      "label": "Solving the `:host(:has([slot]))` problem with `@scope`",
+      "url": "https://daverupert.com/2026/06/fix-for-host-has-slot/"
     }
   ]
 }

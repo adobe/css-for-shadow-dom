@@ -21,6 +21,6 @@ usage: 'cross-context'
 */
 -->
 
-The `:has()` selector has mixed browser support for shadow DOM usage, with missing consensus on expected behavior. Cross-browser, `:has()` cannot cross the light/shadow boundary to peer into a different scope. Host-based selectors like `:host:has()` and `:host(:has())` have inconsistent support across browsers. Only `:host:has()` is presently accepted in the spec.
+The `:has()` selector has mixed browser support for shadow DOM usage, with missing consensus on expected behavior. Cross-browser, `:has()` cannot cross the light/shadow boundary to peer into a different scope. Host-based selectors like `:host:has()` and `:host(:has())` have inconsistent support across browsers. Only `:host:has()` is presently accepted in the spec. A [workaround for `:host(:has())`](https://daverupert.com/2026/06/fix-for-host-has-slot/) is available using `@scope`.
 
 Ranked **caution** due to mixed browser consensus — effective use is limited to elements within the same scope, without relying on host-based or cross-boundary selectors.
