@@ -19,8 +19,8 @@
 {% assign links = issue.links | default: feature.data.issue.links %}
 
 <div class='issue-card spectrum-Body spectrum-Body--sizeS'>
-  <h4 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-medium'>{{ label }}</h4>
-  <p>{{ description }}</p>
+  <h4 class='spectrum-Body spectrum-Body--sizeS spectrum-Body-medium'>{{- label | markdown -}}</h4>
+  <p>{{- description | markdown -}}</p>
 
   <strong class='issue-card__status {{ status }} spectrum-Body-medium'>{{ status | titleCase }}</strong>
 

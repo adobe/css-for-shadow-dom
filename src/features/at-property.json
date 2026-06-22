@@ -3,8 +3,8 @@
   "baselineFeature": "registered-custom-properties",
   "issues": [
     {
-      "label": "@property registration within shadow DOM",
-      "description": "Discussion has reopened on making @property registrations in shadow DOM globally available, as the previous resolution wasn’t implemented.",
+      "label": "`@property` registration within shadow DOM",
+      "description": "Discussion has reopened on making `@property` registrations in shadow DOM globally available, as the previous resolution wasn’t implemented.",
       "status": "may-change",
       "links": [
         {
