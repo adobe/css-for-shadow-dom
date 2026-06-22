@@ -11,8 +11,8 @@
   ],
   "issues": [
     {
-      "label": "Should :host:has() match",
-      "description": "Resolved that :host:has() should be allowed to match, but browser support is inconsistent.",
+      "label": "Should `:host:has()` match",
+      "description": "Resolved that `:host:has()` should be allowed to match, but browser support is inconsistent.",
       "status": "stable",
       "links": [
         {
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "label": "Should :host(:has()) match",
+      "label": "Should `:host(:has())` match",
       "description": "Discussion is still occurring, given Safari and Firefox are presently able to support at least a simple selector.",
       "status": "may-change",
       "links": [

@@ -8,8 +8,8 @@
   ],
   "issues": [
     {
-      "label": "Allowing & after ::part()",
-      "description": "Discussion has closed on allowing & after ::part()",
+      "label": "Allowing `&` after `::part()`",
+      "description": "Discussion has closed on allowing `&` after `::part()`",
       "status": "stable",
       "links": [
         {

@@ -32,7 +32,7 @@
   ],
   "issues": [
     {
-      "label": "Bare :scope selector resolves to :host in shadow trees",
+      "label": "Bare `:scope` selector resolves to `:host` in shadow trees",
       "description": "Resolved to work, but browser support is lagging and WPT expect failure",
       "status": "stable",
       "links": [
@@ -43,7 +43,7 @@
     },
     {
       "label": ":scope within `@scope (:host)` resolves to `:host`",
-      "description": "Resolved that `:scope` is a valid ref to :host within @scope (:host), cross-browser",
+      "description": "Resolved that `:scope` is a valid ref to `:host` within `@scope (:host)`, cross-browser",
       "status": "stable",
       "links": [
         {
