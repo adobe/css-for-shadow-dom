@@ -15,6 +15,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime.js';
 import slugify from 'slugify';
 import { titleCase as titleCaseFn } from 'title-case';
+import markdownIt from 'markdown-it';
 
 dayjs.extend(relativeTime);
 
@@ -76,6 +77,12 @@ const changelogEntryTitle = (type) => {
   }[type];
 };
 
+const markdown = (content) => {
+  return new markdownIt({
+    html: true,
+  }).renderInline(content);
+};
+
 export default {
   toISOString,
   formatDate,
@@ -86,4 +93,5 @@ export default {
   issueID,
   testStatus,
   changelogEntryTitle,
+  markdown,
 };
