@@ -24,4 +24,4 @@ usage: 'cross-context'
 
 Popover works within shadow DOM contexts, both declaratively and via scripting. The trigger and the content must exist in the same context, though the content may be the light DOM of another component as long as its ID is unique.
 
-Ranked **progressing** due to focus behavior inconsistencies: Firefox and Safari fail tests for focus handling inside shadow DOM popovers. Core popover functionality and shadow host focus delegation work correctly across all browsers.
+Ranked **progressing** due to focus behavior inconsistencies: Safari fails tests for focus handling inside shadow DOM popovers. Core popover functionality and shadow host focus delegation work correctly across all browsers.
