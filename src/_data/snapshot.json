@@ -152,7 +152,7 @@
       },
       {
         "feature": "has",
-        "baseline": "newly",
+        "baseline": "widely",
         "summary": {
           "chrome": "fails",
           "edge": "fails",
@@ -220,7 +220,7 @@
       },
       {
         "feature": "nesting",
-        "baseline": "newly",
+        "baseline": "widely",
         "summary": {
           "chrome": "passes",
           "edge": "passes",

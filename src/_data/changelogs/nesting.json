@@ -1,5 +1,19 @@
 [
   {
+    "id": "2026-08-07-automated",
+    "date": "2026-08-07",
+    "type": "automated",
+    "severity": "improvement",
+    "summary": "🎉 New milestone, ✔ 1 improvements",
+    "changes": [
+      {
+        "type": "milestone",
+        "milestone": "baseline-widely-available",
+        "severity": "improvement"
+      }
+    ]
+  },
+  {
     "id": "2025-12-17-automated",
     "date": "2025-12-17",
     "type": "automated",
