@@ -1,11 +1,11 @@
 {
-  "snapshotDate": "2026-07-22",
+  "snapshotDate": "2026-08-07",
   "data": {
     "browserVersions": {
       "chrome": "151",
-      "edge": "150",
+      "edge": "151",
       "firefox": "153",
-      "safari": "26.5"
+      "safari": "26.6"
     },
     "results": [
       {
