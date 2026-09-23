@@ -1,11 +1,11 @@
 {
-  "snapshotDate": "2026-09-09",
+  "snapshotDate": "2026-09-23",
   "data": {
     "browserVersions": {
-      "chrome": "153",
-      "edge": "152",
-      "firefox": "155",
-      "safari": "26.6"
+      "chrome": "154",
+      "edge": "153",
+      "firefox": "156",
+      "safari": "27"
     },
     "results": [
       {
@@ -157,32 +157,32 @@
           "chrome": "fails",
           "edge": "fails",
           "firefox": "fails",
-          "safari": "fails"
+          "safari": "passes"
         },
         "failing": {
           "host-has-internal-001": {
             "chrome": "PASS",
             "edge": "PASS",
             "firefox": "FAIL",
-            "safari": "FAIL"
+            "safari": "PASS"
           },
           "host-has-internal-002": {
             "chrome": "PASS",
             "edge": "PASS",
             "firefox": "FAIL",
-            "safari": "FAIL"
+            "safari": "PASS"
           },
           "host-has-internal-003": {
             "chrome": "PASS",
             "edge": "PASS",
             "firefox": "FAIL",
-            "safari": "FAIL"
+            "safari": "PASS"
           },
           "host-has-internal-004": {
             "chrome": "PASS",
             "edge": "PASS",
             "firefox": "FAIL",
-            "safari": "FAIL"
+            "safari": "PASS"
           },
           "slotted-has-001": {
             "chrome": "FAIL",
